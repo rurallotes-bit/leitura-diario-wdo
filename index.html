@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leitura Diária WDO</title>
+  <link rel="icon" href="icone.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <img src="icone.svg" alt="Diário WDO">
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Operações</a>
+    </nav>
+  </header>
+  <header>
+    <h1>Leitura Diária WDO</h1>
+    <nav id="tabs">
+      <button data-tab="checklist" class="active">Pré-mercado</button>
+      <button data-tab="trades">Trades</button>
+      <button data-tab="week">Semana</button>
+      <button data-tab="history">Histórico</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-checklist" class="view active"></section>
+    <section id="view-trades" class="view"></section>
+    <section id="view-week" class="view"></section>
+    <section id="view-history" class="view"></section>
+  </main>
+
+  <div id="toast"></div>
+  <script src="app.js"></script>
+</body>
+
+</html>
