@@ -1,10 +1,11 @@
 {
+  "atualizado_em": "26/10/2026 17:50",
   "wdo": {
-    "preco": 5434.5,
-    "variacao_pct": 9.28,
+    "preco": 5410.0,
+    "variacao_pct": 8.79,
     "maxima": 5610.0,
-    "minima": 5410.0,
-    "vwap": 5500.55,
+    "minima": 5394.5,
+    "vwap": 5464.91,
     "ontem": {
       "maxima": 5064.0,
       "minima": 4970.0,
@@ -12,7 +13,86 @@
     }
   },
   "us10y": {
-    "taxa": 4.984,
-    "variacao_bps": -0.4
+    "taxa": 4.986,
+    "variacao_bps": -0.2
+  },
+  "externo": {
+    "dxy": {
+      "valor": 102.009,
+      "variacao_pct": 0.2,
+      "correlacao": -0.0,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "mxn": {
+      "valor": 18.5687,
+      "variacao_pct": -0.81,
+      "correlacao": 0.32,
+      "sinal": "Venda",
+      "motivo": "pressiona o dólar para baixo"
+    },
+    "zar": {
+      "valor": 16.6404,
+      "variacao_pct": 0.97,
+      "correlacao": 0.51,
+      "sinal": "Compra",
+      "motivo": "pressiona o dólar para cima"
+    },
+    "spx": {
+      "valor": 7714.0,
+      "variacao_pct": 0.71,
+      "correlacao": -0.09,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "ndx": {
+      "valor": 29457.0,
+      "variacao_pct": 1.17,
+      "correlacao": -0.06,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "oil": {
+      "valor": 110.25,
+      "variacao_pct": -5.54,
+      "correlacao": 0.03,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "iron": {
+      "valor": 90.83,
+      "variacao_pct": 0.11,
+      "correlacao": 0.04,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "ust": {
+      "valor": 4.986,
+      "variacao_pct": -0.04,
+      "correlacao": -0.07,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "nikkei": {
+      "valor": 62693.1602,
+      "variacao_pct": -0.34,
+      "correlacao": -0.05,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "hsi": {
+      "valor": 23093.3691,
+      "variacao_pct": 0.69,
+      "correlacao": -0.08,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    },
+    "dax": {
+      "valor": 25410.8398,
+      "variacao_pct": 0.91,
+      "correlacao": 0.16,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO"
+    }
   }
 }
