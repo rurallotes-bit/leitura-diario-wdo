@@ -353,6 +353,10 @@
         note = `<div class="note">Contexto de HTF e limites do dia foram trazidos de ${fmtDate(prev.date)}. Atualize o que mudou.</div>`;
       }
     }
+    if (clDate === todayStr() && EXT && EXT.externo) {
+      rec.ext_auto = EXT.externo;
+      rec.ext_at = EXT.atualizado_em;
+    }
     root.innerHTML = `
       <div class="bar">
         <label class="inline">Data <input type="date" id="clDateIn" value="${clDate}"></label>
@@ -636,5 +640,15 @@
     if (saveTimer) { clearTimeout(saveTimer); try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) { /* ignora */ } }
   });
 
+    let EXT = null; // dados automáticos vindos do dados.json
+
   showTab('checklist');
+
+  fetch('dados.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(d => {
+      EXT = d;
+      if ($('#view-checklist').classList.contains('active')) renderChecklist();
+    })
+    .catch(() => { /* sem dados.json: o diário segue funcionando */ });
 })();
