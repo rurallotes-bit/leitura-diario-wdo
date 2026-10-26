@@ -26,6 +26,49 @@
       <button data-tab="history">Histórico</button>
     </nav>
   </header>
+  <!-- TradingView: faixa de cotações -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        { "proName": "CAPITALCOM:DXY", "title": "DXY" },
+        { "proName": "OANDA:USB10YUSD", "title": "T-Note 10Y" },
+        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" }
+      ],
+      "showSymbolLogo": false,
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "locale": "br"
+    }
+    </script>
+  </div>
+  
+  <main>
+    <div id="painel-wdo"
+      style="margin:12px 16px;padding:12px 14px;border:1px solid rgba(128,128,128,.4);border-radius:10px;font-size:14px;line-height:1.6">
+      Carregando dados do WDO...
+    </div>
+    <script>
+      fetch("dados.json")
+        .then(r => r.json())
+        .then(d => {
+          const w = d.wdo;
+          const cor = w.variacao_pct >= 0 ? "#3ddc84" : "#ff6b6b";
+          const posicao = w.preco >= w.vwap ? "acima" : "abaixo";
+          document.getElementById("painel-wdo").innerHTML =
+            "<strong>WDO</strong> " + w.preco.toFixed(1) +
+            " <span style='color:" + cor + "'>(" + w.variacao_pct.toFixed(2) + "%)</span><br>" +
+            "Máx " + w.maxima.toFixed(1) + " · Mín " + w.minima.toFixed(1) + "<br>" +
+            "VWAP " + w.vwap.toFixed(2) + " (preço " + posicao + ")<br>" +
+            "Dia anterior: máx " + w.ontem.maxima.toFixed(1) + " · mín " + w.ontem.minima.toFixed(1) + " · fech " + w.ontem.fechamento.toFixed(1);
+        })
+        .catch(() => {
+          document.getElementById("painel-wdo").textContent = "Não consegui carregar o dados.json.";
+        });
+    </script>
+  </main>
 
   <main>
     <section id="view-checklist" class="view active"></section>
