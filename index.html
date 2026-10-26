@@ -43,7 +43,7 @@
     }
     </script>
   </div>
-  
+
   <main>
     <div id="painel-wdo"
       style="margin:12px 16px;padding:12px 14px;border:1px solid rgba(128,128,128,.4);border-radius:10px;font-size:14px;line-height:1.6">
@@ -56,12 +56,22 @@
           const w = d.wdo;
           const cor = w.variacao_pct >= 0 ? "#3ddc84" : "#ff6b6b";
           const posicao = w.preco >= w.vwap ? "acima" : "abaixo";
-          document.getElementById("painel-wdo").innerHTML =
+          let html =
             "<strong>WDO</strong> " + w.preco.toFixed(1) +
             " <span style='color:" + cor + "'>(" + w.variacao_pct.toFixed(2) + "%)</span><br>" +
             "Máx " + w.maxima.toFixed(1) + " · Mín " + w.minima.toFixed(1) + "<br>" +
             "VWAP " + w.vwap.toFixed(2) + " (preço " + posicao + ")<br>" +
             "Dia anterior: máx " + w.ontem.maxima.toFixed(1) + " · mín " + w.ontem.minima.toFixed(1) + " · fech " + w.ontem.fechamento.toFixed(1);
+
+          if (d.us10y) {
+            const j = d.us10y;
+            const corJ = j.variacao_bps >= 0 ? "#ff6b6b" : "#3ddc84";
+            const sinal = j.variacao_bps >= 0 ? "+" : "";
+            html += "<br><strong>US10Y</strong> " + j.taxa.toFixed(2) + "% " +
+              "<span style='color:" + corJ + "'>(" + sinal + j.variacao_bps.toFixed(1) + " bps)</span>";
+          }
+
+          document.getElementById("painel-wdo").innerHTML = html;
         })
         .catch(() => {
           document.getElementById("painel-wdo").textContent = "Não consegui carregar o dados.json.";
