@@ -93,6 +93,17 @@
         return `<div class="row checkrow"><label class="check">
           <input type="checkbox" data-k="${f.k}" ${rec[f.k] ? 'checked' : ''}> ${f.l}</label>
           <input type="text" data-k="${f.k}_t" value="${esc(rec[f.k + '_t'])}" placeholder="detalhe (opcional)" autocomplete="off"></div>`;
+      case 'autohead':
+        return `<p class="hint">Dados de ${esc(rec.ext_at || '—')} · Compra/Venda = pressão sobre o dólar (WDO)</p>`;
+      case 'auto': {
+        const x = rec.ext_auto && rec.ext_auto[f.k];
+        if (!x) return `<div class="row"><label>${f.l}</label><span class="muted">sem dado</span></div>`;
+        const sc = x.sinal === 'Compra' ? 'pos' : x.sinal === 'Venda' ? 'neg' : 'muted';
+        return `<div class="row"><label>${f.l}</label>
+          <div>${fmt(x.valor)} <span class="${cls(x.variacao_pct)}">(${sgn(x.variacao_pct)}%)</span>
+          · corr ${x.correlacao == null ? '—' : fmt(x.correlacao)}
+          · <strong class="${sc}">${esc(x.sinal)}</strong></div></div>`;
+      }
       case 'gap':
         return '<div class="calc" id="gapout"></div>';
       case 'calc':
