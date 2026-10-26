@@ -1,0 +1,18 @@
+{
+  "wdo": {
+    "preco": 5434.5,
+    "variacao_pct": 9.28,
+    "maxima": 5610.0,
+    "minima": 5410.0,
+    "vwap": 5500.55,
+    "ontem": {
+      "maxima": 5064.0,
+      "minima": 4970.0,
+      "fechamento": 4973.0
+    }
+  },
+  "us10y": {
+    "taxa": 4.984,
+    "variacao_bps": -0.4
+  }
+}
