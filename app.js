@@ -135,14 +135,18 @@
     {
       title: '1. Externo (o que aconteceu durante a noite)',
       fields: [
-        { t: 'ext', k: 'dxy', l: 'DXY' },
-        { t: 'ext', k: 'mxn', l: 'USD/MXN (peso mexicano)' },
-        { t: 'ext', k: 'zar', l: 'USD/ZAR (rand)' },
-        { t: 'ext', k: 'spx', l: 'Futuros S&P 500 / Nasdaq' },
-        { t: 'ext', k: 'oil', l: 'Petróleo' },
-        { t: 'ext', k: 'iron', l: 'Minério de ferro' },
-        { t: 'ext', k: 'ust', l: 'Treasury 10 anos' },
-        { t: 'ext', k: 'asia', l: 'Ásia / Europa' },
+        { t: 'autohead' },
+        { t: 'auto', k: 'dxy', l: 'DXY' },
+        { t: 'auto', k: 'mxn', l: 'USD/MXN (peso mexicano)' },
+        { t: 'auto', k: 'zar', l: 'USD/ZAR (rand)' },
+        { t: 'auto', k: 'spx', l: 'Futuro S&P 500' },
+        { t: 'auto', k: 'ndx', l: 'Futuro Nasdaq' },
+        { t: 'auto', k: 'oil', l: 'Petróleo Brent' },
+        { t: 'auto', k: 'iron', l: 'Minério de ferro' },
+        { t: 'auto', k: 'ust', l: 'Treasury 10 anos' },
+        { t: 'auto', k: 'nikkei', l: 'Nikkei (Japão)' },
+        { t: 'auto', k: 'hsi', l: 'Hang Seng (Hong Kong)' },
+        { t: 'auto', k: 'dax', l: 'DAX (Alemanha)' },
         { t: 'text', k: 'ext_read', l: 'Leitura do externo (1 linha)' }
       ]
     },
