@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "03/11/2026 20:12",
+  "atualizado_em": "03/11/2026 20:15",
   "wdo": {
     "preco": 5519.0,
     "variacao_pct": 0.9,
@@ -33,36 +33,36 @@
   },
   "externo": {
     "dxy": {
-      "valor": 101.888,
+      "valor": 101.89,
       "variacao_pct": 0.14,
       "correlacao": -0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO"
     },
     "mxn": {
-      "valor": 18.827,
-      "variacao_pct": 0.18,
+      "valor": 18.8329,
+      "variacao_pct": 0.21,
       "correlacao": 0.28,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO"
     },
     "zar": {
-      "valor": 16.6049,
-      "variacao_pct": -0.5,
-      "correlacao": 0.37,
+      "valor": 16.5968,
+      "variacao_pct": -0.54,
+      "correlacao": 0.36,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo"
     },
     "spx": {
-      "valor": 7614.25,
-      "variacao_pct": 0.52,
+      "valor": 7616.25,
+      "variacao_pct": 0.55,
       "correlacao": -0.18,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO"
     },
     "ndx": {
-      "valor": 28446.75,
-      "variacao_pct": 1.14,
+      "valor": 28453.75,
+      "variacao_pct": 1.16,
       "correlacao": -0.16,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO"
