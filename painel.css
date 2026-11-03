@@ -154,6 +154,12 @@
 .qp-ladder .d { text-align: right; font-size: .74rem; }
 .qp-ladder li.now { background: rgba(0, 229, 255, .12); border: 1px solid var(--qp-edge-hot); box-shadow: 0 0 14px rgba(0, 229, 255, .2); font-weight: 700; }
 
+.qp-live { font-size: .62rem; color: var(--qp-up); border: 1px solid currentColor; border-radius: 99px; padding: 1px 7px; }
+.qp-flash-up { animation: qp-flash-up 1.2s ease-out; }
+.qp-flash-down { animation: qp-flash-down 1.2s ease-out; }
+@keyframes qp-flash-up { 0% { color: var(--qp-up); text-shadow: 0 0 28px var(--qp-up); } }
+@keyframes qp-flash-down { 0% { color: var(--qp-down); text-shadow: 0 0 28px var(--qp-down); } }
+
 @media (max-width: 860px) {
   .qp-s4, .qp-s5, .qp-s6, .qp-s7, .qp-s8 { grid-column: span 12; }
 }
