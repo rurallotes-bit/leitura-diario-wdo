@@ -7,6 +7,10 @@
   <title>Leitura Diária WDO</title>
   <link rel="icon" href="icone.svg">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@500;700&display=swap">
+  <link rel="stylesheet" href="painel.css">
 </head>
 
 <body>
@@ -38,45 +42,8 @@
   </div>
 
   <main>
-    <div id="painel-wdo"
-      style="margin:12px 16px;padding:12px 14px;border:1px solid rgba(128,128,128,.4);border-radius:10px;font-size:14px;line-height:1.6">
-      Carregando dados do WDO...
-    </div>
-    <script>
-      fetch("dados.json?v=" + Date.now())
-        .then(r => r.json())
-        .then(d => {
-          const w = d.wdo;
-          const cor = w.variacao_pct >= 0 ? "#3ddc84" : "#ff6b6b";
-          const posicao = w.preco >= w.vwap ? "acima" : "abaixo";
-          const vp = p => p ? "POC " + p.poc.toFixed(1) + " · VAH " + p.vah.toFixed(1) + " · VAL " + p.val.toFixed(1) : "—";
-          let html =
-            "<strong>WDO</strong> " + w.preco.toFixed(1) +
-            " <span style='color:" + cor + "'>(" + w.variacao_pct.toFixed(2) + "%)</span>" +
-            " <span style='opacity:.6'>· " + d.atualizado_em + "</span><br>" +
-            "Máx " + w.maxima.toFixed(1) + " · Mín " + w.minima.toFixed(1) + "<br>" +
-            "VWAP " + w.vwap.toFixed(2) + " (preço " + posicao + ")<br>" +
-            "Ajuste ≈ " + (w.ajuste != null ? w.ajuste.toFixed(2) + " (estimado, " + w.ajuste_data + ")" : "—") +
-            (w.ajuste_hoje != null ? " · hoje ≈ " + w.ajuste_hoje.toFixed(2) : "") + "<br>" +
-            "Volume profile hoje: " + vp(w.profile) + "<br>" +
-            "Dia anterior" + (w.ontem.data ? " (" + w.ontem.data + ")" : "") + ": abert " + (w.ontem.abertura != null ? w.ontem.abertura.toFixed(1) : "—") +
-            " · máx " + w.ontem.maxima.toFixed(1) + " · mín " + w.ontem.minima.toFixed(1) + " · fech " + w.ontem.fechamento.toFixed(1) + "<br>" +
-            "Volume profile ontem: " + vp(w.ontem.profile);
-
-          if (d.us10y) {
-            const j = d.us10y;
-            const corJ = j.variacao_bps >= 0 ? "#ff6b6b" : "#3ddc84";
-            const sinal = j.variacao_bps >= 0 ? "+" : "";
-            html += "<br><strong>US10Y</strong> " + j.taxa.toFixed(2) + "% " +
-              "<span style='color:" + corJ + "'>(" + sinal + j.variacao_bps.toFixed(1) + " bps)</span>";
-          }
-
-          document.getElementById("painel-wdo").innerHTML = html;
-        })
-        .catch(() => {
-          document.getElementById("painel-wdo").textContent = "Não consegui carregar o dados.json.";
-        });
-    </script>
+    <div id="painel-wdo" class="qp">Carregando dados do WDO...</div>
+    <script src="painel.js"></script>
   </main>
 
   <main>
