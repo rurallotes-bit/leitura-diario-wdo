@@ -341,6 +341,22 @@
     </dl></details>`;
   }
 
+  // Preenche Gap e níveis com o dados.json; só campos vazios, o que você digitou nunca é trocado.
+  function preencherDoMT5(rec, w) {
+    if (!w || !w.ontem) return;
+    const r2 = v => (v == null ? null : String(Math.round(v * 100) / 100).replace('.', ','));
+    const auto = {
+      close_prev: r2(w.ontem.fechamento),
+      price_now: r2(w.preco),
+      high_prev: r2(w.ontem.maxima),
+      low_prev: r2(w.ontem.minima),
+      adjust: r2(w.ajuste)
+    };
+    Object.entries(auto).forEach(([k, v]) => {
+      if (v != null && (rec[k] == null || rec[k] === '')) rec[k] = v;
+    });
+  }
+
   function renderChecklist() {
     const root = $('#view-checklist');
     let rec = db.checklists[clDate];
@@ -357,6 +373,7 @@
       rec.ext_auto = EXT.externo;
       rec.ext_at = EXT.atualizado_em;
     }
+    if (clDate === todayStr() && EXT) preencherDoMT5(rec, EXT.wdo);
     root.innerHTML = `
       <div class="bar">
         <label class="inline">Data <input type="date" id="clDateIn" value="${clDate}"></label>
