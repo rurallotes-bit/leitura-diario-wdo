@@ -320,8 +320,45 @@
     if (w.intraday && w.intraday.length > 1) ligarHover(w);
   }
 
-  fetch('dados.json?v=' + Date.now())
-    .then(r => r.json())
-    .then(render)
-    .catch(e => { console.error(e); root.textContent = 'Não consegui carregar o dados.json.'; });
+  // ---------- atualização automática ----------
+  // No PC (painel_ao_vivo.py) busca a cada 15 s; no site, a cada 60 s. Sem F5.
+  const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const INTERVALO = (LOCAL ? 15 : 60) * 1000;
+  let ultimo = null, mouseNoGrafico = false, pendente = null;
+
+  root.addEventListener('pointerover', e => { if (e.target.closest('.qp-chart')) mouseNoGrafico = true; });
+  root.addEventListener('pointerout', e => {
+    const dest = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest('.qp-chart') : null;
+    if (e.target.closest('.qp-chart') && !dest) {
+      mouseNoGrafico = false;
+      if (pendente) { desenhar(pendente); pendente = null; }
+    }
+  });
+
+  function desenhar(d) {
+    const antes = ultimo && ultimo.wdo.preco;
+    render(d);
+    ultimo = d;
+    const preco = root.querySelector('.qp-price');
+    if (antes != null && preco && d.wdo.preco !== antes) {
+      preco.classList.add(d.wdo.preco > antes ? 'qp-flash-up' : 'qp-flash-down');
+    }
+    const tick = root.querySelector('.qp-ticker');
+    if (tick && LOCAL) tick.insertAdjacentHTML('beforeend', '<span class="qp-live qp-tech">ao vivo</span>');
+  }
+
+  function buscar(primeira) {
+    fetch('dados.json?v=' + Date.now(), { cache: 'no-store' })
+      .then(r => r.json())
+      .then(d => {
+        if (ultimo && d.atualizado_em === ultimo.atualizado_em) return; // nada novo
+        if (mouseNoGrafico) { pendente = d; return; } // não atrapalha quem está lendo o gráfico
+        desenhar(d);
+      })
+      .catch(e => { console.error(e); if (primeira) root.textContent = 'Não consegui carregar o dados.json.'; });
+  }
+
+  buscar(true);
+  setInterval(() => { if (!document.hidden) buscar(false); }, INTERVALO);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) buscar(false); });
 })();
