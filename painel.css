@@ -201,6 +201,16 @@
   text-decoration: none; font-weight: 600; font-size: .88rem; background: rgba(0, 229, 255, .06); }
 .nw-btn:hover { background: rgba(0, 229, 255, .14); box-shadow: 0 0 14px rgba(0, 229, 255, .25); }
 .nw-tv { margin-top: 10px; }
+.pl { margin: 4px 0 12px; padding: 10px 12px; border: 1px solid var(--qp-edge); border-radius: 12px; background: rgba(7, 11, 20, .55); color: var(--qp-text); }
+.pl-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 14px; font-size: .9rem; margin-bottom: 6px; }
+.pl-tab { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.pl-tab td { padding: 5px 6px; border-top: 1px solid rgba(120, 160, 210, .1); }
+.pl-tab td:nth-child(2), .pl-tab td:nth-child(3) { text-align: right; }
+.pl-up td:first-child { color: var(--qp-up); font-weight: 600; }
+.pl-down td:first-child { color: var(--qp-down); font-weight: 600; }
+.pl-ab td { font-weight: 700; background: rgba(230, 241, 255, .05); }
+.pl-now td { font-weight: 700; color: var(--qp-cyan); background: rgba(0, 229, 255, .10); }
+.pl-hit { font-size: .72rem; font-weight: 700; color: var(--qp-warn); border: 1px solid currentColor; border-radius: 99px; padding: 1px 7px; white-space: nowrap; }
 .nw-tv summary { cursor: pointer; color: var(--qp-cyan); font-size: .85rem; padding: 6px 0; }
 .mw { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) minmax(220px, 1.4fr); gap: 12px; align-items: center;
   margin: 6px 0 12px; padding: 10px; border: 1px solid var(--qp-edge); border-radius: 12px; background: rgba(7, 11, 20, .55); color: var(--qp-text); }
