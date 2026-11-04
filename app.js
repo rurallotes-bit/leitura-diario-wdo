@@ -104,6 +104,13 @@
           · corr ${x.correlacao == null ? '—' : fmt(x.correlacao)}
           · <strong class="${sc}">${esc(x.sinal)}</strong></div></div>`;
       }
+      case 'news':
+        return '<div id="cl-news" class="qp-vars nw"></div>';
+      case 'world':
+        return '<div id="cl-world" class="qp-vars"></div>';
+      case 'tvcal':
+        return `<details id="cl-tvcal" class="nw-tv qp-vars"><summary>Calendário Brasil + EUA com resultados (TradingView)</summary>
+          <div class="tradingview-widget-container tv-box"></div></details>`;
       case 'gap':
         return '<div class="calc" id="gapout"></div>';
       case 'calc':
@@ -161,11 +168,14 @@
     {
       title: '3. Notícias e agenda',
       fields: [
+        { t: 'news' },
+        { t: 'world' },
         { t: 'checktext', k: 'n_weekend', l: 'Notícia de fim de semana / madrugada' },
         { t: 'checktext', k: 'n_focus', l: 'Boletim Focus (segundas)' },
         { t: 'checktext', k: 'n_data', l: 'Dados econômicos do dia' },
         { t: 'checktext', k: 'n_cb', l: 'Bancos centrais / Copom / Fed' },
-        { t: 'checktext', k: 'n_fiscal', l: 'Fiscal / política no Brasil' }
+        { t: 'checktext', k: 'n_fiscal', l: 'Fiscal / política no Brasil' },
+        { t: 'tvcal' }
       ]
     },
     {
@@ -357,6 +367,102 @@
     });
   }
 
+  // ---------- 3. Notícias e agenda: agenda ao vivo e força do mercado mundial ----------
+  const REGIAO = { USD: 'EUA', EUR: 'Europa', CNY: 'China', GBP: 'R. Unido', JPY: 'Japão' };
+  const hhmm = iso => iso.slice(11, 16);
+  const quando = iso => new Date(iso); // horário de Brasília sem fuso no texto = hora local do navegador
+  const contagem = ms => {
+    const t = Math.max(0, Math.round(ms / 1000)), h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60);
+    return (h ? h + 'h ' : '') + pad(m) + 'min ' + pad(t % 60) + 's';
+  };
+  const chipImp = i => `<span class="nw-imp ${i === 'alto' ? 'hi' : 'md'}">${esc(i)}</span>`;
+
+  function blocoNoticias() {
+    const el = $('#cl-news');
+    if (!el) return;
+    if (!EXT) { el.innerHTML = '<p class="hint">Carregando agenda...</p>'; return; }
+    const ag = EXT.agenda || [];
+    if (!ag.length) { el.innerHTML = '<p class="hint">Agenda indisponível. Rode o script atualizado (gerar_dados.py ou Painel ao vivo).</p>'; return; }
+
+    const agora = new Date();
+    const doDia = ag.filter(e => e.hora.slice(0, 10) === clDate);
+    const prox = ag.find(e => quando(e.hora) > agora);
+    const saindo = ag.find(e => e.impacto === 'alto' && agora - quando(e.hora) >= 0 && agora - quando(e.hora) <= 15 * 60000);
+
+    let banner;
+    if (saindo) {
+      banner = `<div class="nw-banner nw-hot"><span class="nw-pulse"></span><b>NOTÍCIA SAINDO</b>
+        ${hhmm(saindo.hora)} · ${esc(REGIAO[saindo.moeda] || saindo.moeda)} · ${esc(saindo.titulo)} — cuidado com a volatilidade</div>`;
+    } else if (prox) {
+      const ms = quando(prox.hora) - agora, perto = ms <= 10 * 60000 && prox.impacto === 'alto';
+      const dia = prox.hora.slice(0, 10) !== todayStr() ? ' (' + fmtDate(prox.hora.slice(0, 10)).slice(0, 5) + ')' : '';
+      banner = `<div class="nw-banner ${perto ? 'nw-warn' : ''}">
+        <span class="nw-lbl">${perto ? '⚠ Notícia em breve' : 'Próxima notícia'}</span>
+        <b class="qp-num">${hhmm(prox.hora)}${dia}</b> ${esc(REGIAO[prox.moeda] || prox.moeda)} · ${esc(prox.titulo)} ${chipImp(prox.impacto)}
+        <span class="nw-count qp-num" data-alvo="${esc(prox.hora)}">${contagem(ms)}</span></div>`;
+    } else {
+      banner = '<div class="nw-banner">Sem mais notícias de impacto nesta semana.</div>';
+    }
+
+    const linhas = doDia.map(e => {
+      const passou = quando(e.hora) <= agora, r = e.reacao;
+      let reac = passou ? '<span class="muted">—</span>' : '';
+      if (r && r.m5 != null) {
+        reac = `<span class="qp-num ${cls(r.m5)}">${sgn(r.m5)}</span> <small>5m</small>` +
+          (r.m15 != null ? ` · <span class="qp-num ${cls(r.m15)}">${sgn(r.m15)}</span> <small>15m</small> · <small>amp ${fmt(r.amp15)}</small>` : '');
+      }
+      return `<tr class="${passou ? 'passou' : ''}"><td class="qp-num">${hhmm(e.hora)}</td><td>${esc(REGIAO[e.moeda] || e.moeda)}</td>
+        <td>${esc(e.titulo)}</td><td>${chipImp(e.impacto)}</td>
+        <td class="qp-num muted">${esc(e.previsao || '—')} / ${esc(e.anterior || '—')}</td><td>${reac}</td></tr>`;
+    }).join('');
+
+    el.innerHTML = banner + (doDia.length
+      ? `<div class="nw-wrap"><table class="nw-tab"><thead><tr><th>Hora</th><th>Região</th><th>Evento</th><th>Impacto</th><th>Prev. / Ant.</th><th>Reação do WDO (pts)</th></tr></thead><tbody>${linhas}</tbody></table></div>`
+      : '<p class="hint">Sem notícias de impacto médio ou alto neste dia nas regiões monitoradas.</p>') +
+      '<p class="hint">EUA, Europa, China, Reino Unido e Japão (Forex Factory), em horário de Brasília. Notícias do Brasil: abra o calendário no fim deste quadro.</p>';
+  }
+
+  function blocoMundo() {
+    const el = $('#cl-world');
+    if (!el) return;
+    const m = EXT && EXT.mundo;
+    if (!m) { el.innerHTML = '<p class="hint">Força do mercado mundial: rode o script atualizado.</p>'; return; }
+    const g = window.qpGauge;
+    const NOME = { spx: 'S&P 500', ndx: 'Nasdaq', dax: 'DAX', nikkei: 'Nikkei', hsi: 'Hang Seng', oil: 'Brent', dxy: 'DXY', vix: 'VIX' };
+    const dirTxt = m.direcao >= 15 ? 'Apetite a risco: costuma aliviar o dólar'
+      : m.direcao <= -15 ? 'Aversão a risco: costuma pressionar o dólar' : 'Sem direção clara';
+    const barras = m.componentes.map(c => {
+      const v = c.z * Math.sign(c.peso), larg = Math.min(Math.abs(v) / 3, 1) * 50;
+      return `<div class="mw-row"><span>${esc(NOME[c.ativo] || c.ativo)}${c.peso < 0 ? ' <small>(inverso)</small>' : ''}</span>
+        <div class="qp-bar"><i style="${v >= 0 ? 'left' : 'right'}:50%;width:${larg.toFixed(1)}%;background:${v >= 0 ? 'var(--qp-up)' : 'var(--qp-down)'}"></i></div>
+        <span class="qp-num">${c.z > 0 ? '+' : ''}${c.z.toFixed(2)}σ</span></div>`;
+    }).join('');
+    el.innerHTML = `<div class="mw">
+      <div class="mw-g qp-gauge">${g ? g({ v: m.intensidade, min: 0, max: 100, bipolar: false, texto: String(m.intensidade) }) : ''}
+        <div class="lbl">Intensidade do mundo · <b>${esc(m.nivel)}</b></div><div class="sub">0 = parado · 100 = dia muito forte</div></div>
+      <div class="mw-g qp-gauge">${g ? g({ v: m.direcao, texto: (m.direcao > 0 ? '+' : '') + m.direcao }) : ''}
+        <div class="lbl">Direção do risco</div><div class="sub">${dirTxt}</div></div>
+      <div class="mw-list">${barras}
+        <p class="hint">σ = quantas variações normais (últimos 60 dias) o ativo andou hoje. Verde = a favor de risco; DXY e VIX contam ao contrário.</p></div>
+    </div>`;
+  }
+
+  function ligarCalendarioTV() {
+    const d = $('#cl-tvcal');
+    if (!d) return;
+    d.addEventListener('toggle', () => {
+      if (!d.open || d.dataset.ok) return; // só carrega quando você abre
+      d.dataset.ok = '1';
+      const box = d.querySelector('.tv-box');
+      box.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
+      const sc = document.createElement('script');
+      sc.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+      sc.async = true;
+      sc.textContent = JSON.stringify({ colorTheme: 'dark', isTransparent: true, width: '100%', height: 520, locale: 'br', importanceFilter: '0,1', countryFilter: 'br,us' });
+      box.appendChild(sc);
+    });
+  }
+
   function renderChecklist() {
     const root = $('#view-checklist');
     let rec = db.checklists[clDate];
@@ -404,6 +510,9 @@
       renderChecklist();
     };
 
+    blocoNoticias();
+    blocoMundo();
+    ligarCalendarioTV();
     updateGap(rec);
     bind($('#clform'), rec, () => {
       rec.date = clDate;
@@ -661,11 +770,28 @@
 
   showTab('checklist');
 
-  fetch('dados.json?v=' + Date.now())
-    .then(r => r.json())
-    .then(d => {
-      EXT = d;
-      if ($('#view-checklist').classList.contains('active')) renderChecklist();
-    })
-    .catch(() => { /* sem dados.json: o diário segue funcionando */ });
+  // Busca o dados.json de tempos em tempos (15 s no PC ao vivo, 60 s no site).
+  // Só os blocos automáticos são redesenhados: o que você está digitando não é afetado.
+  const APP_LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
+  function carregarDados(primeira) {
+    fetch('dados.json?v=' + Date.now(), { cache: 'no-store' })
+      .then(r => r.json())
+      .then(d => {
+        const novo = !EXT || d.atualizado_em !== EXT.atualizado_em;
+        EXT = d;
+        if (!$('#view-checklist').classList.contains('active')) return;
+        if (primeira) renderChecklist();
+        else if (novo) { blocoNoticias(); blocoMundo(); }
+      })
+      .catch(() => { /* sem dados.json: o diário segue funcionando */ });
+  }
+  carregarDados(true);
+  setInterval(() => { if (!document.hidden) carregarDados(false); }, (APP_LOCAL ? 15 : 60) * 1000);
+  setInterval(() => { if (!document.hidden) blocoNoticias(); }, 20000); // troca de "em breve" para "saindo"
+  setInterval(() => { // contagem regressiva segundo a segundo
+    const c = $('#cl-news .nw-count');
+    if (!c) return;
+    const ms = new Date(c.dataset.alvo) - new Date();
+    if (ms <= 0) blocoNoticias(); else c.textContent = contagem(ms);
+  }, 1000);
 })();
