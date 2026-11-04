@@ -1,12 +1,12 @@
 {
-  "atualizado_em": "04/11/2026 16:51:08",
+  "atualizado_em": "04/11/2026 16:57:20",
   "wdo": {
-    "preco": 5478.5,
+    "preco": 5482.0,
     "abertura": 5480.0,
-    "variacao_pct": -0.73,
+    "variacao_pct": -0.67,
     "maxima": 5526.0,
     "minima": 5477.0,
-    "vwap": 5500.6,
+    "vwap": 5500.5,
     "ajuste": 5523.78,
     "ajuste_data": "03/11",
     "ajuste_hoje": 5489.766,
@@ -29,35 +29,35 @@
         ],
         [
           5478.5,
-          119
+          165
         ],
         [
           5479.0,
-          209
+          366
         ],
         [
           5479.5,
-          209
+          366
         ],
         [
           5480.0,
-          386
+          591
         ],
         [
           5480.5,
-          594
+          734
         ],
         [
           5481.0,
-          613
+          648
         ],
         [
           5481.5,
-          837
+          872
         ],
         [
           5482.0,
-          829
+          864
         ],
         [
           5482.5,
@@ -792,7 +792,11 @@
       ],
       [
         "16:50",
-        5478.5
+        5479.5
+      ],
+      [
+        "16:55",
+        5482.0
       ]
     ],
     "ontem": {
@@ -809,63 +813,63 @@
     }
   },
   "us10y": {
-    "taxa": 4.888,
-    "variacao_bps": -6.4
+    "taxa": 4.892,
+    "variacao_bps": -6.0
   },
   "externo": {
     "dxy": {
-      "valor": 101.598,
-      "variacao_pct": -0.27,
+      "valor": 101.585,
+      "variacao_pct": -0.28,
       "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.29,
-      "z": -0.92
+      "z": -0.96
     },
     "mxn": {
-      "valor": 18.5665,
-      "variacao_pct": -0.02,
+      "valor": 18.5648,
+      "variacao_pct": -0.03,
       "correlacao": 0.26,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.59,
-      "z": -0.04
+      "z": -0.06
     },
     "zar": {
-      "valor": 16.4067,
+      "valor": 16.4072,
       "variacao_pct": -1.17,
-      "correlacao": 0.33,
+      "correlacao": 0.34,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo",
       "vol_pct": 0.54,
       "z": -2.16
     },
     "spx": {
-      "valor": 7733.25,
-      "variacao_pct": 1.8,
+      "valor": 7732.0,
+      "variacao_pct": 1.78,
       "correlacao": -0.16,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.71,
-      "z": 2.53
+      "z": 2.51
     },
     "ndx": {
-      "valor": 28634.5,
-      "variacao_pct": 1.16,
-      "correlacao": -0.17,
+      "valor": 28625.25,
+      "variacao_pct": 1.13,
+      "correlacao": -0.18,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.19,
-      "z": 0.98
+      "z": 0.95
     },
     "oil": {
-      "valor": 94.84,
-      "variacao_pct": -8.46,
+      "valor": 94.97,
+      "variacao_pct": -8.33,
       "correlacao": -0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 2.83,
-      "z": -2.99
+      "vol_pct": 2.82,
+      "z": -2.95
     },
     "iron": {
       "valor": 91.03,
@@ -877,13 +881,13 @@
       "z": -0.28
     },
     "ust": {
-      "valor": 4.888,
-      "variacao_pct": -1.29,
+      "valor": 4.892,
+      "variacao_pct": -1.21,
       "correlacao": -0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.03,
-      "z": -1.25
+      "z": -1.18
     },
     "nikkei": {
       "valor": 63081.8594,
@@ -913,28 +917,28 @@
       "z": 2.69
     },
     "vix": {
-      "valor": 16.82,
-      "variacao_pct": -19.25,
+      "valor": 16.72,
+      "variacao_pct": -19.73,
       "correlacao": 0.22,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 6.83,
-      "z": -2.82
+      "vol_pct": 6.86,
+      "z": -2.88
     }
   },
   "mundo": {
     "intensidade": 86,
-    "direcao": 78,
+    "direcao": 79,
     "nivel": "muito agitado",
     "componentes": [
       {
         "ativo": "spx",
-        "z": 2.53,
+        "z": 2.51,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": 0.98,
+        "z": 0.95,
         "peso": 1
       },
       {
@@ -954,17 +958,17 @@
       },
       {
         "ativo": "oil",
-        "z": -2.99,
+        "z": -2.95,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": -0.92,
+        "z": -0.96,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": -2.82,
+        "z": -2.88,
         "peso": -1
       }
     ]
