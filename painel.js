@@ -15,7 +15,7 @@
   const COR = { vwap: 'var(--lv-vwap)', ajuste: 'var(--lv-ajuste)', poc: 'var(--lv-poc)', va: 'var(--lv-va)', ontem: 'var(--lv-ontem)', preco: 'var(--qp-cyan)' };
   const NOMES = {
     dxy: 'DXY', mxn: 'USD/MXN', zar: 'USD/ZAR', spx: 'S&P 500 fut', ndx: 'Nasdaq fut', oil: 'Brent',
-    iron: 'Minério', ust: 'Treasury 10a', nikkei: 'Nikkei', hsi: 'Hang Seng', dax: 'DAX'
+    iron: 'Minério', ust: 'Treasury 10a', nikkei: 'Nikkei', hsi: 'Hang Seng', dax: 'DAX', vix: 'VIX'
   };
   const CORR_MIN = 0.3;
 
@@ -73,6 +73,8 @@
       <text x="${cx}" y="${cy + 24}" text-anchor="middle" class="qp-num" font-size="${big ? 20 : 18}" font-weight="700" fill="var(--qp-text)">${esc(texto)}</text>
     </svg>`;
   }
+
+  window.qpGauge = gauge; // usado também no quadro 3 do checklist
 
   // ---------- gráfico do dia ----------
   function grafico(w) {
