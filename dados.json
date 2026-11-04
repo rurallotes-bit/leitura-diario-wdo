@@ -1,12 +1,12 @@
 {
-  "atualizado_em": "04/11/2026 17:34:15",
+  "atualizado_em": "04/11/2026 17:40:29",
   "wdo": {
-    "preco": 5484.0,
+    "preco": 5482.5,
     "abertura": 5480.0,
-    "variacao_pct": -0.63,
+    "variacao_pct": -0.66,
     "maxima": 5526.0,
     "minima": 5477.0,
-    "vwap": 5500.01,
+    "vwap": 5499.9,
     "ajuste": 5523.78,
     "ajuste_data": "03/11",
     "ajuste_hoje": 5489.766,
@@ -45,35 +45,35 @@
         ],
         [
           5480.5,
-          846
+          964
         ],
         [
           5481.0,
-          763
+          917
         ],
         [
           5481.5,
-          963
+          1201
         ],
         [
           5482.0,
-          1106
+          1344
         ],
         [
           5482.5,
-          1205
+          1324
         ],
         [
           5483.0,
-          1233
+          1329
         ],
         [
           5483.5,
-          1259
+          1277
         ],
         [
           5484.0,
-          1266
+          1284
         ],
         [
           5484.5,
@@ -824,7 +824,15 @@
       ],
       [
         "17:30",
-        5484.0
+        5481.5
+      ],
+      [
+        "17:35",
+        5482.0
+      ],
+      [
+        "17:40",
+        5482.5
       ]
     ],
     "ontem": {
@@ -846,58 +854,58 @@
   },
   "externo": {
     "dxy": {
-      "valor": 101.534,
-      "variacao_pct": -0.33,
+      "valor": 101.524,
+      "variacao_pct": -0.34,
       "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.29,
-      "z": -1.13
+      "z": -1.16
     },
     "mxn": {
-      "valor": 18.574,
-      "variacao_pct": 0.02,
+      "valor": 18.5798,
+      "variacao_pct": 0.05,
       "correlacao": 0.26,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.59,
-      "z": 0.03
+      "z": 0.08
     },
     "zar": {
       "valor": 16.4091,
       "variacao_pct": -1.15,
-      "correlacao": 0.33,
+      "correlacao": 0.34,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo",
       "vol_pct": 0.54,
       "z": -2.14
     },
     "spx": {
-      "valor": 7731.25,
+      "valor": 7731.5,
       "variacao_pct": 1.77,
-      "correlacao": -0.16,
+      "correlacao": -0.17,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.71,
       "z": 2.5
     },
     "ndx": {
-      "valor": 28621.0,
-      "variacao_pct": 1.11,
-      "correlacao": -0.17,
+      "valor": 28605.25,
+      "variacao_pct": 1.06,
+      "correlacao": -0.18,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.19,
-      "z": 0.94
+      "z": 0.89
     },
     "oil": {
-      "valor": 95.39,
-      "variacao_pct": -7.92,
+      "valor": 95.14,
+      "variacao_pct": -8.17,
       "correlacao": -0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 2.8,
-      "z": -2.83
+      "vol_pct": 2.82,
+      "z": -2.9
     },
     "iron": {
       "valor": 91.03,
@@ -945,13 +953,13 @@
       "z": 2.69
     },
     "vix": {
-      "valor": 16.84,
-      "variacao_pct": -19.16,
+      "valor": 16.78,
+      "variacao_pct": -19.44,
       "correlacao": 0.22,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 6.83,
-      "z": -2.81
+      "vol_pct": 6.84,
+      "z": -2.84
     }
   },
   "mundo": {
@@ -966,7 +974,7 @@
       },
       {
         "ativo": "ndx",
-        "z": 0.94,
+        "z": 0.89,
         "peso": 1
       },
       {
@@ -986,17 +994,17 @@
       },
       {
         "ativo": "oil",
-        "z": -2.83,
+        "z": -2.9,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": -1.13,
+        "z": -1.16,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": -2.81,
+        "z": -2.84,
         "peso": -1
       }
     ]
