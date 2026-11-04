@@ -1,877 +1,301 @@
 {
-  "atualizado_em": "03/11/2026 21:53:07",
+  "atualizado_em": "04/11/2026 09:29:48",
   "wdo": {
-    "preco": 5519.0,
-    "variacao_pct": 0.9,
-    "maxima": 5546.0,
-    "minima": 5498.0,
-    "vwap": 5522.09,
-    "ajuste": 5488.416,
-    "ajuste_data": "30/10",
-    "ajuste_hoje": 5523.78,
+    "preco": 5500.5,
+    "variacao_pct": -0.34,
+    "maxima": 5507.0,
+    "minima": 5477.0,
+    "vwap": 5495.01,
+    "ajuste": 5523.78,
+    "ajuste_data": "03/11",
+    "ajuste_hoje": null,
     "profile": {
-      "poc": 5526.0,
-      "vah": 5529.5,
-      "val": 5514.5,
+      "poc": 5502.0,
+      "vah": 5507.0,
+      "val": 5489.5,
       "hist": [
         [
+          5477.0,
+          26
+        ],
+        [
+          5477.5,
+          26
+        ],
+        [
+          5478.0,
+          26
+        ],
+        [
+          5478.5,
+          26
+        ],
+        [
+          5479.0,
+          26
+        ],
+        [
+          5479.5,
+          26
+        ],
+        [
+          5480.0,
+          26
+        ],
+        [
+          5480.5,
+          160
+        ],
+        [
+          5481.0,
+          160
+        ],
+        [
+          5481.5,
+          160
+        ],
+        [
+          5482.0,
+          160
+        ],
+        [
+          5482.5,
+          160
+        ],
+        [
+          5483.0,
+          160
+        ],
+        [
+          5483.5,
+          275
+        ],
+        [
+          5484.0,
+          275
+        ],
+        [
+          5484.5,
+          249
+        ],
+        [
+          5485.0,
+          323
+        ],
+        [
+          5485.5,
+          323
+        ],
+        [
+          5486.0,
+          323
+        ],
+        [
+          5486.5,
+          581
+        ],
+        [
+          5487.0,
+          581
+        ],
+        [
+          5487.5,
+          581
+        ],
+        [
+          5488.0,
+          581
+        ],
+        [
+          5488.5,
+          581
+        ],
+        [
+          5489.0,
+          549
+        ],
+        [
+          5489.5,
+          325
+        ],
+        [
+          5490.0,
+          325
+        ],
+        [
+          5490.5,
+          251
+        ],
+        [
+          5491.0,
+          505
+        ],
+        [
+          5491.5,
+          399
+        ],
+        [
+          5492.0,
+          509
+        ],
+        [
+          5492.5,
+          509
+        ],
+        [
+          5493.0,
+          509
+        ],
+        [
+          5493.5,
+          364
+        ],
+        [
+          5494.0,
+          364
+        ],
+        [
+          5494.5,
+          297
+        ],
+        [
+          5495.0,
+          297
+        ],
+        [
+          5495.5,
+          187
+        ],
+        [
+          5496.0,
+          267
+        ],
+        [
+          5496.5,
+          267
+        ],
+        [
+          5497.0,
+          198
+        ],
+        [
+          5497.5,
+          281
+        ],
+        [
           5498.0,
-          66
+          257
         ],
         [
           5498.5,
-          66
+          395
         ],
         [
           5499.0,
-          132
+          563
         ],
         [
           5499.5,
-          132
+          638
         ],
         [
           5500.0,
-          132
+          759
         ],
         [
           5500.5,
-          246
+          788
         ],
         [
           5501.0,
-          303
+          714
         ],
         [
           5501.5,
-          303
+          820
         ],
         [
           5502.0,
-          489
+          962
         ],
         [
           5502.5,
-          489
+          826
         ],
         [
           5503.0,
-          549
+          731
         ],
         [
           5503.5,
-          549
+          619
         ],
         [
           5504.0,
-          549
+          389
         ],
         [
           5504.5,
-          541
+          214
         ],
         [
           5505.0,
-          536
+          214
         ],
         [
           5505.5,
-          450
+          214
         ],
         [
           5506.0,
-          384
+          214
         ],
         [
           5506.5,
-          622
+          214
         ],
         [
           5507.0,
-          660
-        ],
-        [
-          5507.5,
-          754
-        ],
-        [
-          5508.0,
-          754
-        ],
-        [
-          5508.5,
-          824
-        ],
-        [
-          5509.0,
-          901
-        ],
-        [
-          5509.5,
-          1033
-        ],
-        [
-          5510.0,
-          1178
-        ],
-        [
-          5510.5,
-          1264
-        ],
-        [
-          5511.0,
-          1291
-        ],
-        [
-          5511.5,
-          1453
-        ],
-        [
-          5512.0,
-          1607
-        ],
-        [
-          5512.5,
-          1731
-        ],
-        [
-          5513.0,
-          1745
-        ],
-        [
-          5513.5,
-          2093
-        ],
-        [
-          5514.0,
-          2452
-        ],
-        [
-          5514.5,
-          2830
-        ],
-        [
-          5515.0,
-          3007
-        ],
-        [
-          5515.5,
-          3196
-        ],
-        [
-          5516.0,
-          3160
-        ],
-        [
-          5516.5,
-          3595
-        ],
-        [
-          5517.0,
-          3839
-        ],
-        [
-          5517.5,
-          3824
-        ],
-        [
-          5518.0,
-          4336
-        ],
-        [
-          5518.5,
-          4274
-        ],
-        [
-          5519.0,
-          4294
-        ],
-        [
-          5519.5,
-          4093
-        ],
-        [
-          5520.0,
-          3789
-        ],
-        [
-          5520.5,
-          3740
-        ],
-        [
-          5521.0,
-          4275
-        ],
-        [
-          5521.5,
-          4609
-        ],
-        [
-          5522.0,
-          5182
-        ],
-        [
-          5522.5,
-          5019
-        ],
-        [
-          5523.0,
-          4698
-        ],
-        [
-          5523.5,
-          4710
-        ],
-        [
-          5524.0,
-          4600
-        ],
-        [
-          5524.5,
-          4930
-        ],
-        [
-          5525.0,
-          5391
-        ],
-        [
-          5525.5,
-          5521
-        ],
-        [
-          5526.0,
-          5530
-        ],
-        [
-          5526.5,
-          5167
-        ],
-        [
-          5527.0,
-          4780
-        ],
-        [
-          5527.5,
-          4402
-        ],
-        [
-          5528.0,
-          4197
-        ],
-        [
-          5528.5,
-          3824
-        ],
-        [
-          5529.0,
-          3223
-        ],
-        [
-          5529.5,
-          2643
-        ],
-        [
-          5530.0,
-          2592
-        ],
-        [
-          5530.5,
-          2142
-        ],
-        [
-          5531.0,
-          2072
-        ],
-        [
-          5531.5,
-          2069
-        ],
-        [
-          5532.0,
-          1998
-        ],
-        [
-          5532.5,
-          1813
-        ],
-        [
-          5533.0,
-          1713
-        ],
-        [
-          5533.5,
-          1601
-        ],
-        [
-          5534.0,
-          1512
-        ],
-        [
-          5534.5,
-          1492
-        ],
-        [
-          5535.0,
-          1347
-        ],
-        [
-          5535.5,
-          1133
-        ],
-        [
-          5536.0,
-          885
-        ],
-        [
-          5536.5,
-          792
-        ],
-        [
-          5537.0,
-          507
-        ],
-        [
-          5537.5,
-          356
-        ],
-        [
-          5538.0,
-          356
-        ],
-        [
-          5538.5,
-          196
-        ],
-        [
-          5539.0,
-          131
-        ],
-        [
-          5539.5,
-          131
-        ],
-        [
-          5540.0,
-          131
-        ],
-        [
-          5540.5,
-          131
-        ],
-        [
-          5541.0,
-          131
-        ],
-        [
-          5541.5,
-          131
-        ],
-        [
-          5542.0,
-          131
-        ],
-        [
-          5542.5,
-          131
-        ],
-        [
-          5543.0,
-          131
-        ],
-        [
-          5543.5,
-          69
-        ],
-        [
-          5544.0,
-          69
-        ],
-        [
-          5544.5,
-          69
-        ],
-        [
-          5545.0,
-          69
-        ],
-        [
-          5545.5,
-          69
-        ],
-        [
-          5546.0,
-          69
+          214
         ]
       ]
     },
     "intraday": [
       [
         "09:00",
-        5534.0
+        5488.0
       ],
       [
         "09:05",
-        5525.5
+        5492.5
       ],
       [
         "09:10",
-        5521.0
+        5499.0
       ],
       [
         "09:15",
-        5524.0
+        5499.5
       ],
       [
         "09:20",
-        5505.0
+        5500.5
       ],
       [
         "09:25",
-        5517.0
-      ],
-      [
-        "09:30",
-        5529.0
-      ],
-      [
-        "09:35",
-        5525.5
-      ],
-      [
-        "09:40",
-        5525.0
-      ],
-      [
-        "09:45",
-        5516.0
-      ],
-      [
-        "09:50",
-        5518.5
-      ],
-      [
-        "09:55",
-        5518.5
-      ],
-      [
-        "10:00",
-        5522.0
-      ],
-      [
-        "10:05",
-        5522.0
-      ],
-      [
-        "10:10",
-        5518.5
-      ],
-      [
-        "10:15",
-        5514.0
-      ],
-      [
-        "10:20",
-        5514.5
-      ],
-      [
-        "10:25",
-        5501.0
-      ],
-      [
-        "10:30",
-        5508.0
-      ],
-      [
-        "10:35",
-        5512.5
-      ],
-      [
-        "10:40",
-        5512.0
-      ],
-      [
-        "10:45",
-        5516.0
-      ],
-      [
-        "10:50",
-        5515.0
-      ],
-      [
-        "10:55",
-        5519.0
-      ],
-      [
-        "11:00",
-        5521.5
-      ],
-      [
-        "11:05",
-        5524.0
-      ],
-      [
-        "11:10",
-        5523.0
-      ],
-      [
-        "11:15",
-        5528.5
-      ],
-      [
-        "11:20",
-        5526.5
-      ],
-      [
-        "11:25",
-        5528.0
-      ],
-      [
-        "11:30",
-        5527.5
-      ],
-      [
-        "11:35",
-        5531.0
-      ],
-      [
-        "11:40",
-        5532.5
-      ],
-      [
-        "11:45",
-        5525.5
-      ],
-      [
-        "11:50",
-        5528.0
-      ],
-      [
-        "11:55",
-        5524.5
-      ],
-      [
-        "12:00",
-        5526.0
-      ],
-      [
-        "12:05",
-        5520.5
-      ],
-      [
-        "12:10",
-        5516.0
-      ],
-      [
-        "12:15",
-        5517.0
-      ],
-      [
-        "12:20",
-        5524.0
-      ],
-      [
-        "12:25",
-        5532.5
-      ],
-      [
-        "12:30",
-        5526.5
-      ],
-      [
-        "12:35",
-        5529.5
-      ],
-      [
-        "12:40",
-        5527.5
-      ],
-      [
-        "12:45",
-        5526.5
-      ],
-      [
-        "12:50",
-        5530.0
-      ],
-      [
-        "12:55",
-        5526.0
-      ],
-      [
-        "13:00",
-        5526.5
-      ],
-      [
-        "13:05",
-        5529.0
-      ],
-      [
-        "13:10",
-        5536.0
-      ],
-      [
-        "13:15",
-        5535.0
-      ],
-      [
-        "13:20",
-        5536.0
-      ],
-      [
-        "13:25",
-        5533.0
-      ],
-      [
-        "13:30",
-        5532.0
-      ],
-      [
-        "13:35",
-        5533.0
-      ],
-      [
-        "13:40",
-        5532.0
-      ],
-      [
-        "13:45",
-        5535.0
-      ],
-      [
-        "13:50",
-        5533.5
-      ],
-      [
-        "13:55",
-        5528.5
-      ],
-      [
-        "14:00",
-        5526.5
-      ],
-      [
-        "14:05",
-        5522.5
-      ],
-      [
-        "14:10",
-        5525.5
-      ],
-      [
-        "14:15",
-        5524.5
-      ],
-      [
-        "14:20",
-        5521.0
-      ],
-      [
-        "14:25",
-        5524.5
-      ],
-      [
-        "14:30",
-        5524.5
-      ],
-      [
-        "14:35",
-        5526.5
-      ],
-      [
-        "14:40",
-        5525.5
-      ],
-      [
-        "14:45",
-        5522.0
-      ],
-      [
-        "14:50",
-        5521.5
-      ],
-      [
-        "14:55",
-        5520.5
-      ],
-      [
-        "15:00",
-        5520.0
-      ],
-      [
-        "15:05",
-        5519.0
-      ],
-      [
-        "15:10",
-        5518.0
-      ],
-      [
-        "15:15",
-        5518.0
-      ],
-      [
-        "15:20",
-        5516.5
-      ],
-      [
-        "15:25",
-        5518.0
-      ],
-      [
-        "15:30",
-        5515.5
-      ],
-      [
-        "15:35",
-        5519.0
-      ],
-      [
-        "15:40",
-        5521.5
-      ],
-      [
-        "15:45",
-        5520.5
-      ],
-      [
-        "15:50",
-        5522.5
-      ],
-      [
-        "15:55",
-        5523.0
-      ],
-      [
-        "16:00",
-        5522.0
-      ],
-      [
-        "16:05",
-        5519.5
-      ],
-      [
-        "16:10",
-        5521.0
-      ],
-      [
-        "16:15",
-        5518.0
-      ],
-      [
-        "16:20",
-        5516.0
-      ],
-      [
-        "16:25",
-        5513.5
-      ],
-      [
-        "16:30",
-        5510.0
-      ],
-      [
-        "16:35",
-        5512.0
-      ],
-      [
-        "16:40",
-        5512.0
-      ],
-      [
-        "16:45",
-        5514.5
-      ],
-      [
-        "16:50",
-        5515.5
-      ],
-      [
-        "16:55",
-        5516.0
-      ],
-      [
-        "17:00",
-        5518.5
-      ],
-      [
-        "17:05",
-        5517.5
-      ],
-      [
-        "17:10",
-        5516.0
-      ],
-      [
-        "17:15",
-        5518.0
-      ],
-      [
-        "17:20",
-        5521.5
-      ],
-      [
-        "17:25",
-        5522.5
-      ],
-      [
-        "17:30",
-        5523.5
-      ],
-      [
-        "17:35",
-        5527.0
-      ],
-      [
-        "17:40",
-        5525.5
-      ],
-      [
-        "17:45",
-        5527.0
-      ],
-      [
-        "17:50",
-        5527.5
-      ],
-      [
-        "17:55",
-        5526.5
-      ],
-      [
-        "18:00",
-        5527.0
-      ],
-      [
-        "18:05",
-        5527.0
-      ],
-      [
-        "18:10",
-        5522.5
-      ],
-      [
-        "18:15",
-        5523.0
-      ],
-      [
-        "18:20",
-        5521.0
-      ],
-      [
-        "18:25",
-        5519.0
+        5500.5
       ]
     ],
     "ontem": {
-      "data": "30/10",
-      "abertura": 5422.0,
-      "maxima": 5494.0,
-      "minima": 5418.0,
-      "fechamento": 5470.0,
+      "data": "03/11",
+      "abertura": 5518.0,
+      "maxima": 5546.0,
+      "minima": 5498.0,
+      "fechamento": 5519.0,
       "profile": {
-        "poc": 5461.5,
-        "vah": 5480.0,
-        "val": 5443.5
+        "poc": 5525.5,
+        "vah": 5529.5,
+        "val": 5514.5
       }
     }
   },
@@ -881,67 +305,67 @@
   },
   "externo": {
     "dxy": {
-      "valor": 101.734,
-      "variacao_pct": -0.02,
-      "correlacao": -0.05,
+      "valor": 101.348,
+      "variacao_pct": -0.51,
+      "correlacao": -0.1,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.29,
-      "z": -0.05
+      "vol_pct": 0.3,
+      "z": -1.73
     },
     "mxn": {
-      "valor": 18.8187,
-      "variacao_pct": 1.33,
-      "correlacao": 0.3,
+      "valor": 18.6351,
+      "variacao_pct": 0.35,
+      "correlacao": 0.26,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.61,
-      "z": 2.18
+      "vol_pct": 0.59,
+      "z": 0.58
     },
     "zar": {
-      "valor": 16.6125,
-      "variacao_pct": 0.07,
-      "correlacao": 0.36,
-      "sinal": "Insuficiente",
-      "motivo": "ativo praticamente parado hoje",
-      "vol_pct": 0.52,
-      "z": 0.14
+      "valor": 16.4425,
+      "variacao_pct": -0.95,
+      "correlacao": 0.32,
+      "sinal": "Venda",
+      "motivo": "pressiona o dólar para baixo",
+      "vol_pct": 0.53,
+      "z": -1.79
     },
     "spx": {
-      "valor": 7562.0,
-      "variacao_pct": -0.17,
-      "correlacao": -0.21,
+      "valor": 7657.5,
+      "variacao_pct": 0.8,
+      "correlacao": -0.17,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.67,
-      "z": -0.25
+      "vol_pct": 0.68,
+      "z": 1.18
     },
     "ndx": {
-      "valor": 28079.25,
-      "variacao_pct": -0.17,
-      "correlacao": -0.2,
+      "valor": 28362.0,
+      "variacao_pct": 0.2,
+      "correlacao": -0.18,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.17,
-      "z": -0.15
+      "vol_pct": 1.18,
+      "z": 0.17
     },
     "oil": {
-      "valor": 104.35,
-      "variacao_pct": -0.4,
-      "correlacao": -0.02,
+      "valor": 102.24,
+      "variacao_pct": -1.31,
+      "correlacao": -0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 2.59,
-      "z": -0.15
+      "vol_pct": 2.6,
+      "z": -0.5
     },
     "iron": {
-      "valor": 91.25,
-      "variacao_pct": 0.6,
-      "correlacao": 0.02,
+      "valor": 91.03,
+      "variacao_pct": -0.24,
+      "correlacao": 0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.85,
-      "z": 0.7
+      "z": -0.28
     },
     "ust": {
       "valor": 4.952,
@@ -953,204 +377,302 @@
       "z": 1.16
     },
     "nikkei": {
-      "valor": 62117.2109,
-      "variacao_pct": -1.53,
-      "correlacao": 0.04,
+      "valor": 62188.6289,
+      "variacao_pct": -1.42,
+      "correlacao": 0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.57,
-      "z": -0.97
+      "z": -0.9
     },
     "hsi": {
-      "valor": 23393.3203,
-      "variacao_pct": 0.42,
-      "correlacao": -0.06,
+      "valor": 23919.5,
+      "variacao_pct": 1.67,
+      "correlacao": -0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.97,
-      "z": 0.44
+      "vol_pct": 0.98,
+      "z": 1.7
     },
     "dax": {
-      "valor": 25981.0898,
-      "variacao_pct": 0.63,
-      "correlacao": 0.07,
+      "valor": 26226.8691,
+      "variacao_pct": 1.4,
+      "correlacao": 0.11,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.77,
-      "z": 0.82
+      "vol_pct": 0.79,
+      "z": 1.76
     },
     "vix": {
-      "valor": 20.83,
-      "variacao_pct": -1.51,
-      "correlacao": 0.25,
+      "valor": 18.45,
+      "variacao_pct": -11.43,
+      "correlacao": 0.22,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 6.36,
-      "z": -0.24
+      "vol_pct": 6.52,
+      "z": -1.75
     }
   },
   "mundo": {
-    "intensidade": 19,
-    "direcao": 1,
-    "nivel": "calmo",
+    "intensidade": 61,
+    "direcao": 63,
+    "nivel": "agitado",
     "componentes": [
       {
         "ativo": "spx",
-        "z": -0.25,
+        "z": 1.18,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -0.15,
+        "z": 0.17,
         "peso": 1
       },
       {
         "ativo": "dax",
-        "z": 0.82,
+        "z": 1.76,
         "peso": 1
       },
       {
         "ativo": "nikkei",
-        "z": -0.97,
+        "z": -0.9,
         "peso": 1
       },
       {
         "ativo": "hsi",
-        "z": 0.44,
+        "z": 1.7,
         "peso": 1
       },
       {
         "ativo": "oil",
-        "z": -0.15,
+        "z": -0.5,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": -0.05,
+        "z": -1.73,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": -0.24,
+        "z": -1.75,
         "peso": -1
       }
     ]
   },
   "agenda": [
     {
+      "hora": "2026-11-02T11:45:00",
+      "moeda": "USD",
+      "titulo": "Final Manufacturing PMI",
+      "estrelas": 2,
+      "impacto": "médio",
+      "previsao": "56.0",
+      "anterior": "56.0"
+    },
+    {
       "hora": "2026-11-02T12:00:00",
       "moeda": "USD",
       "titulo": "ISM Manufacturing PMI",
-      "impacto": "médio",
+      "estrelas": 3,
+      "impacto": "alto",
       "previsao": "54.5",
       "anterior": "54.5"
+    },
+    {
+      "hora": "2026-11-02T12:00:00",
+      "moeda": "USD",
+      "titulo": "Construction Spending m/m",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "0.4%",
+      "anterior": "0.9%"
+    },
+    {
+      "hora": "2026-11-02T12:00:00",
+      "moeda": "USD",
+      "titulo": "ISM Manufacturing Prices",
+      "estrelas": 3,
+      "impacto": "alto",
+      "previsao": "77.2",
+      "anterior": "77.9"
+    },
+    {
+      "hora": "2026-11-02T16:00:00",
+      "moeda": "USD",
+      "titulo": "Loan Officer Survey",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": null,
+      "anterior": null
+    },
+    {
+      "hora": "2026-11-03T06:00:00",
+      "moeda": "USD",
+      "titulo": "RCM/TIPP Economic Optimism",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "46.2",
+      "anterior": "46.8"
     },
     {
       "hora": "2026-11-03T12:00:00",
       "moeda": "USD",
       "titulo": "JOLTS Job Openings",
-      "impacto": "médio",
+      "estrelas": 3,
+      "impacto": "alto",
       "previsao": "7.15M",
-      "anterior": "7.08M",
-      "reacao": {
-        "base": 5524.5,
-        "m5": 1.5,
-        "amp5": 4.5,
-        "m15": -8.5,
-        "amp15": 14.5
-      }
+      "anterior": "7.08M"
+    },
+    {
+      "hora": "2026-11-03T12:00:00",
+      "moeda": "USD",
+      "titulo": "Factory Orders m/m",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "1.2%",
+      "anterior": "0.1%"
+    },
+    {
+      "hora": "2026-11-03T12:15:00",
+      "moeda": "USD",
+      "titulo": "Omdia Total Vehicle Sales",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "15.8M",
+      "anterior": "16.0M"
     },
     {
       "hora": "2026-11-03T12:16:00",
       "moeda": "USD",
       "titulo": "Congressional Elections",
+      "estrelas": 3,
       "impacto": "alto",
       "previsao": null,
-      "anterior": null,
-      "reacao": {
-        "base": 5516.5,
-        "m5": 2.0,
-        "amp5": 7.0,
-        "m15": 14.5,
-        "amp15": 20.5
-      }
+      "anterior": null
     },
     {
-      "hora": "2026-11-04T07:00:00",
-      "moeda": "EUR",
-      "titulo": "Core CPI Flash Estimate y/y",
-      "impacto": "médio",
-      "previsao": "2.5%",
-      "anterior": "2.5%"
+      "hora": "2026-11-03T18:30:00",
+      "moeda": "USD",
+      "titulo": "API Weekly Statistical Bulletin",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": null,
+      "anterior": null
     },
     {
-      "hora": "2026-11-04T07:00:00",
-      "moeda": "EUR",
-      "titulo": "CPI Flash Estimate y/y",
+      "hora": "2026-11-04T10:15:00",
+      "moeda": "USD",
+      "titulo": "ADP Non-Farm Employment Change",
+      "estrelas": 3,
+      "impacto": "alto",
+      "previsao": "67K",
+      "anterior": "90K"
+    },
+    {
+      "hora": "2026-11-04T10:30:00",
+      "moeda": "USD",
+      "titulo": "Trade Balance",
+      "estrelas": 2,
       "impacto": "médio",
-      "previsao": "4.0%",
-      "anterior": "3.8%"
+      "previsao": "-107.9B",
+      "anterior": "-105.6B"
+    },
+    {
+      "hora": "2026-11-04T11:45:00",
+      "moeda": "USD",
+      "titulo": "Final Services PMI",
+      "estrelas": 2,
+      "impacto": "médio",
+      "previsao": "57.9",
+      "anterior": "57.9"
     },
     {
       "hora": "2026-11-04T12:00:00",
       "moeda": "USD",
       "titulo": "ISM Services PMI",
-      "impacto": "médio",
+      "estrelas": 3,
+      "impacto": "alto",
       "previsao": "54.8",
       "anterior": "54.9"
     },
     {
-      "hora": "2026-11-05T09:00:00",
-      "moeda": "GBP",
-      "titulo": "BOE Monetary Policy Report",
+      "hora": "2026-11-04T12:30:00",
+      "moeda": "USD",
+      "titulo": "Crude Oil Inventories",
+      "estrelas": 3,
       "impacto": "alto",
+      "previsao": "-1.7M",
+      "anterior": "-1.9M"
+    },
+    {
+      "hora": "2026-11-05T07:30:00",
+      "moeda": "USD",
+      "titulo": "Challenger Job Cuts y/y",
+      "estrelas": 1,
+      "impacto": "baixo",
       "previsao": null,
-      "anterior": null
-    },
-    {
-      "hora": "2026-11-05T09:00:00",
-      "moeda": "GBP",
-      "titulo": "Monetary Policy Summary",
-      "impacto": "alto",
-      "previsao": null,
-      "anterior": null
-    },
-    {
-      "hora": "2026-11-05T09:00:00",
-      "moeda": "GBP",
-      "titulo": "MPC Official Bank Rate Votes",
-      "impacto": "alto",
-      "previsao": "7-0-2",
-      "anterior": "3-0-6"
-    },
-    {
-      "hora": "2026-11-05T09:00:00",
-      "moeda": "GBP",
-      "titulo": "Official Bank Rate",
-      "impacto": "alto",
-      "previsao": "4.00%",
-      "anterior": "3.75%"
-    },
-    {
-      "hora": "2026-11-05T09:30:00",
-      "moeda": "GBP",
-      "titulo": "BOE Gov Bailey Speaks",
-      "impacto": "alto",
-      "previsao": null,
-      "anterior": null
+      "anterior": "-19.9%"
     },
     {
       "hora": "2026-11-05T10:30:00",
       "moeda": "USD",
       "titulo": "Unemployment Claims",
-      "impacto": "médio",
+      "estrelas": 3,
+      "impacto": "alto",
       "previsao": "197K",
       "anterior": "194K"
     },
     {
-      "hora": "2026-11-05T15:00:00",
-      "moeda": "EUR",
-      "titulo": "ECB President Lagarde Speaks",
+      "hora": "2026-11-05T10:30:00",
+      "moeda": "USD",
+      "titulo": "Prelim Nonfarm Productivity q/q",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "2.8%",
+      "anterior": "1.4%"
+    },
+    {
+      "hora": "2026-11-05T10:30:00",
+      "moeda": "USD",
+      "titulo": "Prelim Unit Labor Costs q/q",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "0.3%",
+      "anterior": "1.3%"
+    },
+    {
+      "hora": "2026-11-05T10:50:00",
+      "moeda": "USD",
+      "titulo": "FOMC Member Hammack Speaks",
+      "estrelas": 2,
+      "impacto": "médio",
+      "previsao": null,
+      "anterior": null
+    },
+    {
+      "hora": "2026-11-05T11:10:00",
+      "moeda": "USD",
+      "titulo": "FOMC Member Barkin Speaks",
+      "estrelas": 2,
+      "impacto": "médio",
+      "previsao": null,
+      "anterior": null
+    },
+    {
+      "hora": "2026-11-05T12:30:00",
+      "moeda": "USD",
+      "titulo": "Natural Gas Storage",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "81B",
+      "anterior": "80B"
+    },
+    {
+      "hora": "2026-11-06T06:30:00",
+      "moeda": "USD",
+      "titulo": "FOMC Member Williams Speaks",
+      "estrelas": 2,
       "impacto": "médio",
       "previsao": null,
       "anterior": null
@@ -1159,6 +681,7 @@
       "hora": "2026-11-06T10:30:00",
       "moeda": "USD",
       "titulo": "Average Hourly Earnings m/m",
+      "estrelas": 3,
       "impacto": "alto",
       "previsao": "0.3%",
       "anterior": "0.1%"
@@ -1167,6 +690,7 @@
       "hora": "2026-11-06T10:30:00",
       "moeda": "USD",
       "titulo": "Non-Farm Employment Change",
+      "estrelas": 3,
       "impacto": "alto",
       "previsao": "65K",
       "anterior": "29K"
@@ -1175,14 +699,25 @@
       "hora": "2026-11-06T10:30:00",
       "moeda": "USD",
       "titulo": "Unemployment Rate",
+      "estrelas": 3,
       "impacto": "alto",
       "previsao": "4.2%",
       "anterior": "4.2%"
     },
     {
+      "hora": "2026-11-06T11:10:00",
+      "moeda": "USD",
+      "titulo": "FOMC Member Musalem Speaks",
+      "estrelas": 2,
+      "impacto": "médio",
+      "previsao": null,
+      "anterior": null
+    },
+    {
       "hora": "2026-11-06T12:00:00",
       "moeda": "USD",
       "titulo": "Prelim UoM Consumer Sentiment",
+      "estrelas": 2,
       "impacto": "médio",
       "previsao": "48.1",
       "anterior": "46.3"
@@ -1191,17 +726,28 @@
       "hora": "2026-11-06T12:00:00",
       "moeda": "USD",
       "titulo": "Prelim UoM Inflation Expectations",
+      "estrelas": 2,
       "impacto": "médio",
       "previsao": null,
       "anterior": "4.7%"
     },
     {
-      "hora": "2026-11-06T13:00:00",
-      "moeda": "JPY",
-      "titulo": "BOJ Gov Ueda Speaks",
-      "impacto": "alto",
+      "hora": "2026-11-06T14:15:00",
+      "moeda": "USD",
+      "titulo": "FOMC Member Bowman Speaks",
+      "estrelas": 2,
+      "impacto": "médio",
       "previsao": null,
       "anterior": null
+    },
+    {
+      "hora": "2026-11-06T17:00:00",
+      "moeda": "USD",
+      "titulo": "Consumer Credit m/m",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": "13.4B",
+      "anterior": "8.3B"
     }
   ]
 }
