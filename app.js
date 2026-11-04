@@ -104,6 +104,8 @@
           · corr ${x.correlacao == null ? '—' : fmt(x.correlacao)}
           · <strong class="${sc}">${esc(x.sinal)}</strong></div></div>`;
       }
+      case 'pctlv':
+        return '<div id="cl-pct" class="qp-vars"></div>';
       case 'news':
         return '<div id="cl-news" class="qp-vars nw"></div>';
       case 'world':
@@ -182,6 +184,7 @@
     {
       title: '4. Níveis de referência',
       fields: [
+        { t: 'pctlv' },
         { t: 'number', k: 'high_prev', l: 'Máxima de ontem' },
         { t: 'number', k: 'low_prev', l: 'Mínima de ontem' },
         { t: 'number', k: 'adjust', l: 'Ajuste' },
@@ -427,6 +430,33 @@
       '<p class="hint">Só EUA, horário de Brasília. Estrelas no padrão do Investing (aproximado). Contagem regressiva para 2 e 3 estrelas; alerta de notícia saindo nas de 3 estrelas. Valores divulgados: calendário do Investing no fim deste quadro.</p>';
   }
 
+  function blocoNiveis() {
+    const el = $('#cl-pct');
+    if (!el) return;
+    const w = EXT && EXT.wdo, calc = window.qpNiveisAbertura;
+    if (!w || !calc) { el.innerHTML = '<p class="hint">Carregando níveis da abertura...</p>'; return; }
+    if (clDate !== todayStr()) { el.innerHTML = '<p class="hint">Níveis da abertura: só para o dia de hoje.</p>'; return; }
+    if (w.abertura == null) { el.innerHTML = '<p class="hint">Abertura do dia: aparece depois do primeiro negócio do pregão (9h).</p>'; return; }
+
+    const pct = (w.preco / w.abertura - 1) * 100;
+    const linhas = [
+      ...calc(w).map(l => ({ ...l, tipo: l.p > 0 ? 'up' : 'down' })),
+      { n: 'Abertura', v: w.abertura, tipo: 'ab' },
+      { n: 'Preço agora', v: w.preco, tipo: 'now' }
+    ].sort((a, b) => b.v - a.v || (a.tipo === 'now' ? -1 : 1));
+
+    el.innerHTML = `<div class="pl">
+      <div class="pl-head">Abertura do dia <b class="qp-num">${fmt(w.abertura)}</b>
+        <span>preço <b class="qp-num">${fmt(w.preco)}</b> <span class="qp-num ${cls(pct)}">(${sgn(pct)}% · ${sgn(w.preco - w.abertura)} pts)</span></span></div>
+      <table class="pl-tab"><tbody>${linhas.map(l => `<tr class="pl-${l.tipo}">
+        <td>${l.tipo === 'now' ? '◆ ' : ''}${esc(l.n)}</td>
+        <td class="qp-num">${fmt(l.v)}</td>
+        <td class="qp-num ${l.tipo === 'now' ? '' : cls(l.v - w.preco)}">${l.tipo === 'now' ? '' : sgn(l.v - w.preco) + ' pts'}</td>
+        <td>${l.atingido ? '<span class="pl-hit">✓ atingido</span>' : ''}</td></tr>`).join('')}</tbody></table>
+      <p class="hint">Níveis calculados sobre a abertura de hoje (+0,4% · +0,6% · +1,45% / −0,4% · −0,6% · −1,3%), arredondados para 0,5 ponto. "Atingido" = a máxima ou a mínima do dia já passou pelo nível.</p>
+    </div>`;
+  }
+
   function blocoMundo() {
     const el = $('#cl-world');
     if (!el) return;
@@ -503,6 +533,7 @@
 
     blocoNoticias();
     blocoMundo();
+    blocoNiveis();
     ligarCalendarioTV();
     updateGap(rec);
     bind($('#clform'), rec, () => {
@@ -772,7 +803,7 @@
         EXT = d;
         if (!$('#view-checklist').classList.contains('active')) return;
         if (primeira) renderChecklist();
-        else if (novo) { blocoNoticias(); blocoMundo(); }
+        else if (novo) { blocoNoticias(); blocoMundo(); blocoNiveis(); }
       })
       .catch(() => { /* sem dados.json: o diário segue funcionando */ });
   }
