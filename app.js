@@ -191,38 +191,11 @@
         { t: 'number', k: 'liq_up', l: 'Liquidez aberta acima' },
         { t: 'number', k: 'liq_down', l: 'Liquidez aberta abaixo' }
       ]
-    },
-    {
-      title: '5. Viés do dia',
-      fields: [
-        { t: 'select', k: 'bias', l: 'Viés', o: ['', 'Alta', 'Baixa', 'Neutro'] },
-        { t: 'text', k: 'bias_reason', l: 'Motivo principal' },
-        { t: 'textarea', k: 'bias_invalid', l: 'O que invalida esse viés' }
-      ]
-    },
-    {
-      title: '6. Contexto de HTF (antes de operar reversão)',
-      fields: [
-        { t: 'select', k: 'htf_d', l: 'Tendência no gráfico diário', o: ['', 'Alta', 'Baixa', 'Lateral'] },
-        { t: 'select', k: 'htf_1h', l: 'Tendência no gráfico de 1h', o: ['', 'Alta', 'Baixa', 'Lateral'] },
-        { t: 'select', k: 'htf_setup', l: 'Meu setup de hoje é...', o: ['', 'A favor da HTF', 'Contra a HTF', 'Ainda não sei'] }
-      ]
-    },
-    {
-      title: '7. Regras do dia',
-      fields: [
-        { t: 'check', k: 'r_wait', l: 'Esperar os primeiros minutos do pregão antes de operar' },
-        { t: 'check', k: 'r_confirm', l: 'Confirmar em timeframe superior (ex.: 5m) antes de reversão' },
-        { t: 'check', k: 'r_stop', l: 'Stop definido antes da entrada' },
-        { t: 'check', k: 'r_reeval', l: 'Reavaliar o viés perto das 9h se sair notícia' },
-        { t: 'number', k: 'r_maxtrades', l: 'Máximo de trades hoje' },
-        { t: 'text', k: 'r_maxloss', l: 'Perda máxima do dia (atingiu, parou)' }
-      ]
     }
   ];
 
   // campos de contexto que passam de um dia para o seguinte
-  const PERSIST = ['htf_d', 'htf_1h', 'r_maxtrades', 'r_maxloss'];
+  const PERSIST = [];
 
   const TR_SECTIONS = [
     {
@@ -654,7 +627,7 @@
       const cl = rs.filter(r => r.c.pts != null);
       const pts = cl.reduce((x, r) => x + r.c.pts, 0);
       const ck = db.checklists[d];
-      days += `<tr><td>${DIAS[parseD(d).getDay()]} ${fmtDate(d).slice(0, 5)}</td><td>${ck && ck.bias ? esc(ck.bias) : '—'}</td><td>${rs.length}</td><td class="${cls(pts)}">${cl.length ? sgn(pts) : '—'}</td></tr>`;
+      days += `<tr><td>${DIAS[parseD(d).getDay()]} ${fmtDate(d).slice(0, 5)}</td><td>${rs.length}</td><td class="${cls(pts)}">${cl.length ? sgn(pts) : '—'}</td></tr>`;
     }
 
     root.innerHTML = `
@@ -684,7 +657,7 @@
         </div>
       </section>
       <section class="card"><h2>Dia a dia</h2>
-        <table><tr><th>Dia</th><th>Viés do pré-mercado</th><th>Trades</th><th>Pontos</th></tr>${days}</table>
+        <table><tr><th>Dia</th><th>Trades</th><th>Pontos</th></tr>${days}</table>
       </section>
       <div id="wkform">${WK_SECTIONS.map(s => sectionHTML(s, rec)).join('')}</div>`;
 
@@ -781,11 +754,13 @@
   }
 
   // ---------- abas ----------
-  const RENDER = { checklist: renderChecklist, trades: renderTrades, week: renderWeek, history: renderHistory };
+  const RENDER = { checklist: renderChecklist, trades: renderTrades, week: renderWeek, history: renderHistory,
+    estrategia: () => { if (window.qpEstrategia) window.qpEstrategia(); } };
 
   function showTab(name) {
     $$('#tabs button').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
     $$('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + name));
+    document.body.dataset.aba = name;
     RENDER[name]();
     window.scrollTo(0, 0);
   }
