@@ -1,5 +1,5 @@
 /* Painel WDO - visual "quantum" */
-.qp {
+.qp, .qp-vars {
   --qp-bg: #070b14;
   --qp-card: rgba(14, 22, 38, .78);
   --qp-edge: rgba(0, 229, 255, .16);
@@ -19,7 +19,9 @@
   --lv-poc: #199e70;
   --lv-va: #9085e9;
   --lv-ontem: #c98500;
+}
 
+.qp {
   position: relative;
   margin: 12px auto;
   max-width: 1180px;
@@ -172,6 +174,38 @@
   .qp-gauges > :last-child { grid-column: span 2; }
 }
 
+/* ---------- quadro 3: agenda ao vivo e força do mundo ---------- */
+.nw-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 10px 12px; margin: 4px 0 10px;
+  border: 1px solid var(--qp-edge); border-radius: 10px; background: rgba(0, 229, 255, .05); font-size: .9rem; }
+.nw-banner .nw-lbl { color: var(--qp-cyan); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; }
+.nw-count { margin-left: auto; font-size: 1.05rem; font-weight: 700; color: var(--qp-cyan); text-shadow: 0 0 14px rgba(0, 229, 255, .5); }
+.nw-warn { border-color: var(--qp-warn); background: rgba(250, 178, 25, .10); }
+.nw-warn .nw-lbl, .nw-warn .nw-count { color: var(--qp-warn); text-shadow: 0 0 14px rgba(250, 178, 25, .5); }
+.nw-hot { border-color: var(--qp-down); background: rgba(239, 91, 91, .14); animation: nw-blink 1.4s ease-in-out infinite; }
+.nw-pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--qp-down); box-shadow: 0 0 12px var(--qp-down); }
+@keyframes nw-blink { 50% { box-shadow: 0 0 22px rgba(239, 91, 91, .55); } }
+.nw-wrap { overflow-x: auto; }
+.nw-tab { width: 100%; border-collapse: collapse; font-size: .82rem; }
+.nw-tab th { text-align: left; font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; color: var(--qp-muted); font-weight: 600; padding: 4px 6px; }
+.nw-tab td { padding: 6px; border-top: 1px solid rgba(120, 160, 210, .1); vertical-align: top; }
+.nw-tab tr.passou td { opacity: .78; }
+.nw-tab small { color: var(--qp-muted); }
+.nw-imp { display: inline-block; font-size: .66rem; font-weight: 700; padding: 1px 7px; border-radius: 99px; border: 1px solid currentColor; }
+.nw-imp.hi { color: var(--qp-down); }
+.nw-imp.md { color: var(--qp-warn); }
+.nw-tv { margin-top: 10px; }
+.nw-tv summary { cursor: pointer; color: var(--qp-cyan); font-size: .85rem; padding: 6px 0; }
+.mw { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) minmax(220px, 1.4fr); gap: 12px; align-items: center;
+  margin: 6px 0 12px; padding: 10px; border: 1px solid var(--qp-edge); border-radius: 12px; background: rgba(7, 11, 20, .55); color: var(--qp-text); }
+.mw-g svg { max-width: 190px; }
+.mw-row { display: grid; grid-template-columns: 110px 1fr 56px; align-items: center; gap: 8px; font-size: .8rem; padding: 2px 0; }
+.mw-row small { color: var(--qp-muted); }
+.mw .qp-gauge .lbl { font-size: .78rem; }
+@media (max-width: 700px) {
+  .mw { grid-template-columns: 1fr 1fr; }
+  .mw-list { grid-column: span 2; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .qp::before, .qp-dot, .qp-pulse { animation: none; }
+  .qp::before, .qp-dot, .qp-pulse, .nw-hot { animation: none; }
 }
