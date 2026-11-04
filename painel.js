@@ -19,6 +19,19 @@
   };
   const CORR_MIN = 0.3;
 
+  // Níveis percentuais a partir da abertura do dia. Mude aqui para usar outros valores.
+  const NIVEIS_PCT = [1.45, 0.6, 0.4, -0.4, -0.6, -1.3];
+  const noTick = v => Math.round(v / 0.5) * 0.5; // WDO anda de 0,5 em 0,5
+  function niveisAbertura(w) {
+    if (!w || w.abertura == null) return [];
+    return NIVEIS_PCT.map(p => ({
+      p, v: noTick(w.abertura * (1 + p / 100)),
+      n: (p > 0 ? '+' : '−') + String(Math.abs(p)).replace('.', ',') + '%',
+      atingido: p > 0 ? w.maxima >= noTick(w.abertura * (1 + p / 100)) : w.minima <= noTick(w.abertura * (1 + p / 100))
+    }));
+  }
+  window.qpNiveisAbertura = niveisAbertura; // usado também no quadro 4 do checklist
+
   // ---------- leituras ----------
   // Externo: média das pressões sobre o dólar, pesada pela correlação (só ativos com |corr| >= 0,3)
   function forcaExterno(ext) {
@@ -93,7 +106,9 @@
       { n: 'Ajuste hoje', v: w.ajuste_hoje, c: COR.ajuste, d: '9 3' },
       { n: 'Máx ontem', v: w.ontem.maxima, c: COR.ontem, d: '1 4' },
       { n: 'Mín ontem', v: w.ontem.minima, c: COR.ontem, d: '1 4' },
-      { n: 'Fech ontem', v: w.ontem.fechamento, c: COR.ontem, d: '5 3' }
+      { n: 'Fech ontem', v: w.ontem.fechamento, c: COR.ontem, d: '5 3' },
+      { n: 'Abertura', v: w.abertura, c: 'var(--qp-text)', d: '10 3' },
+      ...niveisAbertura(w).map(l => ({ n: l.n + ' abert', v: l.v, c: l.p > 0 ? 'var(--qp-up)' : 'var(--qp-down)', d: '3 3' }))
     ].filter(l => l.v != null);
 
     // eixo y: o dia + níveis próximos; níveis longe viram etiqueta na borda
@@ -180,6 +195,8 @@
       <span><i style="border-color:var(--lv-va);border-top-style:dashed"></i>VAH / VAL</span>
       <span><i style="border-color:var(--lv-ajuste);border-top-style:dotted"></i>Ajuste</span>
       <span><i style="border-color:var(--lv-ontem);border-top-style:dotted"></i>Dia anterior</span>
+      <span><i style="border-color:var(--qp-text);border-top-style:dashed"></i>Abertura</span>
+      <span><i style="border-color:var(--qp-up);border-top-style:dashed"></i><i style="border-color:var(--qp-down);border-top-style:dashed"></i>% da abertura</span>
     </div>`;
 
     // (o hover é ligado depois de inserir no DOM; ver ligarHover)
@@ -238,7 +255,9 @@
       { n: 'Ajuste ' + (w.ajuste_data || ''), v: w.ajuste, c: COR.ajuste }, { n: 'Ajuste hoje (prévia)', v: w.ajuste_hoje, c: COR.ajuste },
       { n: 'Abertura ontem', v: w.ontem.abertura, c: COR.ontem }, { n: 'Máx ontem', v: w.ontem.maxima, c: COR.ontem },
       { n: 'Mín ontem', v: w.ontem.minima, c: COR.ontem }, { n: 'Fech ontem', v: w.ontem.fechamento, c: COR.ontem },
-      { n: 'POC ontem', v: w.ontem.profile && w.ontem.profile.poc, c: COR.poc }
+      { n: 'POC ontem', v: w.ontem.profile && w.ontem.profile.poc, c: COR.poc },
+      { n: 'Abertura hoje', v: w.abertura, c: 'var(--qp-text)' },
+      ...niveisAbertura(w).map(l => ({ n: l.n + ' da abertura' + (l.atingido ? ' ✓' : ''), v: l.v, c: l.p > 0 ? 'var(--qp-up)' : 'var(--qp-down)' }))
     ].filter(l => l.v != null);
     itens.push({ n: 'PREÇO', v: w.preco, c: COR.preco, now: true });
     itens.sort((a, b) => b.v - a.v || (a.now ? -1 : 1));
@@ -277,6 +296,7 @@
           <span class="qp-chg qp-num ${cls(w.variacao_pct)}">${sgn(w.variacao_pct, 2)}%</span>
         </div>
         <div class="qp-tiles">
+          ${w.abertura != null ? `<div class="qp-tile"><b>Abertura</b><span class="qp-num">${fmt(w.abertura)}</span><em class="${cls(w.preco - w.abertura)}">${sgn((w.preco / w.abertura - 1) * 100, 2)}% · ${sgn(w.preco - w.abertura)} pts</em></div>` : ''}
           <div class="qp-tile"><b>Máx / Mín</b><span class="qp-num">${fmt(w.maxima)} / ${fmt(w.minima)}</span><em>amplitude ${fmt(w.maxima - w.minima)} pts</em></div>
           <div class="qp-tile"><b>VWAP</b><span class="qp-num">${fmt(w.vwap, 2)}</span><em class="${cls(w.preco - w.vwap)}">${sgn(w.preco - w.vwap)} pts</em></div>
           <div class="qp-tile"><b>Ajuste ${esc(w.ajuste_data || '')}</b><span class="qp-num">${fmt(w.ajuste, 2)}</span><em>${w.ajuste_hoje != null ? 'hoje ≈ ' + fmt(w.ajuste_hoje, 2) : 'estimado pelo MT5'}</em></div>
