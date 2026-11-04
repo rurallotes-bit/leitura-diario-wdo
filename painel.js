@@ -288,7 +288,7 @@
     root.className = 'qp';
     root.removeAttribute('style');
     root.innerHTML = `<div class="qp-grid">
-      <section class="qp-card qp-s7">
+      <section class="qp-card qp-s7 qp-a-hero">
         <div class="qp-ticker"><span class="qp-dot ${velho ? 'old' : ''}"></span><span class="qp-tech">WDO · Dólar mini</span>
           <span class="qp-muted">${esc(d.atualizado_em)}${min != null ? ` · há ${min < 90 ? Math.round(min) + ' min' : Math.round(min / 60) + ' h'}` : ''}</span></div>
         <div class="qp-hero" style="margin-top:8px">
@@ -306,19 +306,19 @@
         </div>
       </section>
 
-      <section class="qp-card qp-s5 qp-gauge qp-main-gauge">
+      <section class="qp-card qp-s5 qp-gauge qp-main-gauge qp-a-forca">
         <h3 class="qp-h qp-tech">Índice de força <small>VWAP + range + externo</small></h3>
         ${gauge({ v: k.forca, texto: sgn(k.forca, 0), big: true })}
         <div class="qp-verdict ${vc}">${vt}</div>
         <p class="qp-note">Leitura técnica do momento, não é recomendação de compra ou venda.</p>
       </section>
 
-      <section class="qp-card qp-s12">
+      <section class="qp-card qp-s12 qp-a-chart">
         <h3 class="qp-h qp-tech">Pregão de hoje <small>passe o mouse ou toque no gráfico</small></h3>
         ${grafico(w)}
       </section>
 
-      <section class="qp-card qp-s12">
+      <section class="qp-card qp-s12 qp-a-gs">
         <div class="qp-gauges">
           <div class="qp-gauge">${gauge({ v: k.ext ? k.ext.v : 0, texto: k.ext ? sgn(k.ext.v, 0) : '—' })}
             <div class="lbl">Força do externo</div><div class="sub">${k.ext ? `${veredito(k.ext.v)[0]} · ${k.ext.usados} ativo(s) com sinal` : 'nenhum ativo com correlação forte'}</div></div>
@@ -329,12 +329,12 @@
         </div>
       </section>
 
-      <section class="qp-card qp-s7">
+      <section class="qp-card qp-s7 qp-a-radar">
         <h3 class="qp-h qp-tech">Radar externo <small>ordenado pela correlação</small></h3>
         ${tabelaExterno(d.externo)}
       </section>
 
-      <section class="qp-card qp-s5">
+      <section class="qp-card qp-s5 qp-a-esc">
         <h3 class="qp-h qp-tech">Escada de níveis <small>distância do preço em pontos</small></h3>
         ${escada(w)}
       </section>
