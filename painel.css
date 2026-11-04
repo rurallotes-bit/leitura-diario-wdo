@@ -193,6 +193,13 @@
 .nw-imp { display: inline-block; font-size: .66rem; font-weight: 700; padding: 1px 7px; border-radius: 99px; border: 1px solid currentColor; }
 .nw-imp.hi { color: var(--qp-down); }
 .nw-imp.md { color: var(--qp-warn); }
+.nw-star { font-size: .9rem; letter-spacing: 1px; white-space: nowrap; color: var(--qp-warn); }
+.nw-star i { font-style: normal; color: rgba(120, 160, 210, .25); }
+.nw-star.s3 { color: var(--qp-down); text-shadow: 0 0 8px rgba(239, 91, 91, .5); }
+.nw-star.s1 { color: var(--qp-text2); }
+.nw-btn { display: inline-block; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--qp-edge-hot); color: var(--qp-cyan);
+  text-decoration: none; font-weight: 600; font-size: .88rem; background: rgba(0, 229, 255, .06); }
+.nw-btn:hover { background: rgba(0, 229, 255, .14); box-shadow: 0 0 14px rgba(0, 229, 255, .25); }
 .nw-tv { margin-top: 10px; }
 .nw-tv summary { cursor: pointer; color: var(--qp-cyan); font-size: .85rem; padding: 6px 0; }
 .mw { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) minmax(220px, 1.4fr); gap: 12px; align-items: center;
