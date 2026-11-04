@@ -11,11 +11,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@500;700&display=swap">
   <link rel="stylesheet" href="painel.css">
+  <script>
+    // Formato da tela: automático (PC a partir de 1200 px), PC ou celular
+    (function () {
+      var modo = 'auto';
+      try { modo = localStorage.getItem('modoTela') || 'auto'; } catch (e) {}
+      function aplicar() {
+        var largo = modo === 'pc' || (modo === 'auto' && window.innerWidth >= 1200);
+        document.documentElement.classList.toggle('largo', largo);
+      }
+      window.qpModoTela = {
+        get: function () { return modo; },
+        set: function (v) { modo = v; try { localStorage.setItem('modoTela', v); } catch (e) {} aplicar(); }
+      };
+      aplicar();
+      window.addEventListener('resize', aplicar);
+    })();
+  </script>
 </head>
 
 <body>
   <header>
     <h1>Leitura Diária WDO</h1>
+    <button id="modoTela" class="modo-btn" type="button" title="Trocar o formato da tela">Tela: automática</button>
     <nav id="tabs">
       <button data-tab="checklist" class="active">Pré-mercado</button>
       <button data-tab="trades">Trades</button>
@@ -55,6 +73,19 @@
 
   <div id="toast"></div>
   <script src="app.js"></script>
+  <script>
+    (function () {
+      var b = document.getElementById('modoTela'), ordem = ['auto', 'pc', 'cel'];
+      var nome = { auto: 'Tela: automática', pc: 'Tela: PC', cel: 'Tela: celular' };
+      function mostrar() { b.textContent = nome[qpModoTela.get()] || nome.auto; }
+      b.onclick = function () {
+        var i = ordem.indexOf(qpModoTela.get());
+        qpModoTela.set(ordem[(i + 1) % ordem.length]);
+        mostrar();
+      };
+      mostrar();
+    })();
+  </script>
 </body>
 
 </html>
