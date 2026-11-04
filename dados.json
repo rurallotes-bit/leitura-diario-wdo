@@ -1,18 +1,19 @@
 {
-  "atualizado_em": "04/11/2026 09:29:48",
+  "atualizado_em": "04/11/2026 10:37:29",
   "wdo": {
-    "preco": 5500.5,
-    "variacao_pct": -0.34,
-    "maxima": 5507.0,
+    "preco": 5492.0,
+    "abertura": 5480.0,
+    "variacao_pct": -0.49,
+    "maxima": 5509.5,
     "minima": 5477.0,
-    "vwap": 5495.01,
+    "vwap": 5496.0,
     "ajuste": 5523.78,
     "ajuste_data": "03/11",
     "ajuste_hoje": null,
     "profile": {
-      "poc": 5502.0,
-      "vah": 5507.0,
-      "val": 5489.5,
+      "poc": 5491.5,
+      "vah": 5502.0,
+      "val": 5488.0,
       "hist": [
         [
           5477.0,
@@ -104,159 +105,179 @@
         ],
         [
           5488.0,
-          581
+          672
         ],
         [
           5488.5,
-          581
+          672
         ],
         [
           5489.0,
-          549
+          897
         ],
         [
           5489.5,
-          325
+          1048
         ],
         [
           5490.0,
-          325
+          1431
         ],
         [
           5490.5,
-          251
+          1812
         ],
         [
           5491.0,
-          505
+          2127
         ],
         [
           5491.5,
-          399
+          2349
         ],
         [
           5492.0,
-          509
+          2139
         ],
         [
           5492.5,
-          509
+          2041
         ],
         [
           5493.0,
-          509
+          1842
         ],
         [
           5493.5,
-          364
+          1562
         ],
         [
           5494.0,
-          364
+          1374
         ],
         [
           5494.5,
-          297
+          1141
         ],
         [
           5495.0,
-          297
+          933
         ],
         [
           5495.5,
-          187
+          607
         ],
         [
           5496.0,
-          267
+          695
         ],
         [
           5496.5,
-          267
+          756
         ],
         [
           5497.0,
-          198
+          780
         ],
         [
           5497.5,
-          281
+          1040
         ],
         [
           5498.0,
-          257
+          1242
         ],
         [
           5498.5,
-          395
+          1222
         ],
         [
           5499.0,
-          563
+          1476
         ],
         [
           5499.5,
-          638
+          1595
         ],
         [
           5500.0,
-          759
+          1544
         ],
         [
           5500.5,
-          788
+          1644
         ],
         [
           5501.0,
-          714
+          1493
         ],
         [
           5501.5,
-          820
+          1648
         ],
         [
           5502.0,
-          962
+          1833
         ],
         [
           5502.5,
-          826
+          1531
         ],
         [
           5503.0,
-          731
+          1499
         ],
         [
           5503.5,
-          619
+          1321
         ],
         [
           5504.0,
-          389
+          1033
         ],
         [
           5504.5,
-          214
+          620
         ],
         [
           5505.0,
-          214
+          502
         ],
         [
           5505.5,
-          214
+          533
         ],
         [
           5506.0,
-          214
+          681
         ],
         [
           5506.5,
-          214
+          631
         ],
         [
           5507.0,
-          214
+          576
+        ],
+        [
+          5507.5,
+          319
+        ],
+        [
+          5508.0,
+          212
+        ],
+        [
+          5508.5,
+          212
+        ],
+        [
+          5509.0,
+          212
+        ],
+        [
+          5509.5,
+          148
         ]
       ]
     },
@@ -283,7 +304,63 @@
       ],
       [
         "09:25",
-        5500.5
+        5498.0
+      ],
+      [
+        "09:30",
+        5499.0
+      ],
+      [
+        "09:35",
+        5499.0
+      ],
+      [
+        "09:40",
+        5501.0
+      ],
+      [
+        "09:45",
+        5506.0
+      ],
+      [
+        "09:50",
+        5503.5
+      ],
+      [
+        "09:55",
+        5500.0
+      ],
+      [
+        "10:00",
+        5494.5
+      ],
+      [
+        "10:05",
+        5491.5
+      ],
+      [
+        "10:10",
+        5489.5
+      ],
+      [
+        "10:15",
+        5490.5
+      ],
+      [
+        "10:20",
+        5491.5
+      ],
+      [
+        "10:25",
+        5491.0
+      ],
+      [
+        "10:30",
+        5493.5
+      ],
+      [
+        "10:35",
+        5492.0
       ]
     ],
     "ontem": {
@@ -300,63 +377,63 @@
     }
   },
   "us10y": {
-    "taxa": 4.952,
-    "variacao_bps": 5.8
+    "taxa": 4.921,
+    "variacao_bps": -3.1
   },
   "externo": {
     "dxy": {
-      "valor": 101.348,
-      "variacao_pct": -0.51,
-      "correlacao": -0.1,
+      "valor": 101.261,
+      "variacao_pct": -0.6,
+      "correlacao": -0.09,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.3,
-      "z": -1.73
+      "z": -2.0
     },
     "mxn": {
-      "valor": 18.6351,
-      "variacao_pct": 0.35,
+      "valor": 18.6481,
+      "variacao_pct": 0.42,
       "correlacao": 0.26,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.59,
-      "z": 0.58
+      "z": 0.7
     },
     "zar": {
-      "valor": 16.4425,
-      "variacao_pct": -0.95,
-      "correlacao": 0.32,
+      "valor": 16.4449,
+      "variacao_pct": -0.94,
+      "correlacao": 0.33,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo",
       "vol_pct": 0.53,
-      "z": -1.79
+      "z": -1.76
     },
     "spx": {
-      "valor": 7657.5,
-      "variacao_pct": 0.8,
+      "valor": 7667.5,
+      "variacao_pct": 0.93,
       "correlacao": -0.17,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.68,
-      "z": 1.18
+      "z": 1.37
     },
     "ndx": {
-      "valor": 28362.0,
-      "variacao_pct": 0.2,
+      "valor": 28373.0,
+      "variacao_pct": 0.24,
       "correlacao": -0.18,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.18,
-      "z": 0.17
+      "z": 0.2
     },
     "oil": {
-      "valor": 102.24,
-      "variacao_pct": -1.31,
+      "valor": 101.76,
+      "variacao_pct": -1.78,
       "correlacao": -0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 2.6,
-      "z": -0.5
+      "vol_pct": 2.61,
+      "z": -0.68
     },
     "iron": {
       "valor": 91.03,
@@ -368,18 +445,18 @@
       "z": -0.28
     },
     "ust": {
-      "valor": 4.952,
-      "variacao_pct": 1.19,
-      "correlacao": -0.04,
+      "valor": 4.921,
+      "variacao_pct": -0.63,
+      "correlacao": -0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.02,
-      "z": 1.16
+      "z": -0.61
     },
     "nikkei": {
       "valor": 62188.6289,
       "variacao_pct": -1.42,
-      "correlacao": 0.05,
+      "correlacao": 0.06,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.57,
@@ -388,49 +465,49 @@
     "hsi": {
       "valor": 23919.5,
       "variacao_pct": 1.67,
-      "correlacao": -0.04,
+      "correlacao": -0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.98,
       "z": 1.7
     },
     "dax": {
-      "valor": 26226.8691,
-      "variacao_pct": 1.4,
+      "valor": 26292.7695,
+      "variacao_pct": 1.66,
       "correlacao": 0.11,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.79,
-      "z": 1.76
+      "vol_pct": 0.8,
+      "z": 2.06
     },
     "vix": {
-      "valor": 18.45,
-      "variacao_pct": -11.43,
-      "correlacao": 0.22,
+      "valor": 18.5,
+      "variacao_pct": -11.19,
+      "correlacao": 0.23,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 6.52,
-      "z": -1.75
+      "vol_pct": 6.51,
+      "z": -1.72
     }
   },
   "mundo": {
-    "intensidade": 61,
-    "direcao": 63,
+    "intensidade": 66,
+    "direcao": 69,
     "nivel": "agitado",
     "componentes": [
       {
         "ativo": "spx",
-        "z": 1.18,
+        "z": 1.37,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": 0.17,
+        "z": 0.2,
         "peso": 1
       },
       {
         "ativo": "dax",
-        "z": 1.76,
+        "z": 2.06,
         "peso": 1
       },
       {
@@ -445,17 +522,17 @@
       },
       {
         "ativo": "oil",
-        "z": -0.5,
+        "z": -0.68,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": -1.73,
+        "z": -2.0,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": -1.75,
+        "z": -1.72,
         "peso": -1
       }
     ]
@@ -567,7 +644,14 @@
       "estrelas": 3,
       "impacto": "alto",
       "previsao": "67K",
-      "anterior": "90K"
+      "anterior": "90K",
+      "reacao": {
+        "base": 5489.5,
+        "m5": 1.0,
+        "amp5": 5.5,
+        "m15": 1.5,
+        "amp15": 6.5
+      }
     },
     {
       "hora": "2026-11-04T10:30:00",
@@ -576,7 +660,14 @@
       "estrelas": 2,
       "impacto": "médio",
       "previsao": "-107.9B",
-      "anterior": "-105.6B"
+      "anterior": "-105.6B",
+      "reacao": {
+        "base": 5491.0,
+        "m5": 2.5,
+        "amp5": 5.0,
+        "m15": 1.0,
+        "amp15": 5.0
+      }
     },
     {
       "hora": "2026-11-04T11:45:00",
