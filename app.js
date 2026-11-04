@@ -484,6 +484,14 @@
 
   function ligarCalendarioTV() { /* calendário do Investing abre em nova aba */ }
 
+  // No PC: esquerda = dados do mercado (1, 2, 4); direita = 3, 5, 6, 7. No celular segue a ordem normal.
+  const COLUNA_ESQ = [0, 1, 3];
+  function colunasChecklist(rec) {
+    const sec = CL_SECTIONS.map((s, i) => sectionHTML(s, rec).replace('<section class="card"', `<section class="card" style="order:${i}"`));
+    const esq = sec.filter((_, i) => COLUNA_ESQ.includes(i)), dir = sec.filter((_, i) => !COLUNA_ESQ.includes(i));
+    return `<div class="cl-col">${esq.join('')}</div><div class="cl-col">${dir.join('')}</div>`;
+  }
+
   function renderChecklist() {
     const root = $('#view-checklist');
     let rec = db.checklists[clDate];
@@ -510,7 +518,7 @@
       </div>
       ${note}
       ${prev ? prevCard(prev) : ''}
-      <div id="clform">${CL_SECTIONS.map(s => sectionHTML(s, rec)).join('')}</div>`;
+      <div id="clform">${colunasChecklist(rec)}</div>`;
 
     $('#clDateIn').onchange = e => { clDate = e.target.value || todayStr(); renderChecklist(); };
     $('#clToday').onclick = () => { clDate = todayStr(); renderChecklist(); };
