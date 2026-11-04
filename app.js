@@ -109,8 +109,9 @@
       case 'world':
         return '<div id="cl-world" class="qp-vars"></div>';
       case 'tvcal':
-        return `<details id="cl-tvcal" class="nw-tv qp-vars"><summary>Calendário Brasil + EUA com resultados (TradingView)</summary>
-          <div class="tradingview-widget-container tv-box"></div></details>`;
+        return `<div class="nw-tv qp-vars"><a class="nw-btn" href="https://br.investing.com/economic-calendar/" target="_blank" rel="noopener nofollow">
+          Abrir calendário do Investing.com (resultados ao vivo) ↗</a>
+          <p class="hint">No Investing, use o filtro de países para deixar só os Estados Unidos; ele lembra a escolha.</p></div>`;
       case 'gap':
         return '<div class="calc" id="gapout"></div>';
       case 'calc':
@@ -375,7 +376,11 @@
     const t = Math.max(0, Math.round(ms / 1000)), h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60);
     return (h ? h + 'h ' : '') + pad(m) + 'min ' + pad(t % 60) + 's';
   };
-  const chipImp = i => `<span class="nw-imp ${i === 'alto' ? 'hi' : 'md'}">${esc(i)}</span>`;
+  const nEstrelas = e => e.estrelas || ({ alto: 3, 'médio': 2 }[e.impacto] || 1);
+  const chipImp = e => {
+    const n = nEstrelas(e);
+    return `<span class="nw-star s${n}" title="${n} estrela(s) de importância">${'★'.repeat(n)}<i>${'★'.repeat(3 - n)}</i></span>`;
+  };
 
   function blocoNoticias() {
     const el = $('#cl-news');
@@ -386,19 +391,19 @@
 
     const agora = new Date();
     const doDia = ag.filter(e => e.hora.slice(0, 10) === clDate);
-    const prox = ag.find(e => quando(e.hora) > agora);
-    const saindo = ag.find(e => e.impacto === 'alto' && agora - quando(e.hora) >= 0 && agora - quando(e.hora) <= 15 * 60000);
+    const prox = ag.find(e => nEstrelas(e) >= 2 && quando(e.hora) > agora); // contagem só para 2 e 3 estrelas
+    const saindo = ag.find(e => nEstrelas(e) === 3 && agora - quando(e.hora) >= 0 && agora - quando(e.hora) <= 15 * 60000);
 
     let banner;
     if (saindo) {
       banner = `<div class="nw-banner nw-hot"><span class="nw-pulse"></span><b>NOTÍCIA SAINDO</b>
-        ${hhmm(saindo.hora)} · ${esc(REGIAO[saindo.moeda] || saindo.moeda)} · ${esc(saindo.titulo)} — cuidado com a volatilidade</div>`;
+        ${hhmm(saindo.hora)} · ${esc(REGIAO[saindo.moeda] || saindo.moeda)} · ${esc(saindo.titulo)} ${chipImp(saindo)} — cuidado com a volatilidade</div>`;
     } else if (prox) {
-      const ms = quando(prox.hora) - agora, perto = ms <= 10 * 60000 && prox.impacto === 'alto';
+      const ms = quando(prox.hora) - agora, perto = ms <= 10 * 60000;
       const dia = prox.hora.slice(0, 10) !== todayStr() ? ' (' + fmtDate(prox.hora.slice(0, 10)).slice(0, 5) + ')' : '';
       banner = `<div class="nw-banner ${perto ? 'nw-warn' : ''}">
         <span class="nw-lbl">${perto ? '⚠ Notícia em breve' : 'Próxima notícia'}</span>
-        <b class="qp-num">${hhmm(prox.hora)}${dia}</b> ${esc(REGIAO[prox.moeda] || prox.moeda)} · ${esc(prox.titulo)} ${chipImp(prox.impacto)}
+        <b class="qp-num">${hhmm(prox.hora)}${dia}</b> ${esc(REGIAO[prox.moeda] || prox.moeda)} · ${esc(prox.titulo)} ${chipImp(prox)}
         <span class="nw-count qp-num" data-alvo="${esc(prox.hora)}">${contagem(ms)}</span></div>`;
     } else {
       banner = '<div class="nw-banner">Sem mais notícias de impacto nesta semana.</div>';
@@ -412,14 +417,14 @@
           (r.m15 != null ? ` · <span class="qp-num ${cls(r.m15)}">${sgn(r.m15)}</span> <small>15m</small> · <small>amp ${fmt(r.amp15)}</small>` : '');
       }
       return `<tr class="${passou ? 'passou' : ''}"><td class="qp-num">${hhmm(e.hora)}</td><td>${esc(REGIAO[e.moeda] || e.moeda)}</td>
-        <td>${esc(e.titulo)}</td><td>${chipImp(e.impacto)}</td>
+        <td>${esc(e.titulo)}</td><td>${chipImp(e)}</td>
         <td class="qp-num muted">${esc(e.previsao || '—')} / ${esc(e.anterior || '—')}</td><td>${reac}</td></tr>`;
     }).join('');
 
     el.innerHTML = banner + (doDia.length
-      ? `<div class="nw-wrap"><table class="nw-tab"><thead><tr><th>Hora</th><th>Região</th><th>Evento</th><th>Impacto</th><th>Prev. / Ant.</th><th>Reação do WDO (pts)</th></tr></thead><tbody>${linhas}</tbody></table></div>`
-      : '<p class="hint">Sem notícias de impacto médio ou alto neste dia nas regiões monitoradas.</p>') +
-      '<p class="hint">EUA, Europa, China, Reino Unido e Japão (Forex Factory), em horário de Brasília. Notícias do Brasil: abra o calendário no fim deste quadro.</p>';
+      ? `<div class="nw-wrap"><table class="nw-tab"><thead><tr><th>Hora</th><th>Região</th><th>Evento</th><th>Import.</th><th>Prev. / Ant.</th><th>Reação do WDO (pts)</th></tr></thead><tbody>${linhas}</tbody></table></div>`
+      : '<p class="hint">Sem notícias dos EUA neste dia.</p>') +
+      '<p class="hint">Só EUA, horário de Brasília. Estrelas no padrão do Investing (aproximado). Contagem regressiva para 2 e 3 estrelas; alerta de notícia saindo nas de 3 estrelas. Valores divulgados: calendário do Investing no fim deste quadro.</p>';
   }
 
   function blocoMundo() {
@@ -447,21 +452,7 @@
     </div>`;
   }
 
-  function ligarCalendarioTV() {
-    const d = $('#cl-tvcal');
-    if (!d) return;
-    d.addEventListener('toggle', () => {
-      if (!d.open || d.dataset.ok) return; // só carrega quando você abre
-      d.dataset.ok = '1';
-      const box = d.querySelector('.tv-box');
-      box.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
-      const sc = document.createElement('script');
-      sc.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
-      sc.async = true;
-      sc.textContent = JSON.stringify({ colorTheme: 'dark', isTransparent: true, width: '100%', height: 520, locale: 'br', importanceFilter: '0,1', countryFilter: 'br,us' });
-      box.appendChild(sc);
-    });
-  }
+  function ligarCalendarioTV() { /* calendário do Investing abre em nova aba */ }
 
   function renderChecklist() {
     const root = $('#view-checklist');
