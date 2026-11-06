@@ -73,7 +73,8 @@
       const [x0, y0] = pt(i / 20, r + 7), [x1, y1] = pt(i / 20, r + (i % 5 ? 11 : 15));
       return `<line x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="var(--qp-muted)" stroke-width="${i % 5 ? 1 : 1.6}" opacity="${i % 5 ? .45 : .9}"/>`;
     }).join('');
-    const [nx, ny] = pt(t, r - 16);
+    const [nx, ny] = pt(t, r - 12);
+    const [bx, by] = pt(t, r - 4), [ax, ay] = pt(t - 0.02, r - 14), [cx2, cy2] = pt(t + 0.02, r - 14);
     const id = 'g' + Math.random().toString(36).slice(2, 8);
     return `<svg viewBox="0 0 200 128" role="img" aria-label="${esc(texto)}">
       <defs><filter id="${id}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
@@ -81,8 +82,9 @@
       ${bipolar ? `<path d="${arco(0, .2)}" fill="none" stroke="var(--qp-down)" stroke-width="2" opacity=".5"/><path d="${arco(.8, 1)}" fill="none" stroke="var(--qp-up)" stroke-width="2" opacity=".5"/>` : ''}
       <path d="${arco(bipolar ? .5 : 0, t)}" fill="none" stroke="${cor}" stroke-width="12" stroke-linecap="round" filter="url(#${id})"/>
       ${ticks}
-      <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="var(--qp-text)" stroke-width="2.5" stroke-linecap="round" filter="url(#${id})"/>
-      <circle cx="${cx}" cy="${cy}" r="5" fill="var(--qp-bg)" stroke="var(--qp-cyan)" stroke-width="2"/>
+      <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="var(--qp-text)" stroke-width="4" stroke-linecap="round"/>
+      <polygon points="${bx.toFixed(1)},${by.toFixed(1)} ${ax.toFixed(1)},${ay.toFixed(1)} ${cx2.toFixed(1)},${cy2.toFixed(1)}" fill="${cor}"/>
+      <circle cx="${cx}" cy="${cy}" r="7" fill="var(--qp-bg)" stroke="var(--qp-text)" stroke-width="3"/>
       <text x="${cx}" y="${cy + 24}" text-anchor="middle" class="qp-num" font-size="${big ? 20 : 18}" font-weight="700" fill="var(--qp-text)">${esc(texto)}</text>
     </svg>`;
   }
