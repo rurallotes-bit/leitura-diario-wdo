@@ -128,6 +128,8 @@
 .qp-gauge svg { width: 100%; max-width: 230px; display: block; margin: 0 auto; overflow: visible; }
 .qp-gauge .lbl { font-size: .74rem; color: var(--qp-text2); margin-top: 2px; }
 .qp-gauge .sub { font-size: .72rem; color: var(--qp-muted); }
+.qp-gauge.qp-card { text-align: center; }
+.qp-gauge.qp-card > .qp-h { text-align: left; }
 .qp-main-gauge svg { max-width: 300px; }
 .qp-verdict { font-size: .95rem; font-weight: 700; margin-top: 2px; }
 .qp-note { font-size: .68rem; color: var(--qp-muted); margin: 6px 0 0; text-align: center; }
@@ -257,15 +259,14 @@ html.largo main { max-width: 1680px; padding: 16px 24px; }
 html.largo .qp { max-width: none; margin: 12px 0; }
 html.largo .qp-grid {
   grid-template-areas:
-    "hero hero hero hero hero forca forca forca gs gs gs gs"
+    "forca forca forca g2 g2 g2 g3 g3 g3 g4 g4 g4"
     "chart chart chart chart chart chart chart chart esc esc esc esc"
     "radar radar radar radar radar radar radar radar radar radar radar radar";
 }
-html.largo .qp-a-hero { grid-area: hero; }
 html.largo .qp-a-forca { grid-area: forca; }
-html.largo .qp-a-gs { grid-area: gs; display: flex; align-items: center; }
-html.largo .qp-a-gs .qp-gauges { width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-html.largo .qp-a-gs .qp-gauges > :last-child { grid-column: auto; }
+html.largo .qp-a-g2 { grid-area: g2; }
+html.largo .qp-a-g3 { grid-area: g3; }
+html.largo .qp-a-g4 { grid-area: g4; }
 html.largo .qp-a-chart { grid-area: chart; }
 html.largo .qp-a-esc { grid-area: esc; max-height: 520px; overflow-y: auto; }
 html.largo .qp-a-radar { grid-area: radar; }
