@@ -1,19 +1,19 @@
 {
-  "atualizado_em": "06/11/2026 10:12:32",
+  "atualizado_em": "06/11/2026 10:19:07",
   "wdo": {
-    "preco": 5525.0,
+    "preco": 5528.5,
     "abertura": 5523.0,
-    "variacao_pct": -0.11,
+    "variacao_pct": -0.05,
     "maxima": 5532.0,
     "minima": 5512.5,
-    "vwap": 5522.8,
+    "vwap": 5523.08,
     "ajuste": 5518.97,
     "ajuste_data": "05/11",
     "ajuste_hoje": null,
     "profile": {
       "poc": 5524.5,
-      "vah": 5527.0,
-      "val": 5516.0,
+      "vah": 5527.5,
+      "val": 5516.5,
       "hist": [
         [
           5512.5,
@@ -93,83 +93,83 @@
         ],
         [
           5522.0,
-          1045
+          1154
         ],
         [
           5522.5,
-          875
+          984
         ],
         [
           5523.0,
-          1103
+          1212
         ],
         [
           5523.5,
-          1149
+          1258
         ],
         [
           5524.0,
-          1238
+          1347
         ],
         [
           5524.5,
-          1313
+          1422
         ],
         [
           5525.0,
-          1237
+          1346
         ],
         [
           5525.5,
-          1071
+          1221
         ],
         [
           5526.0,
-          1033
+          1156
         ],
         [
           5526.5,
-          855
+          938
         ],
         [
           5527.0,
-          809
+          893
         ],
         [
           5527.5,
-          1022
+          1214
         ],
         [
           5528.0,
-          972
+          1244
         ],
         [
           5528.5,
-          1127
+          1399
         ],
         [
           5529.0,
-          1117
+          1306
         ],
         [
           5529.5,
-          997
+          1115
         ],
         [
           5530.0,
-          857
+          969
         ],
         [
           5530.5,
-          701
+          775
         ],
         [
           5531.0,
-          424
+          498
         ],
         [
           5531.5,
-          296
+          370
         ],
         [
           5532.0,
@@ -236,7 +236,11 @@
       ],
       [
         "10:10",
-        5525.0
+        5526.0
+      ],
+      [
+        "10:15",
+        5528.5
       ]
     ],
     "ontem": {
@@ -267,49 +271,49 @@
       "z": 1.62
     },
     "mxn": {
-      "valor": 18.7075,
-      "variacao_pct": 0.54,
+      "valor": 18.684,
+      "variacao_pct": 0.41,
       "correlacao": 0.37,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.63,
-      "z": 0.85
+      "z": 0.65
     },
     "zar": {
-      "valor": 16.5335,
-      "variacao_pct": 0.8,
+      "valor": 16.5275,
+      "variacao_pct": 0.77,
       "correlacao": 0.41,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.55,
-      "z": 1.47
+      "z": 1.4
     },
     "spx": {
-      "valor": 7388.5,
-      "variacao_pct": 0.07,
+      "valor": 7387.25,
+      "variacao_pct": 0.06,
       "correlacao": -0.01,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.89,
-      "z": 0.08
+      "z": 0.06
     },
     "ndx": {
-      "valor": 27105.0,
-      "variacao_pct": 1.32,
+      "valor": 27087.75,
+      "variacao_pct": 1.26,
       "correlacao": -0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.43,
-      "z": 0.92
+      "z": 0.88
     },
     "oil": {
-      "valor": 97.79,
-      "variacao_pct": -0.51,
+      "valor": 98.34,
+      "variacao_pct": 0.05,
       "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 2.87,
-      "z": -0.18
+      "z": 0.02
     },
     "iron": {
       "valor": 93.12,
@@ -341,49 +345,49 @@
     "hsi": {
       "valor": 24481.8594,
       "variacao_pct": -1.27,
-      "correlacao": -0.07,
+      "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.1,
       "z": -1.16
     },
     "dax": {
-      "valor": 25710.4805,
-      "variacao_pct": -2.33,
-      "correlacao": 0.1,
+      "valor": 25697.5996,
+      "variacao_pct": -2.38,
+      "correlacao": 0.09,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.88,
-      "z": -2.66
+      "z": -2.71
     },
     "vix": {
-      "valor": 27.36,
-      "variacao_pct": -2.91,
+      "valor": 27.43,
+      "variacao_pct": -2.66,
       "correlacao": 0.02,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 11.28,
-      "z": -0.26
+      "z": -0.24
     }
   },
   "mundo": {
-    "intensidade": 65,
-    "direcao": -69,
+    "intensidade": 64,
+    "direcao": -70,
     "nivel": "agitado",
     "componentes": [
       {
         "ativo": "spx",
-        "z": 0.08,
+        "z": 0.06,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": 0.92,
+        "z": 0.88,
         "peso": 1
       },
       {
         "ativo": "dax",
-        "z": -2.66,
+        "z": -2.71,
         "peso": 1
       },
       {
@@ -398,7 +402,7 @@
       },
       {
         "ativo": "oil",
-        "z": -0.18,
+        "z": 0.02,
         "peso": 0.5
       },
       {
@@ -408,7 +412,7 @@
       },
       {
         "ativo": "vix",
-        "z": -0.26,
+        "z": -0.24,
         "peso": -1
       }
     ]
@@ -707,47 +711,27 @@
     }
   ],
   "estrategia": {
-    "barra": "06/11 09:45",
-    "fim_barra": "10:00",
-    "preco": 5524.5,
-    "atr": 9.36,
+    "barra": "06/11 10:00",
+    "fim_barra": "10:15",
+    "preco": 5528.5,
+    "atr": 9.41,
     "decisao": {
-      "acao": "AGUARDAR CONFIRMAÇÃO",
-      "lado": "compra",
+      "acao": "AGUARDAR",
+      "lado": null,
       "motivos": [
-        "Compra quase lá: 62,7% para limiar 64,8%.",
-        "Falta melhorar: Volume relativo, Tendência a favor, Estocástico."
+        "Notícia de 3 estrelas às 10:30: Average Hourly Earnings m/m. Espere a poeira baixar."
       ],
-      "plano": {
-        "lado": "compra",
-        "entrada": 5531.5,
-        "stop": 5522.0,
-        "alvo1": 5537.0,
-        "alvo2": 5550.5,
-        "risco_pts": 9.5,
-        "risco_rs": 95.0,
-        "a1": 0.6,
-        "a2": 2.0,
-        "valida_ate": "10:30",
-        "acionada": true,
-        "pullback": [
-          {
-            "nome": "Topo anterior",
-            "preco": 5533.0,
-            "antes_alvo1": true
-          }
-        ]
-      }
+      "plano": null
     },
     "lados": {
       "compra": {
-        "prob": 0.6269,
+        "prob": 0.5049,
         "limiar": 0.6485,
         "validado": false,
-        "entrada": 5531.5,
-        "stop": 5522.0,
-        "alvo1": 5537.0,
-        "alvo2": 5550.5,
+        "entrada": 5532.5,
+        "stop": 5523.0,
+        "alvo1": 5538.0,
+        "alvo2": 5551.5,
         "risco_pts": 9.5,
         "risco_rs": 95.0,
         "a1": 0.6,
@@ -755,40 +739,40 @@
         "a_favor": [
           {
             "nome": "Hora do dia",
-            "peso": 0.44
-          },
-          {
-            "nome": "Distância da VWAP",
-            "peso": 0.15
+            "peso": 0.41
           },
           {
             "nome": "BOS a favor",
             "peso": 0.15
+          },
+          {
+            "nome": "RSI",
+            "peso": 0.09
           }
         ],
         "contra": [
           {
             "nome": "Volume relativo",
-            "peso": -0.27
+            "peso": -0.49
           },
           {
             "nome": "Tendência a favor",
             "peso": -0.09
           },
           {
-            "nome": "Estocástico",
-            "peso": -0.03
+            "nome": "Corpo da barra",
+            "peso": -0.09
           }
         ]
       },
       "venda": {
-        "prob": 0.5493,
+        "prob": 0.5849,
         "limiar": 0.6064,
         "validado": false,
-        "entrada": 5520.5,
-        "stop": 5531.5,
-        "alvo1": 5514.0,
-        "alvo2": 5487.5,
+        "entrada": 5521.5,
+        "stop": 5532.5,
+        "alvo1": 5515.0,
+        "alvo2": 5488.5,
         "risco_pts": 11.0,
         "risco_rs": 110.0,
         "a1": 0.6,
@@ -796,11 +780,11 @@
         "a_favor": [
           {
             "nome": "Hora do dia",
-            "peso": 0.32
+            "peso": 0.29
           },
           {
             "nome": "RSI",
-            "peso": 0.14
+            "peso": 0.12
           },
           {
             "nome": "CHoCH a favor",
@@ -809,16 +793,16 @@
         ],
         "contra": [
           {
-            "nome": "Corpo da barra",
-            "peso": -0.19
-          },
-          {
             "nome": "Estocástico",
-            "peso": -0.07
+            "peso": -0.09
           },
           {
-            "nome": "Distância da VWAP",
+            "nome": "OB contra no caminho",
             "peso": -0.02
+          },
+          {
+            "nome": "Reteste de OB",
+            "peso": -0.01
           }
         ]
       }
@@ -830,7 +814,7 @@
         "voto": 75,
         "leitura": "Tendência de alta · último BOS de alta em 5.525,0 (05/11 18:00)",
         "dados": {
-          "topo": 5533.0,
+          "topo": 5532.0,
           "fundo": 5512.5,
           "ultimo": "BOS",
           "ultimo_lado": 1,
@@ -847,8 +831,8 @@
             "lado": 1,
             "lo": 5516.0,
             "hi": 5522.5,
-            "i": 2991,
-            "nasce": 2993,
+            "i": 2990,
+            "nasce": 2992,
             "fim": null
           },
           "baixa": null,
@@ -859,39 +843,39 @@
       {
         "id": "vwap",
         "nome": "VWAP",
-        "voto": 54,
-        "leitura": "Preço acima da VWAP 6,2 pts (+1,79σ) · afastado",
+        "voto": 33,
+        "leitura": "Preço acima da VWAP 2,6 pts (+0,75σ) · perto da VWAP",
         "dados": {
-          "vwap": 5522.35,
-          "sd": 3.44,
-          "z": 1.79,
-          "dist": 6.15
+          "vwap": 5523.37,
+          "sd": 3.52,
+          "z": 0.75,
+          "dist": 2.63
         }
       },
       {
         "id": "momentum",
         "nome": "Momentum",
-        "voto": 29,
-        "leitura": "RSI 62 · Estocástico 67 · neutro",
+        "voto": 23,
+        "leitura": "RSI 59 · Estocástico 72 · neutro",
         "dados": {
-          "rsi": 61.7,
-          "sto": 66.7,
+          "rsi": 59.1,
+          "sto": 72.4,
           "estado": "neutro"
         }
       },
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": 0,
-        "leitura": "Volume 1,3× a média · agressão no candle -6% · ticks: saldo +11.242 contratos (+7%)",
+        "voto": 4,
+        "leitura": "Volume 1,9× a média · agressão no candle +2% · ticks: saldo +7.192 contratos (+5%)",
         "dados": {
-          "volrel": 1.29,
-          "candle": -0.064,
+          "volrel": 1.87,
+          "candle": 0.024,
           "ticks": {
-            "compra": 90903.0,
-            "venda": 79661.0,
-            "saldo": 11242.0,
-            "pct": 0.06591074318144509
+            "compra": 71264.0,
+            "venda": 64072.0,
+            "saldo": 7192.0,
+            "pct": 0.05314181001359579
           }
         }
       },
@@ -901,7 +885,7 @@
         "voto": 0,
         "leitura": "ATR M15 9,4 pts · compra: stop 9,5 pts (R$ 95/contrato) · venda: stop 11,0 pts (R$ 110/contrato)",
         "dados": {
-          "atr": 9.36
+          "atr": 9.41
         }
       }
     ],
@@ -1313,13 +1297,6 @@
     "grafico": {
       "velas": [
         [
-          "04/11 15:15",
-          5491.0,
-          5496.0,
-          5488.0,
-          5495.0
-        ],
-        [
           "04/11 15:30",
           5495.5,
           5497.0,
@@ -1702,11 +1679,17 @@
           5528.5,
           5532.0,
           5522.0,
-          5524.5
+          5526.0
+        ],
+        [
+          "06/11 10:15",
+          5526.0,
+          5531.5,
+          5525.5,
+          5528.5
         ]
       ],
       "vwap": [
-        5502.59,
         5502.19,
         5501.94,
         5501.64,
@@ -1761,10 +1744,10 @@
         5518.99,
         5521.21,
         5522.35,
-        5523.15
+        5523.37,
+        5523.6
       ],
       "sd": [
-        8.87,
         8.98,
         9.05,
         9.21,
@@ -1819,7 +1802,8 @@
         2.27,
         2.91,
         3.44,
-        3.43
+        3.52,
+        3.6
       ],
       "dia": [
         "2026-11-04",
@@ -1834,7 +1818,6 @@
         "2026-11-04",
         "2026-11-04",
         "2026-11-04",
-        "2026-11-04",
         "2026-11-05",
         "2026-11-05",
         "2026-11-05",
@@ -1873,6 +1856,7 @@
         "2026-11-05",
         "2026-11-05",
         "2026-11-05",
+        "2026-11-06",
         "2026-11-06",
         "2026-11-06",
         "2026-11-06",
@@ -1881,39 +1865,39 @@
       ],
       "eventos": [
         {
-          "k": 14,
+          "k": 13,
           "tipo": "CHoCH",
           "lado": 1,
           "nivel": 5488.5,
-          "de": 11
+          "de": 10
         },
         {
-          "k": 18,
+          "k": 17,
           "tipo": "CHoCH",
           "lado": -1,
           "nivel": 5468.0,
-          "de": 13
+          "de": 12
         },
         {
-          "k": 25,
+          "k": 24,
           "tipo": "CHoCH",
           "lado": 1,
           "nivel": 5500.5,
-          "de": 15
+          "de": 14
         },
         {
-          "k": 45,
+          "k": 44,
           "tipo": "BOS",
           "lado": 1,
           "nivel": 5522.5,
-          "de": 41
+          "de": 40
         },
         {
-          "k": 49,
+          "k": 48,
           "tipo": "BOS",
           "lado": 1,
           "nivel": 5525.0,
-          "de": 45
+          "de": 44
         }
       ],
       "obs": [
@@ -1929,62 +1913,62 @@
           "lo": 5467.0,
           "hi": 5475.0,
           "de": 0,
-          "ate": 18
+          "ate": 17
         },
         {
           "lado": -1,
           "lo": 5523.5,
           "hi": 5527.0,
           "de": 0,
-          "ate": 49
+          "ate": 48
         },
         {
           "lado": -1,
           "lo": 5518.0,
           "hi": 5526.5,
           "de": 0,
-          "ate": 49
+          "ate": 48
         },
         {
           "lado": -1,
           "lo": 5525.5,
           "hi": 5529.5,
           "de": 0,
-          "ate": 50
+          "ate": 49
         },
         {
           "lado": -1,
           "lo": 5515.0,
           "hi": 5525.0,
           "de": 0,
-          "ate": 49
+          "ate": 48
         },
         {
           "lado": 1,
           "lo": 5480.5,
           "hi": 5485.0,
-          "de": 9,
-          "ate": 18
+          "de": 8,
+          "ate": 17
         },
         {
           "lado": -1,
           "lo": 5487.5,
           "hi": 5500.5,
-          "de": 15,
-          "ate": 25
+          "de": 14,
+          "ate": 24
         },
         {
           "lado": 1,
           "lo": 5513.0,
           "hi": 5520.0,
-          "de": 43,
+          "de": 42,
           "ate": null
         },
         {
           "lado": 1,
           "lo": 5516.0,
           "hi": 5522.5,
-          "de": 47,
+          "de": 46,
           "ate": null
         }
       ],
@@ -1995,5 +1979,5 @@
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-06T10:18:32"
+  "proxima_em": "2026-11-06T10:25:07"
 }
