@@ -338,15 +338,22 @@
         ${grafico(w)}
       </section>
 
-      <section class="qp-card qp-s12 qp-a-gs">
-        <div class="qp-gauges">
-          <div class="qp-gauge">${gauge({ v: k.ext ? k.ext.v : 0, texto: k.ext ? sgn(k.ext.v, 0) : '—' })}
-            <div class="lbl">Força do externo</div><div class="sub">${k.ext ? `${veredito(k.ext.v)[0]} · ${k.ext.usados} ativo(s) com sinal` : 'nenhum ativo com correlação forte'}</div></div>
-          <div class="qp-gauge">${gauge({ v: k.vwap, texto: sgn(w.preco - w.vwap) + ' pts' })}
-            <div class="lbl">Preço vs VWAP</div><div class="sub">${Math.abs(k.vwap) < 15 ? 'colado na VWAP' : w.preco > w.vwap ? 'comprador no controle' : 'vendedor no controle'}</div></div>
-          <div class="qp-gauge">${gauge({ v: k.posRange, min: 0, max: 100, bipolar: false, texto: fmt(k.posRange, 0) + '%' })}
-            <div class="lbl">Posição no range do dia</div></div>
-        </div>
+      <section class="qp-card qp-s12 qp-gauge qp-a-g2">
+        <h3 class="qp-h qp-tech">Força do externo</h3>
+        ${gauge({ v: k.ext ? k.ext.v : 0, texto: k.ext ? sgn(k.ext.v, 0) : '—' })}
+        <div class="sub">${k.ext ? `${veredito(k.ext.v)[0]} · ${k.ext.usados} ativo(s) com sinal` : 'nenhum ativo com correlação forte'}</div>
+      </section>
+
+      <section class="qp-card qp-s12 qp-gauge qp-a-g3">
+        <h3 class="qp-h qp-tech">Preço vs VWAP</h3>
+        ${gauge({ v: k.vwap, texto: sgn(w.preco - w.vwap) + ' pts' })}
+        <div class="sub">${Math.abs(k.vwap) < 15 ? 'colado na VWAP' : w.preco > w.vwap ? 'comprador no controle' : 'vendedor no controle'}</div>
+      </section>
+
+      <section class="qp-card qp-s12 qp-gauge qp-a-g4">
+        <h3 class="qp-h qp-tech">Posição no range do dia</h3>
+        ${gauge({ v: k.posRange, min: 0, max: 100, bipolar: false, texto: fmt(k.posRange, 0) + '%' })}
+        <div class="sub">mínima ${fmt(w.minima, 0)} · máxima ${fmt(w.maxima, 0)}</div>
       </section>
 
       <section class="qp-card qp-s7 qp-a-radar">
