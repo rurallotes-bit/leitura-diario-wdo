@@ -248,6 +248,21 @@
     <p class="qp-note">Barras: variação do ativo · Segmentos: força da correlação com o dólar · Compra/Venda = pressão sobre o WDO</p>`;
   }
 
+  // ---------- escala do dia (mín a máx, com VWAP e preço) ----------
+  function escalaDia(w) {
+    const vw = w.vwap != null ? w.vwap : w.preco;
+    const lo = Math.min(w.minima, w.preco, vw), hi = Math.max(w.maxima, w.preco, vw);
+    const pos = p => (((p - lo) / ((hi - lo) || 1)) * 100).toFixed(2) + '%';
+    return `<div class="qp-escala">
+      <span class="qp-num qp-esc-lim">${fmt(lo)}</span>
+      <div class="qp-esc-trilho">
+        <i class="qp-esc-vwap" style="left:${pos(vw)}" title="VWAP ${fmt(vw, 2)}"></i>
+        <i class="qp-esc-preco" style="left:${pos(w.preco)}" title="Preço ${fmt(w.preco)}"></i>
+      </div>
+      <span class="qp-num qp-esc-lim">${fmt(hi)}</span>
+    </div>`;
+  }
+
   // ---------- escada de níveis ----------
   function escada(w) {
     const p = w.profile || {};
@@ -281,6 +296,8 @@
     const k = leituras(d);
     const [vt, vc] = veredito(k.forca);
     const min = idade(d.atualizado_em);
+    const mer = d.mercado || { status: 'aberto' };
+    const aberto = mer.status !== 'fechado';
     const velho = min != null && min > 30;
     const gapF = w.preco - w.ontem.fechamento, gapA = w.ajuste != null ? w.preco - w.ajuste : null;
     const p = w.profile;
@@ -292,14 +309,16 @@
     root.innerHTML = `<div class="qp-grid">
       <section class="qp-card qp-s7 qp-a-hero">
         <div class="qp-ticker"><span class="qp-dot ${velho ? 'old' : ''}"></span><span class="qp-tech">WDO · Dólar mini</span>
-          <span class="qp-muted">${esc(d.atualizado_em)}${min != null ? ` · há ${min < 90 ? Math.round(min) + ' min' : Math.round(min / 60) + ' h'}` : ''}</span></div>
+          <span class="qp-pill ${aberto ? 'on' : 'off'}">${aberto ? 'AO VIVO' : 'FECHADO' + (mer.abre_em ? ' · abre ' + esc(mer.abre_em) : '')}</span>
+          <span class="qp-muted">${esc(d.atualizado_em)}${min != null ? ` · há ${min < 90 ? Math.round(min) + ' min' : Math.round(min / 60) + ' h'}` : ''}</span>
+          <span class="qp-count qp-num" id="qpCont"></span></div>
         <div class="qp-hero" style="margin-top:8px">
           <span class="qp-price qp-num">${fmt(w.preco)}</span>
           <span class="qp-chg qp-num ${cls(w.variacao_pct)}">${sgn(w.variacao_pct, 2)}%</span>
         </div>
+        ${escalaDia(w)}
         <div class="qp-tiles">
           ${w.abertura != null ? `<div class="qp-tile"><b>Abertura</b><span class="qp-num">${fmt(w.abertura)}</span><em class="${cls(w.preco - w.abertura)}">${sgn((w.preco / w.abertura - 1) * 100, 2)}% · ${sgn(w.preco - w.abertura)} pts</em></div>` : ''}
-          <div class="qp-tile"><b>Máx / Mín</b><span class="qp-num">${fmt(w.maxima)} / ${fmt(w.minima)}</span><em>amplitude ${fmt(w.maxima - w.minima)} pts</em></div>
           <div class="qp-tile"><b>VWAP</b><span class="qp-num">${fmt(w.vwap, 2)}</span><em class="${cls(w.preco - w.vwap)}">${sgn(w.preco - w.vwap)} pts</em></div>
           <div class="qp-tile"><b>Ajuste ${esc(w.ajuste_data || '')}</b><span class="qp-num">${fmt(w.ajuste, 2)}</span><em>${w.ajuste_hoje != null ? 'hoje ≈ ' + fmt(w.ajuste_hoje, 2) : 'estimado pelo MT5'}</em></div>
           <div class="qp-tile"><b>Gap</b><span class="qp-num ${cls(gapF)}">${sgn(gapF)}</span><em>vs fech · <span class="${cls(gapA)}">${sgn(gapA)}</span> vs ajuste</em></div>
@@ -309,14 +328,14 @@
       </section>
 
       <section class="qp-card qp-s5 qp-gauge qp-main-gauge qp-a-forca">
-        <h3 class="qp-h qp-tech">Índice de força <small>VWAP + range + externo</small></h3>
+        <h3 class="qp-h qp-tech">Índice de força</h3>
         ${gauge({ v: k.forca, texto: sgn(k.forca, 0), big: true })}
         <div class="qp-verdict ${vc}">${vt}</div>
         <p class="qp-note">Leitura técnica do momento, não é recomendação de compra ou venda.</p>
       </section>
 
       <section class="qp-card qp-s12 qp-a-chart">
-        <h3 class="qp-h qp-tech">Pregão de hoje <small>passe o mouse ou toque no gráfico</small></h3>
+        <h3 class="qp-h qp-tech">Pregão de hoje</h3>
         ${grafico(w)}
       </section>
 
@@ -327,20 +346,23 @@
           <div class="qp-gauge">${gauge({ v: k.vwap, texto: sgn(w.preco - w.vwap) + ' pts' })}
             <div class="lbl">Preço vs VWAP</div><div class="sub">${Math.abs(k.vwap) < 15 ? 'colado na VWAP' : w.preco > w.vwap ? 'comprador no controle' : 'vendedor no controle'}</div></div>
           <div class="qp-gauge">${gauge({ v: k.posRange, min: 0, max: 100, bipolar: false, texto: fmt(k.posRange, 0) + '%' })}
-            <div class="lbl">Posição no range do dia</div><div class="sub">0% = mínima · 100% = máxima</div></div>
+            <div class="lbl">Posição no range do dia</div></div>
         </div>
       </section>
 
       <section class="qp-card qp-s7 qp-a-radar">
-        <h3 class="qp-h qp-tech">Radar externo <small>ordenado pela correlação</small></h3>
+        <h3 class="qp-h qp-tech">Radar externo</h3>
         ${tabelaExterno(d.externo)}
       </section>
 
       <section class="qp-card qp-s5 qp-a-esc">
-        <h3 class="qp-h qp-tech">Escada de níveis <small>distância do preço em pontos</small></h3>
+        <h3 class="qp-h qp-tech">Escada de níveis</h3>
         ${escada(w)}
       </section>
     </div>`;
+    // o cartão de cotação sai da grade e fica antes dela, para poder grudar no topo ao rolar
+    const cotacao = root.querySelector('.qp-a-hero'), grade = root.querySelector('.qp-grid');
+    if (cotacao && grade) grade.before(cotacao);
     if (w.intraday && w.intraday.length > 1) ligarHover(w);
   }
 
@@ -367,9 +389,21 @@
     if (antes != null && preco && d.wdo.preco !== antes) {
       preco.classList.add(d.wdo.preco > antes ? 'qp-flash-up' : 'qp-flash-down');
     }
-    const tick = root.querySelector('.qp-ticker');
-    if (tick && LOCAL) tick.insertAdjacentHTML('beforeend', '<span class="qp-live qp-tech">ao vivo</span>');
+    contagem();
   }
+
+  // cronômetro até a próxima atualização (só quando aberto)
+  function contagem() {
+    const el = document.getElementById('qpCont');
+    if (!el || !ultimo) return;
+    if ((ultimo.mercado || {}).status === 'fechado' || !ultimo.proxima_em) { el.textContent = ''; return; }
+    const ms = new Date(ultimo.proxima_em).getTime() - Date.now();
+    if (isNaN(ms)) { el.textContent = ''; return; }
+    if (ms <= 0) { el.textContent = 'atualizando…'; return; }
+    const s = Math.ceil(ms / 1000);
+    el.textContent = 'próxima atualização em ' + String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  }
+  setInterval(contagem, 1000);
 
   function buscar(primeira) {
     fetch('dados.json?v=' + Date.now(), { cache: 'no-store' })
