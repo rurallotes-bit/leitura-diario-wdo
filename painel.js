@@ -252,14 +252,27 @@
   function escalaDia(w) {
     const vw = w.vwap != null ? w.vwap : w.preco;
     const lo = Math.min(w.minima, w.preco, vw), hi = Math.max(w.maxima, w.preco, vw);
-    const pos = p => (((p - lo) / ((hi - lo) || 1)) * 100).toFixed(2) + '%';
+    const span = (hi - lo) || 1;
+    const na = p => (p - lo) / span * 100;          // posição do valor na faixa do dia, em %
+    const pos = p => na(p).toFixed(2) + '%';
+    // valores redondos ao longo da linha; as pontas mostram mínima e máxima
+    const passo = [1, 2, 5, 10, 20, 25, 50, 100].find(s => span / s <= 5) || 100;
+    let marcas = `<span class="qp-esc-ini">Mín ${fmt(lo, 0)}</span>`;
+    for (let v = Math.ceil(lo / passo) * passo; v <= hi; v += passo) {
+      const q = na(v);
+      if (q > 14 && q < 86) marcas += `<span style="left:${q.toFixed(2)}%">${fmt(v, 0)}</span>`;
+    }
+    marcas += `<span class="qp-esc-fim">Máx ${fmt(hi, 0)}</span>`;
     return `<div class="qp-escala">
-      <span class="qp-num qp-esc-lim">${fmt(lo)}</span>
-      <div class="qp-esc-trilho">
-        <i class="qp-esc-vwap" style="left:${pos(vw)}" title="VWAP ${fmt(vw, 2)}"></i>
-        <i class="qp-esc-preco" style="left:${pos(w.preco)}" title="Preço ${fmt(w.preco)}"></i>
+      <div class="qp-esc-eixo">
+        <div class="qp-esc-tag qp-esc-tag-p" style="left:${pos(w.preco)}">preço ${fmt(w.preco, 0)} · ${na(w.preco).toFixed(0)}% do dia</div>
+        <div class="qp-esc-trilho">
+          <i class="qp-esc-vwap" style="left:${pos(vw)}"></i>
+          <i class="qp-esc-preco" style="left:${pos(w.preco)}"></i>
+        </div>
+        <div class="qp-esc-tag qp-esc-tag-v" style="left:${pos(vw)}">VWAP ${fmt(vw, 0)}</div>
+        <div class="qp-esc-marcas">${marcas}</div>
       </div>
-      <span class="qp-num qp-esc-lim">${fmt(hi)}</span>
     </div>`;
   }
 
@@ -302,7 +315,6 @@
     const gapF = w.preco - w.ontem.fechamento, gapA = w.ajuste != null ? w.preco - w.ajuste : null;
     const p = w.profile;
     const area = !p ? '—' : w.preco > p.vah ? 'Acima da área de valor' : w.preco < p.val ? 'Abaixo da área de valor' : 'Dentro da área de valor';
-    const us = d.us10y;
 
     root.className = 'qp';
     root.removeAttribute('style');
@@ -323,7 +335,6 @@
           <div class="qp-tile"><b>Ajuste ${esc(w.ajuste_data || '')}</b><span class="qp-num">${fmt(w.ajuste, 2)}</span><em>${w.ajuste_hoje != null ? 'hoje ≈ ' + fmt(w.ajuste_hoje, 2) : 'estimado pelo MT5'}</em></div>
           <div class="qp-tile"><b>Gap</b><span class="qp-num ${cls(gapF)}">${sgn(gapF)}</span><em>vs fech · <span class="${cls(gapA)}">${sgn(gapA)}</span> vs ajuste</em></div>
           <div class="qp-tile"><b>Volume profile</b><span class="qp-num">POC ${fmt(p && p.poc)}</span><em>${esc(area)}</em></div>
-          ${us ? `<div class="qp-tile"><b>US10Y</b><span class="qp-num">${fmt(us.taxa, 2)}%</span><em class="${cls(us.variacao_bps)}">${sgn(us.variacao_bps)} bps</em></div>` : ''}
         </div>
       </section>
 
