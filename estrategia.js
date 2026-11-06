@@ -88,7 +88,7 @@
   const ICONE = { estrutura: '⟁', ob: '▣', vwap: '≋', momentum: '◬', fluxo: '⇅', risco: '⛨' };
   function blocoAgentes(e) {
     return `<section class="cy-card cy-agents">
-      <div class="cy-tag">AGENTES // cada um vota de −100 (venda) a +100 (compra)</div>
+      <div class="cy-tag">AGENTES // −100 venda · +100 compra</div>
       <div class="cy-agrid">${e.agentes.map(a => {
         const v = Math.max(-100, Math.min(100, a.voto || 0));
         return `<div class="cy-agent">
@@ -190,7 +190,7 @@
       <div class="cy-tag">M15 // estrutura, order blocks e VWAP ±1σ ±2σ</div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gráfico M15 do WDO">${s}</svg>
       <div class="cy-niveis">${niveis}<span class="cy-ultp">último ${fmt(ult, passo < 1 ? 1 : 0)}</span></div>
-      <div class="cy-leg"><span class="b">▮ OB de alta</span><span class="s">▮ OB de baixa</span><span class="v">— VWAP</span><span class="d">┄ bandas σ</span><span class="b">BOS/CHoCH de alta</span><span class="s">BOS/CHoCH de baixa</span><span class="sig">▯ barra do sinal</span></div>
+      <div class="cy-leg"><span class="b">▮ OB alta</span><span class="s">▮ OB baixa</span><span class="v">— VWAP</span><span class="d">┄ ±σ</span><span class="sig">▯ sinal</span></div>
     </section>`;
   }
 
@@ -216,12 +216,12 @@
         return `<div class="cy-side cy-off"><h4>${nomeLado} <span class="cy-badge no">fora do filtro 70%+</span></h4>
           <p class="cy-dim">${x && x.oos && x.oos.acerto != null ? 'Acerto fora da amostra: <b class="cy-mono">' + pct(x.oos.acerto) + '</b> em ' + x.oos.n + ' trades. Não exibido.' : esc((x && x.motivo) || 'Sem dados suficientes.')}</p></div>`;
       return `<div class="cy-side">
-        <h4>${nome === 'compra' ? 'Compra' : 'Venda'} <span class="cy-badge ${x.validado ? 'ok' : 'no'}">${x.validado ? 'acerto 70%+ fora da amostra' : 'abaixo de 70%'}</span></h4>
+        <h4>${nome === 'compra' ? 'Compra' : 'Venda'} <span class="cy-badge ${x.validado ? 'ok' : 'no'}">${x.validado ? '70%+' : 'abaixo de 70%'}</span></h4>
         <p class="cy-cfg">Stop <b>${esc(c.stop)}</b> · alvo 1 <b>${fmt(c.a1, 1)}R</b> (parcial 50%) · alvo 2 <b>${fmt(c.a2, 1)}R</b> · limiar <b>${pct(c.limiar)}</b></p>
         <table class="cy-tab"><thead><tr><th></th><th>Trades</th><th>Acerto</th><th>Média</th><th>PF</th><th>Queda máx.</th></tr></thead>
           <tbody>${linha('Treino', x.is)}${linha('Fora da amostra', x.oos)}</tbody></table>
-        <div class="cy-eqbox"><span class="cy-dim">Resultado acumulado fora da amostra (em R)</span>${curva(x.curva)}</div>
-        <details class="cy-rank"><summary>Outras ${x.testadas - 1} combinações testadas (top 8)</summary>
+        <div class="cy-eqbox"><span class="cy-dim">Acumulado fora da amostra (R)</span>${curva(x.curva)}</div>
+        <details class="cy-rank"><summary>${x.testadas - 1} combinações</summary>
           <table class="cy-tab"><thead><tr><th>Stop</th><th>Alvo 1</th><th>Alvo 2</th><th>Treino</th><th>Fora</th><th>Trades</th><th>Média</th></tr></thead><tbody>
           ${x.ranking.filter(r => r.oos && r.oos.acerto >= 0.70).map(r => `<tr><td>${esc(r.stop)}</td><td class="cy-mono">${fmt(r.a1, 1)}R</td><td class="cy-mono">${fmt(r.a2, 1)}R</td><td class="cy-mono">${pct(r.is)}</td>
             <td class="cy-mono ${r.oos > 0.5 ? 'cy-up' : 'cy-dn'}">${pct(r.oos)}</td><td class="cy-mono">${r.oos_n}</td><td class="cy-mono ${cls(r.oos_exp)}">${sgn(r.oos_exp)} R</td></tr>`).join('')}
@@ -232,7 +232,7 @@
     return `<section class="cy-card cy-bt">
       <div class="cy-tag">BACKTEST // treino ${d(b.periodo_is && b.periodo_is[0])} a ${d(b.periodo_is && b.periodo_is[1])} · validação ${d(b.periodo_oos && b.periodo_oos[0])} a ${d(b.periodo_oos && b.periodo_oos[1])}</div>
       <div class="cy-sides">${lado('compra')}${lado('venda')}</div>
-      <p class="cy-dim cy-small">O motor escolhe stop e alvos só com os dados de treino: busca o maior acerto (com margem pelo número de trades), exige lucro médio positivo e, no empate, fica com o menor stop. Depois confere nos ${b.dias ? Math.round(b.dias * 0.3) : ''} dias finais, que ele nunca viu. Só o lado aprovado ali pode dar COMPRA ou VENDA. Custo de ${fmt(b.custo_pts, 1)} pt por trade, uma operação por vez, stop antes do alvo quando os dois acontecem na mesma barra. Modelo treinado em ${esc(b.gerado_em || '')}.</p>
+      <p class="cy-dim cy-small">Escolhe stop e alvos no treino e confere nos ${b.dias ? Math.round(b.dias * 0.3) : ''} dias finais · custo ${fmt(b.custo_pts, 1)} pt · treinado em ${esc(b.gerado_em || '')}</p>
     </section>`;
   }
 
@@ -245,7 +245,7 @@
     }
     root.innerHTML = `<div class="cy">
       <div class="cy-head"><h2 class="cy-title" data-text="ESTRATÉGIA // M15">ESTRATÉGIA // M15</h2>
-        <span class="cy-dim">agente coordenador · motor probabilístico · ${esc(d.atualizado_em)} · WDO ${fmt(e.preco)} · ATR ${fmt(e.atr)} pts</span></div>
+        <span class="cy-dim">${esc(d.atualizado_em)} · WDO ${fmt(e.preco)} · ATR ${fmt(e.atr)}</span></div>
       <div class="cy-grid">
         ${blocoDecisao(e)}
         ${grafico(e)}
