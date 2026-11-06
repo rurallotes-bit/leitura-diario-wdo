@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "05/11/2026 21:00:33",
+  "atualizado_em": "05/11/2026 21:55:26",
   "wdo": {
     "preco": 5531.0,
     "abertura": 5473.5,
@@ -1138,58 +1138,58 @@
   },
   "externo": {
     "dxy": {
-      "valor": 101.566,
-      "variacao_pct": 0.06,
-      "correlacao": -0.09,
+      "valor": 101.494,
+      "variacao_pct": -0.02,
+      "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.29,
-      "z": 0.19
+      "z": -0.05
     },
     "mxn": {
-      "valor": 18.7877,
-      "variacao_pct": -0.16,
-      "correlacao": 0.3,
-      "sinal": "Venda",
-      "motivo": "pressiona o dólar para baixo",
-      "vol_pct": 0.61,
-      "z": -0.26
+      "valor": 18.7378,
+      "variacao_pct": 0.7,
+      "correlacao": 0.32,
+      "sinal": "Compra",
+      "motivo": "pressiona o dólar para cima",
+      "vol_pct": 0.64,
+      "z": 1.1
     },
     "zar": {
-      "valor": 16.4819,
-      "variacao_pct": -0.67,
-      "correlacao": 0.35,
-      "sinal": "Venda",
-      "motivo": "pressiona o dólar para baixo",
-      "vol_pct": 0.52,
-      "z": -1.29
+      "valor": 16.4811,
+      "variacao_pct": 0.48,
+      "correlacao": 0.38,
+      "sinal": "Compra",
+      "motivo": "pressiona o dólar para cima",
+      "vol_pct": 0.54,
+      "z": 0.89
     },
     "spx": {
-      "valor": 7352.5,
-      "variacao_pct": -4.77,
-      "correlacao": -0.09,
+      "valor": 7399.5,
+      "variacao_pct": -4.16,
+      "correlacao": -0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.93,
-      "z": -5.11
+      "vol_pct": 0.88,
+      "z": -4.71
     },
     "ndx": {
-      "valor": 26606.75,
-      "variacao_pct": -6.86,
-      "correlacao": -0.13,
+      "valor": 26945.25,
+      "variacao_pct": -5.68,
+      "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.47,
-      "z": -4.67
+      "vol_pct": 1.38,
+      "z": -4.1
     },
     "oil": {
-      "valor": 99.28,
-      "variacao_pct": 4.92,
-      "correlacao": -0.06,
+      "valor": 99.02,
+      "variacao_pct": 4.65,
+      "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 2.91,
-      "z": 1.69
+      "vol_pct": 2.9,
+      "z": 1.6
     },
     "iron": {
       "valor": 91.95,
@@ -1203,20 +1203,20 @@
     "ust": {
       "valor": 4.837,
       "variacao_pct": -1.16,
-      "correlacao": -0.05,
+      "correlacao": -0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.04,
       "z": -1.12
     },
     "nikkei": {
-      "valor": 62188.6289,
-      "variacao_pct": -1.42,
-      "correlacao": -0.0,
+      "valor": 57706.8086,
+      "variacao_pct": -7.21,
+      "correlacao": -0.01,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.51,
-      "z": -0.94
+      "vol_pct": 1.77,
+      "z": -4.08
     },
     "hsi": {
       "valor": 23919.5,
@@ -1239,7 +1239,7 @@
     "vix": {
       "valor": 28.18,
       "variacao_pct": 69.66,
-      "correlacao": 0.09,
+      "correlacao": 0.01,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 11.28,
@@ -1253,12 +1253,12 @@
     "componentes": [
       {
         "ativo": "spx",
-        "z": -5.11,
+        "z": -4.71,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -4.67,
+        "z": -4.1,
         "peso": 1
       },
       {
@@ -1268,7 +1268,7 @@
       },
       {
         "ativo": "nikkei",
-        "z": -0.94,
+        "z": -4.08,
         "peso": 1
       },
       {
@@ -1278,12 +1278,12 @@
       },
       {
         "ativo": "oil",
-        "z": 1.69,
+        "z": 1.6,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 0.19,
+        "z": -0.05,
         "peso": -1
       },
       {
@@ -2892,5 +2892,10 @@
       ],
       "sinal": 55
     }
-  }
+  },
+  "mercado": {
+    "status": "fechado",
+    "abre_em": "06/11 08:50"
+  },
+  "proxima_em": null
 }
