@@ -107,14 +107,20 @@
 .qp-tile b { display: block; font-size: .66rem; font-weight: 600; color: var(--qp-muted); text-transform: uppercase; letter-spacing: .06em; }
 .qp-tile > span { font-size: .92rem; white-space: nowrap; }
 .qp-tile em { display: block; font-style: normal; font-size: .72rem; color: var(--qp-text2); }
-/* escala do dia: trilho mín–máx com marcador de preço e de VWAP */
-.qp-escala { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
-.qp-esc-lim { font-size: .8rem; color: var(--qp-muted); min-width: 56px; }
-.qp-esc-lim:last-child { text-align: right; }
-.qp-esc-trilho { position: relative; flex: 1; height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgba(255, 59, 107, .35), rgba(41, 255, 154, .35)); }
+/* escala do dia: a linha mín–máx com valores e % direto nela (sem legenda separada) */
+.qp-escala { margin-top: 14px; }
+.qp-esc-eixo { position: relative; height: 92px; margin: 0 6px; }
+.qp-esc-trilho { position: absolute; top: 34px; left: 0; right: 0; height: 10px; border-radius: 5px; background: rgba(0, 229, 255, .12); }
 .qp-esc-trilho i { position: absolute; top: 50%; transform: translate(-50%, -50%); display: block; }
-.qp-esc-vwap { width: 2px; height: 16px; background: var(--qp-cyan); }
-.qp-esc-preco { width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px rgba(255, 255, 255, .18); }
+.qp-esc-vwap { width: 2px; height: 22px; background: var(--qp-cyan); }
+.qp-esc-preco { width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px rgba(255, 255, 255, .2); }
+.qp-esc-tag { position: absolute; transform: translateX(-50%); white-space: nowrap; font-size: .78rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.qp-esc-tag-p { top: 0; color: var(--qp-text); }
+.qp-esc-tag-v { top: 52px; color: var(--qp-cyan); }
+.qp-esc-marcas { position: absolute; top: 74px; left: 0; right: 0; height: 18px; font-size: .74rem; color: var(--qp-text2); font-variant-numeric: tabular-nums; }
+.qp-esc-marcas span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.qp-esc-marcas .qp-esc-ini { left: 0; transform: none; color: var(--qp-muted); }
+.qp-esc-marcas .qp-esc-fim { left: 100%; transform: translateX(-100%); color: var(--qp-muted); }
 
 /* ---------- medidores ---------- */
 .qp-gauges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
