@@ -126,7 +126,7 @@
     const X = i => L + dx * (i + 0.5), Y = y => T + (hi - y) / (hi - lo) * (B - T);
     let s = '';
     // grade de preço
-    const passo = [1, 2, 2.5, 5, 10, 20, 25, 50].find(st => (hi - lo) / st <= 8) || 50;
+    const passo = [1, 2, 2.5, 5, 10, 20, 25, 50].find(st => (hi - lo) / st <= 16) || 50;
     for (let y = Math.ceil(lo / passo) * passo; y <= hi; y += passo) {
       s += `<line x1="${L}" x2="${W - R}" y1="${Y(y).toFixed(1)}" y2="${Y(y).toFixed(1)}" class="cy-gl"/><text x="${W - R + 6}" y="${(Y(y) + 4).toFixed(1)}" class="cy-ax">${fmt(y, passo < 1 ? 1 : 0)}</text>`;
     }
@@ -161,6 +161,12 @@
         <line x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${Y(c[2]).toFixed(1)}" y2="${Y(c[3]).toFixed(1)}"/>
         <rect x="${(x - bw / 2).toFixed(1)}" y="${y0.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(1, y1 - y0).toFixed(1)}"/></g>`;
     });
+    // linha de fechamento por cima das velas + último preço
+    s += `<path d="${v.map((c, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(c[4]).toFixed(1)).join(' ')}" class="cy-preco"/>`;
+    const ult = v[n - 1][4];
+    s += `<line x1="${L}" x2="${W - R}" y1="${Y(ult).toFixed(1)}" y2="${Y(ult).toFixed(1)}" class="cy-ultimo"/>
+      <rect x="${W - R + 1}" y="${(Y(ult) - 8).toFixed(1)}" width="${R - 2}" height="16" class="cy-ultbox"/>
+      <text x="${W - R + 6}" y="${(Y(ult) + 4).toFixed(1)}" class="cy-ultt">${fmt(ult, passo < 1 ? 1 : 0)}</text>`;
     // BOS / CHoCH
     g.eventos.forEach(ev => {
       const x0 = X(ev.de), x1 = X(ev.k), y = Y(ev.nivel);
@@ -175,9 +181,15 @@
           <text x="${W - R - 4}" y="${(Y(y) - 4).toFixed(1)}" text-anchor="end" class="cy-plt ${c}">${t} ${fmt(y)}</text>`;
       });
     }
+    // valores das bandas no último ponto com VWAP
+    let u = n - 1;
+    while (u >= 0 && (g.vwap[u] == null || g.sd[u] == null)) u--;
+    const niveis = u < 0 ? '' : [[2, '+2σ'], [1, '+1σ'], [0, 'VWAP'], [-1, '−1σ'], [-2, '−2σ']]
+      .map(([k, t]) => `<span class="${k === 0 ? 'v' : Math.abs(k) === 1 ? 'd' : 'b2'}">${t} ${fmt(g.vwap[u] + k * g.sd[u], 0)}</span>`).join('');
     return `<section class="cy-card cy-chart">
       <div class="cy-tag">M15 // estrutura, order blocks e VWAP ±1σ ±2σ</div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gráfico M15 do WDO">${s}</svg>
+      <div class="cy-niveis">${niveis}<span class="cy-ultp">último ${fmt(ult, passo < 1 ? 1 : 0)}</span></div>
       <div class="cy-leg"><span class="b">▮ OB de alta</span><span class="s">▮ OB de baixa</span><span class="v">— VWAP</span><span class="d">┄ bandas σ</span><span class="b">BOS/CHoCH de alta</span><span class="s">BOS/CHoCH de baixa</span><span class="sig">▯ barra do sinal</span></div>
     </section>`;
   }
