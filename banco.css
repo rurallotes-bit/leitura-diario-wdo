@@ -167,4 +167,5 @@ small { color: var(--muted); }
   body { padding-left: 0; padding-right: 0; }
   main, .view { padding-left: 16px; padding-right: 16px; }
 }
-html, body { overflow-x: hidden; }
+/* só o html: com html e body ambos "hidden", o sticky do cabeçalho deixa de funcionar */
+html { overflow-x: hidden; }
