@@ -1,0 +1,92 @@
+/* Tema escuro (fundo preto) com relógios analógicos de preço e probabilidade.
+   Carrega por último e sobrescreve o tema claro de banco.css. */
+
+:root, .qp, .cy {
+  --bg: #000000;
+  --card: #0a0d10;
+  --card2: #0f1317;
+  --line: #1c232b;
+  --text: #e8eef5;
+  --muted: #7d8a99;
+  --accent: #3ea0ff;
+  --good: #29ff9a;
+  --bad: #ff3b6b;
+  --warn: #f5c542;
+
+  --qp-bg: #000; --qp-card: #0a0d10; --qp-edge: #1c232b; --qp-edge-hot: #3ea0ff;
+  --qp-grid: #111820; --qp-text: #e8eef5; --qp-muted: #7d8a99;
+  --qp-up: #29ff9a; --qp-down: #ff3b6b; --qp-cyan: #3ea0ff; --qp-violet: #3ea0ff; --qp-warn: #f5c542;
+
+  --cy-bg: #000; --cy-card: #0a0d10; --cy-edge: #1c232b;
+  --cy-text: #e8eef5; --cy-dim: #7d8a99; --cy-cyan: #3ea0ff; --cy-mag: #3ea0ff;
+  --cy-up: #29ff9a; --cy-dn: #ff3b6b; --cy-yel: #f5c542;
+}
+
+body { background: #000; color: var(--text); }
+header { background: #000; border-bottom: 1px solid var(--line); }
+header h1, .cy-title, .cy-acao, .cy-side h4, .qp-h, .cy-tag, .cy-ahead b { color: var(--text) !important; }
+.cy-tag { color: var(--muted) !important; }
+header nav button { color: var(--muted); }
+header nav button.active { color: var(--text); border-bottom-color: var(--accent); }
+.modo-btn { background: #0a0d10; color: var(--text); border-color: var(--line); }
+
+.qp-card, .cy-card, .cy-decision, .cy-side, .cy-eqbox, .cy-cell, .cy-prob,
+section.card, .card {
+  background: var(--card) !important;
+  border: 1px solid var(--line) !important;
+}
+.cy-badge.ok { background: rgba(41, 255, 154, .12); color: var(--good); }
+.cy-badge.no { background: #14191e; color: var(--muted); }
+.cy-bar { background: #14191e; }
+.cy-bar i { background: var(--accent); }
+.cy-bar em { background: var(--warn); }
+.cy-decision.buy { border-left-color: var(--good) !important; }
+.cy-decision.sell { border-left-color: var(--bad) !important; }
+.cy-decision.wait { border-left-color: var(--warn) !important; }
+.cy-decision.idle { border-left-color: var(--accent) !important; }
+.cy-decision.buy .cy-acao { color: var(--good) !important; }
+.cy-decision.sell .cy-acao { color: var(--bad) !important; }
+.cy-decision.wait .cy-acao { color: var(--warn) !important; }
+.cy-tab th { color: var(--muted); border-bottom-color: var(--line); }
+.cy-tab td { border-bottom-color: var(--line); }
+
+/* ---------- relógios analógicos ---------- */
+.rel-grupo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.rel {
+  background: radial-gradient(circle at 50% 35%, #111820 0%, #000 75%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 6px 6px;
+  text-align: center;
+}
+.rel svg { width: 100%; max-width: 150px; height: auto; display: block; margin: 0 auto; }
+.rel-arco { fill: none; stroke: #1f2a35; stroke-width: 7; stroke-linecap: round; }
+.rel-tick { stroke: #3a4756; stroke-width: 1.2; }
+.rel-limiar { stroke: var(--warn); stroke-width: 2; stroke-linecap: round; }
+.rel-eixo { fill: #e8eef5; }
+.rel-ponteiro { transform-origin: 60px 60px; transition: transform .9s cubic-bezier(.2, .8, .2, 1); }
+.rel-ponteiro line {
+  stroke: var(--cor); stroke-width: 2.6; stroke-linecap: round;
+  transform-origin: 60px 60px;
+  animation: rel-balanco 2.6s ease-in-out infinite;
+}
+@keyframes rel-balanco {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(1.6deg); }
+}
+.rel-txt { display: flex; flex-direction: column; gap: 2px; margin-top: 2px; }
+.rel-txt b { font-size: .72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.rel-txt span { font-size: .95rem; color: var(--cor); font-weight: 700; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rel-ponteiro line { animation: none; }
+}
+@media (max-width: 480px) {
+  .rel-grupo { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .rel-txt b { font-size: .62rem; }
+}
