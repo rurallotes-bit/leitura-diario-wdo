@@ -123,8 +123,17 @@
 .cy-ob.s { fill: rgba(255, 59, 107, .10); stroke: rgba(255, 59, 107, .35); }
 .cy-ob.vivo { stroke-width: 1.5; }
 .cy-vwap { fill: none; stroke: var(--cy-cyan); stroke-width: 1.8; filter: drop-shadow(0 0 3px var(--cy-cyan)); }
-.cy-band { fill: none; stroke: var(--cy-cyan); stroke-dasharray: 3 4; opacity: .45; }
-.cy-band.b2 { stroke: var(--cy-mag); opacity: .5; }
+.cy-band { fill: none; stroke: var(--cy-cyan); stroke-dasharray: 3 4; stroke-width: 1.2; opacity: .7; }
+.cy-band.b2 { stroke: var(--cy-mag); opacity: .75; }
+.cy-preco { fill: none; stroke: #ffffff; stroke-width: 1.3; opacity: .85; stroke-linejoin: round; }
+.cy-ultimo { stroke: #ffffff; stroke-width: 1; stroke-dasharray: 2 3; opacity: .7; }
+.cy-ultbox { fill: #ffffff; }
+.cy-ultt { fill: #000000; font: 700 10px "JetBrains Mono", monospace; }
+.cy-niveis { display: flex; flex-wrap: wrap; gap: 4px 14px; font: 600 .74rem "JetBrains Mono", monospace; margin-top: 6px; }
+.cy-niveis .v { color: var(--cy-yel); }
+.cy-niveis .d { color: var(--cy-cyan); }
+.cy-niveis .b2 { color: var(--cy-mag); }
+.cy-ultp { margin-left: auto; color: #ffffff; }
 .cy-ev { stroke-width: 1.2; stroke-dasharray: 5 3; }
 .cy-ev.b { stroke: var(--cy-up); }
 .cy-ev.s { stroke: var(--cy-dn); }
