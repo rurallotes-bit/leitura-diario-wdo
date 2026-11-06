@@ -472,17 +472,12 @@
     if (clDate === todayStr() && EXT) preencherDoMT5(rec, EXT.wdo);
     root.innerHTML = `
       <div class="bar">
-        <label class="inline">Data <input type="date" id="clDateIn" value="${clDate}"></label>
-        <button id="clToday">Hoje</button>
         ${prev ? `<button id="clCopy">Copiar tudo do último dia (${fmtDate(prev.date)})</button>` : ''}
-        <button id="clDel" class="danger">Excluir este dia</button>
       </div>
       ${note}
       ${prev ? prevCard(prev) : ''}
       <div id="clform">${colunasChecklist(rec)}</div>`;
 
-    $('#clDateIn').onchange = e => { clDate = e.target.value || todayStr(); renderChecklist(); };
-    $('#clToday').onclick = () => { clDate = todayStr(); renderChecklist(); };
     const copy = $('#clCopy');
     if (copy) {
       copy.onclick = () => {
@@ -492,13 +487,6 @@
         renderChecklist();
       };
     }
-    $('#clDel').onclick = () => {
-      if (!db.checklists[clDate]) { flash('Nada salvo neste dia'); return; }
-      if (!confirm('Excluir o checklist de ' + fmtDate(clDate) + '?')) return;
-      delete db.checklists[clDate];
-      save();
-      renderChecklist();
-    };
 
     blocoNoticias();
     blocoMundo();
