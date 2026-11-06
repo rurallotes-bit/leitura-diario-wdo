@@ -37,6 +37,7 @@
   border: 1px solid var(--qp-edge);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .4) inset, 0 20px 60px -30px rgba(0, 229, 255, .35);
   overflow: hidden;
+  overflow: clip; /* clip (e não hidden) para o cartão de cotação poder grudar ao rolar */
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -106,6 +107,14 @@
 .qp-tile b { display: block; font-size: .66rem; font-weight: 600; color: var(--qp-muted); text-transform: uppercase; letter-spacing: .06em; }
 .qp-tile > span { font-size: .92rem; white-space: nowrap; }
 .qp-tile em { display: block; font-style: normal; font-size: .72rem; color: var(--qp-text2); }
+/* escala do dia: trilho mín–máx com marcador de preço e de VWAP */
+.qp-escala { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.qp-esc-lim { font-size: .8rem; color: var(--qp-muted); min-width: 56px; }
+.qp-esc-lim:last-child { text-align: right; }
+.qp-esc-trilho { position: relative; flex: 1; height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgba(255, 59, 107, .35), rgba(41, 255, 154, .35)); }
+.qp-esc-trilho i { position: absolute; top: 50%; transform: translate(-50%, -50%); display: block; }
+.qp-esc-vwap { width: 2px; height: 16px; background: var(--qp-cyan); }
+.qp-esc-preco { width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px rgba(255, 255, 255, .18); }
 
 /* ---------- medidores ---------- */
 .qp-gauges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
@@ -228,7 +237,10 @@
 }
 
 /* ---------- formato da tela: PC (html.largo) e celular ---------- */
-header { position: sticky; }
+/* cartão de cotação (preço e indicadores) fica fixo logo abaixo do cabeçalho ao rolar */
+.qp-a-hero { position: sticky; top: var(--topo-h, 64px); z-index: 5; margin-bottom: 12px; }
+/* faixa de cotações (rolagem automática) fica fixa logo abaixo do cabeçalho */
+.tradingview-widget-container { position: sticky; z-index: 9; background: var(--bg); }
 .modo-btn { position: absolute; top: 9px; right: 16px; background: var(--card2); border: 1px solid var(--line); border-radius: 8px;
   color: var(--muted); font-size: .78rem; padding: 4px 10px; cursor: pointer; }
 .modo-btn:hover { color: var(--text); border-color: var(--accent); }
@@ -259,3 +271,9 @@ html.largo #view-trades, html.largo #view-week, html.largo #view-history { max-w
 @media (max-width: 520px) {
   .modo-btn { top: 8px; right: 10px; font-size: .72rem; padding: 3px 8px; }
 }
+
+/* status do mercado e cronômetro */
+.qp-pill { font: 700 .68rem/1 system-ui, sans-serif; letter-spacing: .06em; padding: 4px 8px; border-radius: 999px; text-transform: uppercase; }
+.qp-pill.on { background: rgba(41, 255, 154, .15); color: var(--qp-up); }
+.qp-pill.off { background: rgba(125, 138, 153, .18); color: var(--qp-muted); }
+.qp-count { font-size: .78rem; color: var(--qp-muted); }
