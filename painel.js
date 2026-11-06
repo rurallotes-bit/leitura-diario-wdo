@@ -324,18 +324,6 @@
           <span class="qp-pill ${aberto ? 'on' : 'off'}">${aberto ? 'AO VIVO' : 'FECHADO' + (mer.abre_em ? ' · abre ' + esc(mer.abre_em) : '')}</span>
           <span class="qp-muted">${esc(d.atualizado_em)}${min != null ? ` · há ${min < 90 ? Math.round(min) + ' min' : Math.round(min / 60) + ' h'}` : ''}</span>
           <span class="qp-count qp-num" id="qpCont"></span></div>
-        <div class="qp-hero" style="margin-top:8px">
-          <span class="qp-price qp-num">${fmt(w.preco)}</span>
-          <span class="qp-chg qp-num ${cls(w.variacao_pct)}">${sgn(w.variacao_pct, 2)}%</span>
-        </div>
-        ${escalaDia(w)}
-        <div class="qp-tiles">
-          ${w.abertura != null ? `<div class="qp-tile"><b>Abertura</b><span class="qp-num">${fmt(w.abertura)}</span><em class="${cls(w.preco - w.abertura)}">${sgn((w.preco / w.abertura - 1) * 100, 2)}% · ${sgn(w.preco - w.abertura)} pts</em></div>` : ''}
-          <div class="qp-tile"><b>VWAP</b><span class="qp-num">${fmt(w.vwap, 2)}</span><em class="${cls(w.preco - w.vwap)}">${sgn(w.preco - w.vwap)} pts</em></div>
-          <div class="qp-tile"><b>Ajuste ${esc(w.ajuste_data || '')}</b><span class="qp-num">${fmt(w.ajuste, 2)}</span><em>${w.ajuste_hoje != null ? 'hoje ≈ ' + fmt(w.ajuste_hoje, 2) : 'estimado pelo MT5'}</em></div>
-          <div class="qp-tile"><b>Gap</b><span class="qp-num ${cls(gapF)}">${sgn(gapF)}</span><em>vs fech · <span class="${cls(gapA)}">${sgn(gapA)}</span> vs ajuste</em></div>
-          <div class="qp-tile"><b>Volume profile</b><span class="qp-num">POC ${fmt(p && p.poc)}</span><em>${esc(area)}</em></div>
-        </div>
       </section>
 
       <section class="qp-card qp-s5 qp-gauge qp-main-gauge qp-a-forca">
