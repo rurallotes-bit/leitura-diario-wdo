@@ -153,11 +153,7 @@
         { t: 'auto', k: 'ndx', l: 'Futuro Nasdaq' },
         { t: 'auto', k: 'oil', l: 'Petróleo Brent' },
         { t: 'auto', k: 'iron', l: 'Minério de ferro' },
-        { t: 'auto', k: 'ust', l: 'Treasury 10 anos' },
-        { t: 'auto', k: 'nikkei', l: 'Nikkei (Japão)' },
-        { t: 'auto', k: 'hsi', l: 'Hang Seng (Hong Kong)' },
-        { t: 'auto', k: 'dax', l: 'DAX (Alemanha)' },
-        { t: 'text', k: 'ext_read', l: 'Leitura do externo (1 linha)' }
+        { t: 'auto', k: 'ust', l: 'Treasury 10 anos' }
       ]
     },
     {
@@ -173,11 +169,6 @@
       fields: [
         { t: 'news' },
         { t: 'world' },
-        { t: 'checktext', k: 'n_weekend', l: 'Notícia de fim de semana / madrugada' },
-        { t: 'checktext', k: 'n_focus', l: 'Boletim Focus (segundas)' },
-        { t: 'checktext', k: 'n_data', l: 'Dados econômicos do dia' },
-        { t: 'checktext', k: 'n_cb', l: 'Bancos centrais / Copom / Fed' },
-        { t: 'checktext', k: 'n_fiscal', l: 'Fiscal / política no Brasil' },
         { t: 'tvcal' }
       ]
     },
@@ -324,7 +315,6 @@
       ${row('Viés', p.bias)}${row('Motivo', p.bias_reason)}${row('Invalidava', p.bias_invalid)}
       ${row('HTF diário', p.htf_d)}${row('HTF 1h', p.htf_1h)}
       ${row('Liquidez acima', p.liq_up)}${row('Liquidez abaixo', p.liq_down)}
-      ${row('Leitura do externo', p.ext_read)}
     </dl></details>`;
   }
 
