@@ -67,6 +67,20 @@
     <div id="painel-wdo" class="qp">Carregando dados do WDO...</div>
     <script src="painel.js"></script>
   </main>
+  <script>
+    // cabeçalho e faixa de cotações ficam fixos no topo; o cartão de cotação gruda abaixo deles
+    (function () {
+      var cab = document.querySelector('header'), faixa = document.querySelector('.tradingview-widget-container');
+      function medir() {
+        var h = cab.offsetHeight;
+        faixa.style.top = h + 'px';
+        document.documentElement.style.setProperty('--topo-h', (h + faixa.offsetHeight) + 'px');
+      }
+      medir();
+      if ('ResizeObserver' in window) new ResizeObserver(medir).observe(faixa);
+      window.addEventListener('resize', medir);
+    })();
+  </script>
 
   <main>
     <section id="view-checklist" class="view active"></section>
