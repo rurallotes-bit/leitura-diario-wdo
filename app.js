@@ -75,6 +75,7 @@
         return `<div class="row"><label>${f.l}</label>
           <input type="text" data-k="${f.k}" value="${esc(v)}" placeholder="${esc(f.p || '')}" autocomplete="off"></div>`;
       case 'number':
+        if (f.auto) return `<div class="row"><label>${f.l}</label><span class="cy-mono ind">${v === '' ? 'aguardando MT5' : esc(v)}</span></div>`;
         return `<div class="row"><label>${f.l}</label>
           <input type="text" inputmode="decimal" data-k="${f.k}" value="${esc(v)}" placeholder="${esc(f.p || '')}" autocomplete="off"></div>`;
       case 'textarea':
@@ -159,8 +160,8 @@
     {
       title: '2. Gap',
       fields: [
-        { t: 'number', k: 'close_prev', l: 'Fechamento de ontem (WDO)' },
-        { t: 'number', k: 'price_now', l: 'Preço atual no pré-mercado' },
+        { t: 'number', auto: true, k: 'close_prev', l: 'Fechamento de ontem (WDO)' },
+        { t: 'number', auto: true, k: 'price_now', l: 'Preço atual no pré-mercado' },
         { t: 'gap' }
       ]
     },
@@ -176,11 +177,9 @@
       title: '4. Níveis de referência',
       fields: [
         { t: 'pctlv' },
-        { t: 'number', k: 'high_prev', l: 'Máxima de ontem' },
-        { t: 'number', k: 'low_prev', l: 'Mínima de ontem' },
-        { t: 'number', k: 'adjust', l: 'Ajuste' },
-        { t: 'number', k: 'liq_up', l: 'Liquidez aberta acima' },
-        { t: 'number', k: 'liq_down', l: 'Liquidez aberta abaixo' }
+        { t: 'number', auto: true, k: 'high_prev', l: 'Máxima de ontem' },
+        { t: 'number', auto: true, k: 'low_prev', l: 'Mínima de ontem' },
+        { t: 'number', auto: true, k: 'adjust', l: 'Ajuste' }
       ]
     }
   ];
@@ -314,7 +313,6 @@
     return `<details class="card"><summary>Ver o último dia preenchido (${fmtDate(p.date)})</summary><dl>
       ${row('Viés', p.bias)}${row('Motivo', p.bias_reason)}${row('Invalidava', p.bias_invalid)}
       ${row('HTF diário', p.htf_d)}${row('HTF 1h', p.htf_1h)}
-      ${row('Liquidez acima', p.liq_up)}${row('Liquidez abaixo', p.liq_down)}
     </dl></details>`;
   }
 
