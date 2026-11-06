@@ -15,6 +15,44 @@
   const COR_ACAO = { 'COMPRA': 'buy', 'VENDA': 'sell', 'AGUARDAR CONFIRMAÇÃO': 'wait', 'AGUARDAR': 'idle' };
 
   // ---------- decisão ----------
+  // relógio analógico: 0 no topo-esquerda, 100 no topo-direita (arco de -90° a +90°)
+  function relogio(titulo, valor, marca, cor, unidade) {
+    const v = valor == null || isNaN(valor) ? 0 : Math.max(0, Math.min(1, valor));
+    const ang = -90 + v * 180;
+    const m = marca == null || isNaN(marca) ? null : -90 + Math.max(0, Math.min(1, marca)) * 180;
+    const ponto = a => { const r = a * Math.PI / 180; return [60 + 46 * Math.cos(r), 60 + 46 * Math.sin(r)]; };
+    const marcas = [0, .25, .5, .75, 1].map(f => {
+      const a = -90 + f * 180, r = a * Math.PI / 180;
+      return `<line x1="${60 + 40 * Math.cos(r)}" y1="${60 + 40 * Math.sin(r)}" x2="${60 + 47 * Math.cos(r)}" y2="${60 + 47 * Math.sin(r)}" class="rel-tick"/>`;
+    }).join('');
+    const limiar = m == null ? '' : (() => { const [x1, y1] = [60 + 34 * Math.cos(m * Math.PI / 180), 60 + 34 * Math.sin(m * Math.PI / 180)];
+      const [x2, y2] = [60 + 48 * Math.cos(m * Math.PI / 180), 60 + 48 * Math.sin(m * Math.PI / 180)];
+      return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="rel-limiar"/>`; })();
+    return `<div class="rel" style="--cor:${cor}">
+      <svg viewBox="0 0 120 84" role="img" aria-label="${esc(titulo)} ${esc(unidade)}">
+        <path d="M14 60 A46 46 0 0 1 106 60" class="rel-arco"/>
+        ${marcas}${limiar}
+        <g class="rel-ponteiro" style="transform:rotate(${ang}deg)"><line x1="60" y1="60" x2="60" y2="18" /></g>
+        <circle cx="60" cy="60" r="4" class="rel-eixo"/>
+      </svg>
+      <div class="rel-txt"><b>${esc(titulo)}</b><span class="cy-mono">${unidade}</span></div>
+    </div>`;
+  }
+
+  function relogios(e) {
+    const g = e.grafico || {};
+    const ult = v => Array.isArray(v) ? v[v.length - 1] : v;
+    const vw = ult(g.vwap), sd = ult(g.sd), preco = e.preco;
+    const z = (vw != null && sd) ? (preco - vw) / sd : null;          // desvios padrão a partir do VWAP
+    const relPreco = z == null ? null : (Math.max(-2, Math.min(2, z)) + 2) / 4;   // -2σ..+2σ -> 0..1
+    const x = e.lados || {};
+    return [
+      relogio('Compra', x.compra && x.compra.prob, x.compra && x.compra.limiar, '#29ff9a', pct(x.compra && x.compra.prob)),
+      relogio('Venda', x.venda && x.venda.prob, x.venda && x.venda.limiar, '#ff3b6b', pct(x.venda && x.venda.prob)),
+      relogio('Preço x VWAP', relPreco, 0.5, '#00f0ff', z == null ? '—' : (z >= 0 ? '+' : '') + fmt(z, 1) + 'σ')
+    ].join('');
+  }
+
   function blocoDecisao(e) {
     const d = e.decisao, p = d.plano, k = COR_ACAO[d.acao] || 'idle';
     const prob = nome => {
@@ -24,7 +62,7 @@
       return `<div class="cy-prob ${nome === 'compra' ? 'buy' : 'sell'}">
         <div class="cy-prob-top"><b>${nome === 'compra' ? 'Compra' : 'Venda'}</b>
           <span class="cy-mono">${pct(x.prob)} <small>limiar ${pct(x.limiar)}</small></span>
-          <span class="cy-badge ${x.validado ? 'ok' : 'no'}">${x.validado ? 'validado' : 'sem vantagem'}</span></div>
+          <span class="cy-badge ${x.validado ? 'ok' : 'no'}">${x.validado ? 'acerto 70%+' : 'abaixo de 70%'}</span></div>
         <div class="cy-bar"><i style="width:${w}%"></i><em style="left:${t}%"></em></div></div>`;
     };
     const plano = !p ? '' : `
@@ -42,6 +80,7 @@
       <ul class="cy-motivos">${d.motivos.map(m => `<li>${esc(m)}</li>`).join('')}</ul>
       ${plano}
       <div class="cy-probs">${prob('compra')}${prob('venda')}</div>
+      <div class="rel-grupo">${relogios(e)}</div>
     </section>`;
   }
 
@@ -160,16 +199,19 @@
       <td class="cy-mono ${cls(st.expect)}">${sgn(st.expect)} R</td><td class="cy-mono">${st.pf == null ? '—' : fmt(st.pf, 2)}</td><td class="cy-mono">${fmt(st.dd, 1)} R</td></tr>`;
     const lado = nome => {
       const x = (b.lados || {})[nome], c = cfg[nome] || {};
-      if (!x || !x.is) return `<div class="cy-side"><h4>${nome === 'compra' ? 'Compra' : 'Venda'} <span class="cy-badge no">sem vantagem</span></h4><p class="cy-dim">${esc((x && x.motivo) || '')}</p></div>`;
+      const nomeLado = nome === 'compra' ? 'Compra' : 'Venda';
+      if (!x || !x.is || !x.oos || x.oos.acerto == null || x.oos.acerto < 0.70)
+        return `<div class="cy-side cy-off"><h4>${nomeLado} <span class="cy-badge no">fora do filtro 70%+</span></h4>
+          <p class="cy-dim">${x && x.oos && x.oos.acerto != null ? 'Acerto fora da amostra: <b class="cy-mono">' + pct(x.oos.acerto) + '</b> em ' + x.oos.n + ' trades. Não exibido.' : esc((x && x.motivo) || 'Sem dados suficientes.')}</p></div>`;
       return `<div class="cy-side">
-        <h4>${nome === 'compra' ? 'Compra' : 'Venda'} <span class="cy-badge ${x.validado ? 'ok' : 'no'}">${x.validado ? 'validado fora da amostra' : 'sem vantagem fora da amostra'}</span></h4>
+        <h4>${nome === 'compra' ? 'Compra' : 'Venda'} <span class="cy-badge ${x.validado ? 'ok' : 'no'}">${x.validado ? 'acerto 70%+ fora da amostra' : 'abaixo de 70%'}</span></h4>
         <p class="cy-cfg">Stop <b>${esc(c.stop)}</b> · alvo 1 <b>${fmt(c.a1, 1)}R</b> (parcial 50%) · alvo 2 <b>${fmt(c.a2, 1)}R</b> · limiar <b>${pct(c.limiar)}</b></p>
         <table class="cy-tab"><thead><tr><th></th><th>Trades</th><th>Acerto</th><th>Média</th><th>PF</th><th>Queda máx.</th></tr></thead>
           <tbody>${linha('Treino', x.is)}${linha('Fora da amostra', x.oos)}</tbody></table>
         <div class="cy-eqbox"><span class="cy-dim">Resultado acumulado fora da amostra (em R)</span>${curva(x.curva)}</div>
         <details class="cy-rank"><summary>Outras ${x.testadas - 1} combinações testadas (top 8)</summary>
           <table class="cy-tab"><thead><tr><th>Stop</th><th>Alvo 1</th><th>Alvo 2</th><th>Treino</th><th>Fora</th><th>Trades</th><th>Média</th></tr></thead><tbody>
-          ${x.ranking.map(r => `<tr><td>${esc(r.stop)}</td><td class="cy-mono">${fmt(r.a1, 1)}R</td><td class="cy-mono">${fmt(r.a2, 1)}R</td><td class="cy-mono">${pct(r.is)}</td>
+          ${x.ranking.filter(r => r.oos && r.oos.acerto >= 0.70).map(r => `<tr><td>${esc(r.stop)}</td><td class="cy-mono">${fmt(r.a1, 1)}R</td><td class="cy-mono">${fmt(r.a2, 1)}R</td><td class="cy-mono">${pct(r.is)}</td>
             <td class="cy-mono ${r.oos > 0.5 ? 'cy-up' : 'cy-dn'}">${pct(r.oos)}</td><td class="cy-mono">${r.oos_n}</td><td class="cy-mono ${cls(r.oos_exp)}">${sgn(r.oos_exp)} R</td></tr>`).join('')}
           </tbody></table></details>
       </div>`;
