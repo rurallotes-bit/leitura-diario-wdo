@@ -157,6 +157,8 @@
 .qp-ext { width: 100%; border-collapse: collapse; font-size: .8rem; }
 .qp-ext td { padding: 5px 4px; border-bottom: 1px solid rgba(120, 160, 210, .08); }
 .qp-ext td:first-child { color: var(--qp-text2); white-space: nowrap; }
+.qp-ext-grp { margin-bottom: 8px; }
+.qp-ext-tit { font-size: .8rem; font-weight: 700; margin: 4px 0 2px; }
 .qp-bar { position: relative; height: 10px; min-width: 70px; background: rgba(120, 160, 210, .08); border-radius: 4px; }
 .qp-bar::before { content: ""; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--qp-muted); }
 .qp-bar i { position: absolute; top: 1px; bottom: 1px; border-radius: 4px; }
