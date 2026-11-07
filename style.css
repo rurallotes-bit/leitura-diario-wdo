@@ -213,7 +213,7 @@ button.danger {
 
 .calc {
   background: var(--card2);
-  border: 1px dashed var(--line);
+  border: 1px solid var(--line);
   border-radius: 8px;
   padding: 10px 12px;
   margin-bottom: 10px;
