@@ -15,7 +15,8 @@
   const COR = { vwap: 'var(--lv-vwap)', ajuste: 'var(--lv-ajuste)', poc: 'var(--lv-poc)', va: 'var(--lv-va)', ontem: 'var(--lv-ontem)', preco: 'var(--qp-cyan)' };
   const NOMES = {
     dxy: 'DXY', mxn: 'USD/MXN', zar: 'USD/ZAR', spx: 'S&P 500 fut', ndx: 'Nasdaq fut', oil: 'Brent',
-    iron: 'Minério', ust: 'Treasury 10a', nikkei: 'Nikkei', hsi: 'Hang Seng', dax: 'DAX', vix: 'VIX'
+    iron: 'Minério', ust: 'Treasury 10a', nikkei: 'Nikkei', hsi: 'Hang Seng', dax: 'DAX', vix: 'VIX',
+    di27: 'DI1 jan/27', di28: 'DI1 jan/28', di29: 'DI1 jan/29'
   };
   const CORR_MIN = 0.3;
 
@@ -235,17 +236,28 @@
     const itens = Object.entries(ext || {}).filter(([, x]) => x)
       .sort((a, b) => Math.abs(b[1].correlacao || 0) - Math.abs(a[1].correlacao || 0));
     if (!itens.length) return '<p class="qp-muted">Sem dados do externo.</p>';
-    const vmax = Math.max(...itens.map(([, x]) => Math.abs(x.variacao_pct)), 0.5);
-    return `<table class="qp-ext"><tbody>${itens.map(([k, x]) => {
-      const larg = (Math.abs(x.variacao_pct) / vmax) * 50;
-      const barra = `<div class="qp-bar" title="Variação ${sgn(x.variacao_pct, 2)}%"><i style="${x.variacao_pct >= 0 ? `left:50%` : `right:50%`};width:${larg.toFixed(1)}%;background:${x.variacao_pct >= 0 ? 'var(--qp-up)' : 'var(--qp-down)'}"></i></div>`;
+    // escala das barras: % e bps têm unidades diferentes, então cada uma tem a sua
+    const vmaxDe = u => Math.max(...itens.filter(([, x]) => (x.unidade || '%') === u).map(([, x]) => Math.abs(x.variacao_pct)), u === 'bps' ? 2 : 0.5);
+    const varTxt = x => (x.unidade === 'bps' ? `${sgn(x.variacao_pct, 1)} bps` : `${sgn(x.variacao_pct, 2)}%`);
+    const linha = ([k, x]) => {
+      const u = x.unidade || '%';
+      const larg = (Math.abs(x.variacao_pct) / vmaxDe(u)) * 50;
+      const barra = `<div class="qp-bar" title="Variação ${varTxt(x)}"><i style="${x.variacao_pct >= 0 ? `left:50%` : `right:50%`};width:${larg.toFixed(1)}%;background:${x.variacao_pct >= 0 ? 'var(--qp-up)' : 'var(--qp-down)'}"></i></div>`;
       const nivel = Math.round(Math.min(Math.abs(x.correlacao || 0), 1) * 10);
       const corr = `<span class="qp-corr" title="Correlação com o dólar ${x.correlacao == null ? '—' : fmt(x.correlacao, 2)}">${Array.from({ length: 10 }, (_, i) => `<i class="${i < nivel ? 'on' : ''}"></i>`).join('')}</span>`;
-      const chip = x.sinal === 'Compra' ? '<span class="qp-chip qp-up">▲ Compra</span>' : x.sinal === 'Venda' ? '<span class="qp-chip qp-down">▼ Venda</span>' : '<span class="qp-chip qp-muted">fraco</span>';
-      return `<tr><td>${esc(NOMES[k] || k)}</td><td class="qp-num ${cls(x.variacao_pct)}" style="text-align:right">${sgn(x.variacao_pct, 2)}%</td>
-        <td style="width:30%">${barra}</td><td style="white-space:nowrap">${corr} <span class="qp-num qp-muted">${x.correlacao == null ? '—' : fmt(x.correlacao, 2)}</span></td><td>${chip}</td></tr>`;
-    }).join('')}</tbody></table>
-    <p class="qp-note">Barras: variação do ativo · Segmentos: força da correlação com o dólar · Compra/Venda = pressão sobre o WDO</p>`;
+      return `<tr><td>${esc(NOMES[k] || k)}</td><td class="qp-num ${cls(x.variacao_pct)}" style="text-align:right">${varTxt(x)}</td>
+        <td style="width:30%">${barra}</td><td style="white-space:nowrap">${corr} <span class="qp-num qp-muted">${x.correlacao == null ? '—' : fmt(x.correlacao, 2)}</span></td></tr>`;
+    };
+    const bloco = (titulo, cor, lista) => lista.length
+      ? `<div class="qp-ext-grp"><div class="qp-ext-tit" style="color:${cor}">${titulo}</div><table class="qp-ext"><tbody>${lista.map(linha).join('')}</tbody></table></div>`
+      : '';
+    const compra = itens.filter(([, x]) => x.sinal === 'Compra');
+    const venda = itens.filter(([, x]) => x.sinal === 'Venda');
+    const fracos = itens.filter(([, x]) => x.sinal !== 'Compra' && x.sinal !== 'Venda');
+    return bloco('▲ Impulsiona compra do WDO', 'var(--qp-up)', compra)
+      + bloco('▼ Impulsiona venda do WDO', 'var(--qp-down)', venda)
+      + (fracos.length ? `<p class="qp-note">Sem sinal: ${fracos.map(([k]) => esc(NOMES[k] || k)).join(', ')}</p>` : '')
+      + `<p class="qp-note">Barras: variação · Segmentos: força da correlação com o dólar</p>`;
   }
 
   // ---------- escala do dia (mín a máx, com VWAP e preço) ----------
