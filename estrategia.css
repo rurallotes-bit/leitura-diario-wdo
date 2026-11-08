@@ -179,9 +179,9 @@
 }
 html.largo .cy-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
 html.largo .cy-decision { grid-column: 1; grid-row: 1; }
-html.largo .cy-chart { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+html.largo .cy-chart { grid-column: 2; grid-row: 1; }
 body[data-aba="estrategia"] #painel-wdo { display: none; }
-html.largo .cy-agents { grid-column: 1; grid-row: 2; }
+html.largo .cy-agents { grid-column: 1 / -1; grid-row: 2; }
 html.largo .cy-bt { grid-column: 1 / -1; }
 html.largo #view-estrategia { max-width: none; }
 @media (max-width: 520px) {
