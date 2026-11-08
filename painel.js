@@ -294,12 +294,11 @@
     const itens = [
       { n: 'Máx hoje', v: w.maxima, c: 'var(--qp-text2)' }, { n: 'Mín hoje', v: w.minima, c: 'var(--qp-text2)' },
       { n: 'VWAP', v: w.vwap, c: COR.vwap }, { n: 'POC', v: p.poc, c: COR.poc }, { n: 'VAH', v: p.vah, c: COR.va }, { n: 'VAL', v: p.val, c: COR.va },
-      { n: 'Ajuste ' + (w.ajuste_data || ''), v: w.ajuste, c: COR.ajuste }, { n: 'Ajuste hoje (prévia)', v: w.ajuste_hoje, c: COR.ajuste },
+      { n: 'Ajuste hoje (prévia)', v: w.ajuste_hoje, c: COR.ajuste },
       { n: 'Abertura ontem', v: w.ontem.abertura, c: COR.ontem }, { n: 'Máx ontem', v: w.ontem.maxima, c: COR.ontem },
       { n: 'Mín ontem', v: w.ontem.minima, c: COR.ontem }, { n: 'Fech ontem', v: w.ontem.fechamento, c: COR.ontem },
-      { n: 'POC ontem', v: w.ontem.profile && w.ontem.profile.poc, c: COR.poc },
       { n: 'Abertura hoje', v: w.abertura, c: 'var(--qp-text)' },
-      ...niveisAbertura(w).map(l => ({ n: l.n + ' da abertura' + (l.atingido ? ' ✓' : ''), v: l.v, c: l.p > 0 ? 'var(--qp-up)' : 'var(--qp-down)' }))
+      ...niveisAbertura(w).filter(l => l.p !== 1.45 && l.p !== -1.3).map(l => ({ n: l.n + ' da abertura' + (l.atingido ? ' ✓' : ''), v: l.v, c: l.p > 0 ? 'var(--qp-up)' : 'var(--qp-down)' }))
     ].filter(l => l.v != null);
     itens.push({ n: 'PREÇO', v: w.preco, c: COR.preco, now: true });
     itens.sort((a, b) => b.v - a.v || (a.now ? -1 : 1));
