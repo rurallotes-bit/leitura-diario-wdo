@@ -137,6 +137,11 @@
 /* ---------- gráfico ---------- */
 .qp-chart { position: relative; }
 .qp-chart svg { width: 100%; height: auto; display: block; }
+.qp-zoom { position: absolute; top: 0; left: 50px; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.qp-zoom button { background: var(--card2); border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font-size: .72rem; line-height: 1; padding: 3px 7px; cursor: pointer; }
+.qp-zoom button:hover:not(:disabled) { color: var(--text); border-color: var(--accent); }
+.qp-zoom button:disabled { opacity: .35; cursor: default; }
+.qp-zoom-k { font-size: .7rem; color: var(--qp-muted); padding-left: 2px; }
 .qp-tip {
   position: absolute;
   pointer-events: none;
