@@ -115,8 +115,6 @@
         return `<div class="nw-tv qp-vars"><a class="nw-btn" href="https://br.investing.com/economic-calendar/" target="_blank" rel="noopener nofollow">
           Abrir calendário do Investing.com (resultados ao vivo) ↗</a>
           <p class="hint">No Investing, use o filtro de países para deixar só os Estados Unidos; ele lembra a escolha.</p></div>`;
-      case 'gap':
-        return '<div class="calc" id="gapout"></div>';
       case 'calc':
         return '<div class="calc" id="tcalc"></div>';
       default:
@@ -158,28 +156,25 @@
       ]
     },
     {
-      title: '2. Gap',
+      title: '2. Força do mercado mundial',
       fields: [
-        { t: 'number', auto: true, k: 'close_prev', l: 'Fechamento de ontem (WDO)' },
-        { t: 'number', auto: true, k: 'price_now', l: 'Preço atual no pré-mercado' },
-        { t: 'gap' }
+        { t: 'world' }
       ]
     },
     {
-      title: '3. Notícias e agenda',
-      fields: [
-        { t: 'news' },
-        { t: 'world' },
-        { t: 'tvcal' }
-      ]
-    },
-    {
-      title: '4. Níveis de referência',
+      title: '3. Níveis de referência',
       fields: [
         { t: 'pctlv' },
         { t: 'number', auto: true, k: 'high_prev', l: 'Máxima de ontem' },
         { t: 'number', auto: true, k: 'low_prev', l: 'Mínima de ontem' },
         { t: 'number', auto: true, k: 'adjust', l: 'Ajuste' }
+      ]
+    },
+    {
+      title: '4. Notícias e agenda',
+      fields: [
+        { t: 'news' },
+        { t: 'tvcal' }
       ]
     }
   ];
@@ -297,15 +292,6 @@
   function lastBefore(date) {
     const ds = Object.keys(db.checklists).filter(d => d < date).sort();
     return ds.length ? db.checklists[ds[ds.length - 1]] : null;
-  }
-
-  function updateGap(rec) {
-    const el = $('#gapout');
-    if (!el) return;
-    const a = num(rec.price_now), b = num(rec.close_prev);
-    if (a == null || b == null) { el.textContent = 'Gap: preencha os dois preços'; return; }
-    const g = a - b;
-    el.innerHTML = `Gap: <span class="${cls(g)}">${sgn(g)} pontos</span> (${g > 0 ? 'abertura em alta' : g < 0 ? 'abertura em baixa' : 'sem gap'})`;
   }
 
   function prevCard(p) {
@@ -445,8 +431,8 @@
 
   function ligarCalendarioTV() { /* calendário do Investing abre em nova aba */ }
 
-  // No PC: esquerda = dados do mercado (1, 2, 4); direita = 3, 5, 6, 7. No celular segue a ordem normal.
-  const COLUNA_ESQ = [0, 1, 3];
+  // No PC: esquerda = 1 e 2 (externo e força mundial); direita = 3 e 4 (níveis e notícias). No celular segue a ordem normal.
+  const COLUNA_ESQ = [0, 1];
   function colunasChecklist(rec) {
     const sec = CL_SECTIONS.map((s, i) => sectionHTML(s, rec).replace('<section class="card"', `<section class="card" style="order:${i}"`));
     const esq = sec.filter((_, i) => COLUNA_ESQ.includes(i)), dir = sec.filter((_, i) => !COLUNA_ESQ.includes(i));
@@ -492,12 +478,10 @@
     blocoMundo();
     blocoNiveis();
     ligarCalendarioTV();
-    updateGap(rec);
     bind($('#clform'), rec, () => {
       rec.date = clDate;
       db.checklists[clDate] = rec;
       queueSave();
-      updateGap(rec);
     });
   }
 
