@@ -19,6 +19,9 @@
     di27: 'DI1 jan/27', di28: 'DI1 jan/28', di29: 'DI1 jan/29'
   };
   const CORR_MIN = 0.3;
+  // zoom do gráfico do pregão: k = quanto está aproximado; cx/cy = centro da janela (minuto e preço)
+  const zoom = { k: 1, cx: null, cy: null, span0: 1 };
+  const MIN_INI = 9 * 60, MIN_FIM = 18 * 60 + 30;
 
   // Níveis percentuais a partir da abertura do dia. Mude aqui para usar outros valores.
   const NIVEIS_PCT = [1.45, 0.6, 0.4, -0.4, -0.6, -1.3];
@@ -98,7 +101,11 @@
     if (s.length < 2) return '<p class="qp-muted">Rode o gerar_dados.py atualizado para ver o gráfico do dia.</p>';
 
     const W = 860, H = 340, L = 50, R = 590, T = 14, B = H - 26, G0 = 600, G1 = 712, P0 = 722, P1 = W - 6;
-    const M0 = 9 * 60, M1 = 18 * 60 + 30;
+    // janela de horário: o dia todo, ou um pedaço dele quando há zoom
+    const spanT = (MIN_FIM - MIN_INI) / zoom.k;
+    const ultMin = s[s.length - 1].m;
+    const cxm = zoom.cx != null ? zoom.cx : ultMin;
+    const M0 = clamp(cxm - spanT / 2, MIN_INI, MIN_FIM - spanT), M1 = M0 + spanT;
     const rng = Math.max(w.maxima - w.minima, 4);
     const niveis = [
       { n: 'VAH', v: w.profile && w.profile.vah, c: COR.va, d: '6 4' },
@@ -117,8 +124,13 @@
     // eixo y: o dia + níveis próximos; níveis longe viram etiqueta na borda
     let lo = w.minima - rng * .1, hi = w.maxima + rng * .1;
     niveis.forEach(l => { if (l.v < lo && l.v > w.minima - rng * .45) lo = l.v - rng * .05; if (l.v > hi && l.v < w.maxima + rng * .45) hi = l.v + rng * .05; });
+    zoom.span0 = hi - lo;
+    if (zoom.k > 1) {
+      const sp = (hi - lo) / zoom.k, cy = zoom.cy != null ? zoom.cy : w.preco;
+      lo = cy - sp / 2; hi = cy + sp / 2;
+    }
     const y = v => B - ((v - lo) / (hi - lo)) * (B - T);
-    const x = m => L + ((clamp(m, M0, M1) - M0) / (M1 - M0)) * (R - L);
+    const x = m => L + ((m - M0) / (M1 - M0)) * (R - L); // fora da janela cai no recorte
 
     const passo = [1, 2, 2.5, 5, 10, 20, 25, 50, 100].find(p => (hi - lo) / p <= 6) || 200;
     let grade = '';
@@ -127,6 +139,7 @@
         <text x="${L - 6}" y="${(y(v) + 3.5).toFixed(1)}" text-anchor="end" font-size="10" fill="var(--qp-muted)" class="qp-num">${fmt(v, passo < 1 ? 1 : 0)}</text>`;
     }
     for (let h = 9; h <= 18; h++) {
+      if (h * 60 < M0 || h * 60 > M1) continue;
       const xx = x(h * 60).toFixed(1);
       grade += `<line x1="${xx}" x2="${xx}" y1="${T}" y2="${B}" stroke="var(--qp-grid)"/>` +
         (h % 2 ? `<text x="${xx}" y="${B + 16}" text-anchor="middle" font-size="10" fill="var(--qp-muted)" class="qp-num">${h}h</text>` : '');
@@ -143,13 +156,17 @@
     for (let i = 1; i < rot.length; i++) if (rot[i].y < rot[i - 1].y + ESP) rot[i].y = rot[i - 1].y + ESP;
     if (rot.length && rot[rot.length - 1].y > YMAX) rot[rot.length - 1].y = YMAX;
     for (let i = rot.length - 2; i >= 0; i--) if (rot[i].y > rot[i + 1].y - ESP) rot[i].y = rot[i + 1].y - ESP;
-    const linhas = rot.map(l => {
+    // linhas dos níveis (recortadas na área do gráfico) e rótulos (na calha lateral, sempre visíveis)
+    const linhasLin = [], linhasTxt = [];
+    rot.forEach(l => {
       const txt = `<text x="${G0 + 7}" y="${(l.y + 3.5).toFixed(1)}" font-size="10" fill="var(--qp-text2)"><tspan fill="${l.c}">${l.fora === 'top' ? '▲' : l.fora === 'bottom' ? '▼' : '■'}</tspan> ${esc(l.n)} <tspan class="qp-num" fill="var(--qp-text)">${fmt(l.v, l.v % 1 ? 2 : 1)}</tspan>${l.fora ? ` <tspan class="qp-num" fill="var(--qp-muted)">(${sgn(l.v - w.preco)})</tspan>` : ''}</text>`;
-      if (l.fora) return txt;
-      return `<line x1="${L}" x2="${R}" y1="${l.y0.toFixed(1)}" y2="${l.y0.toFixed(1)}" stroke="${l.c}" stroke-width="1.5" stroke-dasharray="${l.d}" opacity=".9"/>
-      <path d="M${R} ${l.y0.toFixed(1)} L${G0 - 2} ${l.y0.toFixed(1)} L${G0 + 4} ${l.y.toFixed(1)}" fill="none" stroke="${l.c}" stroke-width="1" opacity=".7"/>${txt}`;
-    }).join('');
-    const etiquetas = '';
+      linhasTxt.push(txt);
+      if (l.fora) return;
+      linhasLin.push(`<line x1="${L}" x2="${R}" y1="${l.y0.toFixed(1)}" y2="${l.y0.toFixed(1)}" stroke="${l.c}" stroke-width="1.5" stroke-dasharray="${l.d}" opacity=".9"/>
+      <path d="M${R} ${l.y0.toFixed(1)} L${G0 - 2} ${l.y0.toFixed(1)} L${G0 + 4} ${l.y.toFixed(1)}" fill="none" stroke="${l.c}" stroke-width="1" opacity=".7"/>`);
+    });
+    const linhas = linhasLin.join('');
+    const etiquetas = linhasTxt.join('');
 
     // preço
     const pts = s.map(p => `${x(p.m).toFixed(1)},${y(p.c).toFixed(1)}`);
@@ -157,7 +174,7 @@
     const area = `M${x(s[0].m).toFixed(1)},${B} L${pts.join(' L')} L${x(ult.m).toFixed(1)},${B} Z`;
 
     // volume profile
-    let perfil = '';
+    let perfil = '', perfilTxt = '';
     const hist = (w.profile && w.profile.hist) || [];
     if (hist.length) {
       const vmax = Math.max(...hist.map(h => h[1])) || 1;
@@ -167,24 +184,40 @@
         const larg = (v / vmax) * (P1 - P0);
         return `<rect x="${P0}" y="${(y(p) - alt / 2).toFixed(1)}" width="${larg.toFixed(1)}" height="${(alt * .82).toFixed(2)}" rx="1"
           fill="${poc ? 'var(--lv-poc)' : naArea ? 'var(--lv-va)' : 'var(--qp-muted)'}" opacity="${poc ? 1 : naArea ? .75 : .35}"/>`;
-      }).join('') +
-        `<text x="${P0}" y="${T - 2}" font-size="9" fill="var(--qp-muted)" class="qp-tech">Vol. profile</text>`;
+      }).join('');
+      perfilTxt = `<text x="${P0}" y="${T - 2}" font-size="9" fill="var(--qp-muted)" class="qp-tech">Vol. profile</text>`;
     }
+    const pctZoom = zoom.k > 1 ? `${Math.round(zoom.k * 10) / 10}×` : '';
 
+    const dis = zoom.k > 1 ? '' : ' disabled';
     return `<div class="qp-chart">
+      <div class="qp-zoom">
+        <button type="button" data-z="+" title="Aproximar">+</button>
+        <button type="button" data-z="-" title="Afastar">−</button>
+        <button type="button" data-z="0" title="Ver o dia todo"${zoom.k > 1 ? '' : ' disabled'}>tudo</button>
+        <button type="button" data-z="esq" title="Voltar no tempo"${dis}>◀</button>
+        <button type="button" data-z="dir" title="Avançar no tempo"${dis}>▶</button>
+        <button type="button" data-z="cima" title="Subir o preço"${dis}>▲</button>
+        <button type="button" data-z="baixo" title="Descer o preço"${dis}>▼</button>
+        ${pctZoom ? `<span class="qp-zoom-k">${pctZoom}</span>` : ''}
+      </div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gráfico do WDO hoje com níveis e volume profile">
         <defs>
           <linearGradient id="qpArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00e5ff" stop-opacity=".28"/><stop offset="1" stop-color="#00e5ff" stop-opacity="0"/></linearGradient>
           <filter id="qpGlow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <clipPath id="qpClip"><rect x="${L}" y="${T}" width="${R - L}" height="${B - T}"/></clipPath>
         </defs>
         ${grade}
-        <path d="${area}" fill="url(#qpArea)"/>
-        ${linhas}
-        <polyline points="${pts.join(' ')}" fill="none" stroke="var(--qp-cyan)" stroke-width="2" stroke-linejoin="round" filter="url(#qpGlow)"/>
-        <circle cx="${x(ult.m).toFixed(1)}" cy="${y(ult.c).toFixed(1)}" r="9" fill="var(--qp-cyan)" opacity=".25"><animate attributeName="r" values="5;12;5" dur="2s" repeatCount="indefinite"/></circle>
-        <circle cx="${x(ult.m).toFixed(1)}" cy="${y(ult.c).toFixed(1)}" r="4" fill="var(--qp-cyan)" stroke="var(--qp-bg)" stroke-width="2"/>
+        <g clip-path="url(#qpClip)">
+          <path d="${area}" fill="url(#qpArea)"/>
+          ${linhas}
+          <polyline points="${pts.join(' ')}" fill="none" stroke="var(--qp-cyan)" stroke-width="2" stroke-linejoin="round" filter="url(#qpGlow)"/>
+          <circle cx="${x(ult.m).toFixed(1)}" cy="${y(ult.c).toFixed(1)}" r="9" fill="var(--qp-cyan)" opacity=".25"><animate attributeName="r" values="5;12;5" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="${x(ult.m).toFixed(1)}" cy="${y(ult.c).toFixed(1)}" r="4" fill="var(--qp-cyan)" stroke="var(--qp-bg)" stroke-width="2"/>
+          ${perfil}
+        </g>
         ${etiquetas}
-        ${perfil}
+        ${perfilTxt}
         <line class="qp-cross" x1="0" x2="0" y1="${T}" y2="${B}" stroke="var(--qp-text2)" stroke-dasharray="3 3" visibility="hidden"/>
         <circle class="qp-cdot" r="4.5" fill="var(--qp-bg)" stroke="var(--qp-cyan)" stroke-width="2" visibility="hidden"/>
         <rect class="qp-hit" x="${L}" y="${T}" width="${R - L}" height="${B - T}" fill="transparent"/>
@@ -211,13 +244,11 @@
     const svg = wrap.querySelector('svg'), hit = wrap.querySelector('.qp-hit'), tip = wrap.querySelector('.qp-tip');
     const cross = wrap.querySelector('.qp-cross'), dot = wrap.querySelector('.qp-cdot');
     const s = w.intraday.map(([h, c]) => ({ m: minutos(h), h, c }));
-    const L = 50, R = 590, M0 = 540, M1 = 1110;
-    const xs = s.map(p => L + ((clamp(p.m, M0, M1) - M0) / (M1 - M0)) * (R - L));
     const poly = wrap.querySelector('polyline').getAttribute('points').split(' ').map(p => p.split(',').map(Number));
     const mover = e => {
       const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
       const p = pt.matrixTransform(svg.getScreenCTM().inverse());
-      let i = 0; xs.forEach((xx, k) => { if (Math.abs(xx - p.x) < Math.abs(xs[i] - p.x)) i = k; });
+      let i = 0; poly.forEach(([xx], k) => { if (Math.abs(xx - p.x) < Math.abs(poly[i][0] - p.x)) i = k; });
       const [px, py] = poly[i];
       cross.setAttribute('x1', px); cross.setAttribute('x2', px); cross.setAttribute('visibility', 'visible');
       dot.setAttribute('cx', px); dot.setAttribute('cy', py); dot.setAttribute('visibility', 'visible');
@@ -397,6 +428,39 @@
       if (pendente) { desenhar(pendente); pendente = null; }
     }
   });
+
+  // zoom do gráfico: + / − / tudo, e ◀ ▶ ▲ ▼ para andar pela parte ampliada
+  root.addEventListener('click', e => {
+    const b = e.target.closest('[data-z]');
+    if (!b || !ultimo || !ultimo.wdo.intraday || ultimo.wdo.intraday.length < 2) return;
+    const w = ultimo.wdo, z = b.dataset.z;
+    const ultMin = minutos(w.intraday[w.intraday.length - 1][0]);
+    if (z === '+' || z === '-') {
+      zoom.k = clamp(z === '+' ? zoom.k * 1.6 : zoom.k / 1.6, 1, 12);
+      if (zoom.k <= 1.001) { zoom.k = 1; zoom.cx = null; zoom.cy = null; }
+      else if (zoom.cx == null) { zoom.cx = ultMin; zoom.cy = w.preco; }
+    } else if (z === '0') {
+      zoom.k = 1; zoom.cx = null; zoom.cy = null;
+    } else if (zoom.k > 1) {
+      if (zoom.cx == null) zoom.cx = ultMin;
+      if (zoom.cy == null) zoom.cy = w.preco;
+      const passoT = (MIN_FIM - MIN_INI) / zoom.k / 4, passoP = zoom.span0 / zoom.k / 4;
+      if (z === 'esq') zoom.cx -= passoT;
+      if (z === 'dir') zoom.cx += passoT;
+      if (z === 'cima') zoom.cy += passoP;
+      if (z === 'baixo') zoom.cy -= passoP;
+      zoom.cx = clamp(zoom.cx, MIN_INI, MIN_FIM);
+    } else return;
+    redesenharGrafico();
+  });
+
+  // troca só o gráfico (sem refazer o painel inteiro)
+  function redesenharGrafico() {
+    const w = ultimo.wdo, tpl = document.createElement('div');
+    tpl.innerHTML = grafico(w);
+    const novo = tpl.querySelector('.qp-chart'), antigo = root.querySelector('.qp-chart');
+    if (novo && antigo) { antigo.replaceWith(novo); ligarHover(w); }
+  }
 
   function desenhar(d) {
     const antes = ultimo && ultimo.wdo.preco;
