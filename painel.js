@@ -189,6 +189,10 @@
     }
     const pctZoom = zoom.k > 1 ? `${Math.round(zoom.k * 10) / 10}×` : '';
 
+    // preço atual: etiqueta logo acima e à esquerda do último ponto, sem sair da área do gráfico
+    const tx = clamp(x(ult.m), L + 50, R) - 8, ty = clamp(y(ult.c), T + 8, B - 8) - 15;
+    const etiqPreco = `<rect x="${(tx - 46).toFixed(1)}" y="${ty.toFixed(1)}" width="46" height="14" rx="3" fill="var(--qp-cyan)"/>
+        <text x="${(tx - 4).toFixed(1)}" y="${(ty + 10).toFixed(1)}" text-anchor="end" font-size="10" font-weight="700" fill="var(--qp-bg)" class="qp-num">${fmt(w.preco, 0)}</text>`;
     const dis = zoom.k > 1 ? '' : ' disabled';
     return `<div class="qp-chart">
       <div class="qp-zoom">
@@ -213,10 +217,11 @@
           ${linhas}
           <polyline points="${pts.join(' ')}" fill="none" stroke="var(--qp-cyan)" stroke-width="2" stroke-linejoin="round" filter="url(#qpGlow)"/>
           <circle cx="${x(ult.m).toFixed(1)}" cy="${y(ult.c).toFixed(1)}" r="9" fill="var(--qp-cyan)" opacity=".25"><animate attributeName="r" values="5;12;5" dur="2s" repeatCount="indefinite"/></circle>
-          <circle cx="${x(ult.m).toFixed(1)}" cy="${y(ult.c).toFixed(1)}" r="4" fill="var(--qp-cyan)" stroke="var(--qp-bg)" stroke-width="2"/>
+          <circle cx="${x(ult.m).toFixed(1)}" cy="${y(ult.c).toFixed(1)}" r="4.5" fill="var(--qp-cyan)" stroke="var(--qp-bg)" stroke-width="2"><animate attributeName="opacity" values="1;.15;1" dur="1s" repeatCount="indefinite"/></circle>
           ${perfil}
         </g>
         ${etiquetas}
+        ${etiqPreco}
         ${perfilTxt}
         <line class="qp-cross" x1="0" x2="0" y1="${T}" y2="${B}" stroke="var(--qp-text2)" stroke-dasharray="3 3" visibility="hidden"/>
         <circle class="qp-cdot" r="4.5" fill="var(--qp-bg)" stroke="var(--qp-cyan)" stroke-width="2" visibility="hidden"/>
