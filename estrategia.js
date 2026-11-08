@@ -113,11 +113,10 @@
   }
 
   // ---------- gráfico M15 ----------
-  function grafico(e) {
-    const g = e.grafico, v = g.velas, n = v.length;
+  function grafico(e, g = e.grafico, titulo = 'M15 // estrutura, order blocks e VWAP ±1σ ±2σ', p = e.decisao.plano) {
+    const v = g.velas, n = v.length;
     if (n < 5) return '';
     const W = 920, H = 400, L = 8, R = 70, T = 12, B = H - 24;
-    const p = e.decisao.plano;
     let lo = Math.min(...v.map(c => c[3])), hi = Math.max(...v.map(c => c[2]));
     const extra = p ? [p.entrada, p.stop, p.alvo1, p.alvo2] : [];
     extra.forEach(x => { lo = Math.min(lo, x); hi = Math.max(hi, x); });
@@ -187,11 +186,19 @@
     const niveis = u < 0 ? '' : [[2, '+2σ'], [1, '+1σ'], [0, 'VWAP'], [-1, '−1σ'], [-2, '−2σ']]
       .map(([k, t]) => `<span class="${k === 0 ? 'v' : Math.abs(k) === 1 ? 'd' : 'b2'}">${t} ${fmt(g.vwap[u] + k * g.sd[u], 0)}</span>`).join('');
     return `<section class="cy-card cy-chart">
-      <div class="cy-tag">M15 // estrutura, order blocks e VWAP ±1σ ±2σ</div>
+      <div class="cy-tag">${esc(titulo)}</div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gráfico M15 do WDO">${s}</svg>
       <div class="cy-niveis">${niveis}<span class="cy-ultp">último ${fmt(ult, passo < 1 ? 1 : 0)}</span></div>
       <div class="cy-leg"><span class="b">▮ OB alta</span><span class="s">▮ OB baixa</span><span class="v">— VWAP</span><span class="d">┄ ±σ</span><span class="sig">▯ sinal</span></div>
     </section>`;
+  }
+
+  // ---------- leitura em M240, M5 e M1 ----------
+  function blocoTempos(e) {
+    const t = e.tempos || {};
+    const cartoes = ['M240', 'M5', 'M1'].filter(k => t[k] && t[k].grafico)
+      .map(k => grafico(e, t[k].grafico, `${k} // estrutura, order blocks e VWAP ±1σ ±2σ`, null)).join('');
+    return cartoes ? `<div class="cy-tempos">${cartoes}</div>` : '';
   }
 
   // ---------- backtest ----------
@@ -249,6 +256,7 @@
       <div class="cy-grid">
         ${blocoDecisao(e)}
         ${grafico(e)}
+        ${blocoTempos(e)}
         ${blocoAgentes(e)}
         ${blocoBacktest(e)}
       </div>
