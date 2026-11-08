@@ -166,8 +166,7 @@
       fields: [
         { t: 'pctlv' },
         { t: 'number', auto: true, k: 'high_prev', l: 'Máxima de ontem' },
-        { t: 'number', auto: true, k: 'low_prev', l: 'Mínima de ontem' },
-        { t: 'number', auto: true, k: 'adjust', l: 'Ajuste' }
+        { t: 'number', auto: true, k: 'low_prev', l: 'Mínima de ontem' }
       ]
     },
     {
@@ -387,7 +386,7 @@
 
     const pct = (w.preco / w.abertura - 1) * 100;
     const linhas = [
-      ...calc(w).map(l => ({ ...l, tipo: l.p > 0 ? 'up' : 'down' })),
+      ...calc(w).filter(l => l.p !== 1.45 && l.p !== -1.3).map(l => ({ ...l, tipo: l.p > 0 ? 'up' : 'down' })),
       { n: 'Abertura', v: w.abertura, tipo: 'ab' },
       { n: 'Preço agora', v: w.preco, tipo: 'now' }
     ].sort((a, b) => b.v - a.v || (a.tipo === 'now' ? -1 : 1));
@@ -400,7 +399,7 @@
         <td class="qp-num">${fmt(l.v)}</td>
         <td class="qp-num ${l.tipo === 'now' ? '' : cls(l.v - w.preco)}">${l.tipo === 'now' ? '' : sgn(l.v - w.preco) + ' pts'}</td>
         <td>${l.atingido ? '<span class="pl-hit">✓ atingido</span>' : ''}</td></tr>`).join('')}</tbody></table>
-      <p class="hint">Níveis calculados sobre a abertura de hoje (+0,4% · +0,6% · +1,45% / −0,4% · −0,6% · −1,3%), arredondados para 0,5 ponto. "Atingido" = a máxima ou a mínima do dia já passou pelo nível.</p>
+      <p class="hint">Níveis calculados sobre a abertura de hoje (+0,4% · +0,6% / −0,4% · −0,6%), arredondados para 0,5 ponto. "Atingido" = a máxima ou a mínima do dia já passou pelo nível.</p>
     </div>`;
   }
 
