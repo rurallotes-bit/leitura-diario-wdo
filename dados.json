@@ -1,19 +1,19 @@
 {
-  "atualizado_em": "10/11/2026 14:33:19",
+  "atualizado_em": "10/11/2026 14:39:32",
   "wdo": {
-    "preco": 5613.5,
+    "preco": 5613.0,
     "abertura": 5544.0,
-    "variacao_pct": 1.47,
+    "variacao_pct": 1.46,
     "maxima": 5631.5,
     "minima": 5537.5,
-    "vwap": 5592.5,
+    "vwap": 5592.67,
     "ajuste": 5532.39,
     "ajuste_data": "09/11",
     "ajuste_hoje": null,
     "profile": {
       "poc": 5614.0,
       "vah": 5631.5,
-      "val": 5572.0,
+      "val": 5572.5,
       "hist": [
         [
           5537.5,
@@ -609,35 +609,35 @@
         ],
         [
           5611.5,
-          1177
+          1211
         ],
         [
           5612.0,
-          1799
+          1852
         ],
         [
           5612.5,
-          2150
+          2354
         ],
         [
           5613.0,
-          2445
+          2682
         ],
         [
           5613.5,
-          2805
+          3043
         ],
         [
           5614.0,
-          3036
+          3225
         ],
         [
           5614.5,
-          2738
+          2871
         ],
         [
           5615.0,
-          2395
+          2527
         ],
         [
           5615.5,
@@ -1040,7 +1040,11 @@
       ],
       [
         "14:30",
-        5613.5
+        5612.5
+      ],
+      [
+        "14:35",
+        5613.0
       ]
     ],
     "ontem": {
@@ -1057,63 +1061,63 @@
     }
   },
   "us10y": {
-    "taxa": 5.013,
-    "variacao_bps": 14.9
+    "taxa": 5.015,
+    "variacao_bps": 15.1
   },
   "externo": {
     "dxy": {
-      "valor": 102.36,
+      "valor": 102.357,
       "variacao_pct": 0.7,
       "correlacao": 0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.33,
-      "z": 2.14
+      "z": 2.13
     },
     "mxn": {
-      "valor": 18.6625,
-      "variacao_pct": 0.13,
+      "valor": 18.6541,
+      "variacao_pct": 0.09,
       "correlacao": 0.36,
-      "sinal": "Compra",
-      "motivo": "pressiona o dólar para cima",
+      "sinal": "Insuficiente",
+      "motivo": "ativo praticamente parado hoje",
       "vol_pct": 0.65,
-      "z": 0.21
+      "z": 0.14
     },
     "zar": {
-      "valor": 16.5529,
-      "variacao_pct": 0.11,
-      "correlacao": 0.39,
+      "valor": 16.5701,
+      "variacao_pct": 0.21,
+      "correlacao": 0.4,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.54,
-      "z": 0.2
+      "z": 0.39
     },
     "spx": {
-      "valor": 7518.25,
-      "variacao_pct": -0.74,
-      "correlacao": -0.06,
+      "valor": 7512.0,
+      "variacao_pct": -0.82,
+      "correlacao": -0.07,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.95,
-      "z": -0.78
+      "z": -0.86
     },
     "ndx": {
-      "valor": 27681.5,
-      "variacao_pct": -1.19,
-      "correlacao": -0.1,
+      "valor": 27637.75,
+      "variacao_pct": -1.34,
+      "correlacao": -0.11,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.51,
-      "z": -0.79
+      "vol_pct": 1.52,
+      "z": -0.89
     },
     "oil": {
-      "valor": 91.93,
-      "variacao_pct": -0.69,
+      "valor": 91.77,
+      "variacao_pct": -0.86,
       "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 2.95,
-      "z": -0.23
+      "z": -0.29
     },
     "iron": {
       "valor": 92.71,
@@ -1125,13 +1129,13 @@
       "z": 0.01
     },
     "ust": {
-      "valor": 5.013,
-      "variacao_pct": 3.06,
+      "valor": 5.015,
+      "variacao_pct": 3.1,
       "correlacao": 0.11,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.09,
-      "z": 2.8
+      "vol_pct": 1.1,
+      "z": 2.83
     },
     "nikkei": {
       "valor": 58775.5,
@@ -1171,18 +1175,18 @@
     }
   },
   "mundo": {
-    "intensidade": 38,
-    "direcao": -22,
+    "intensidade": 39,
+    "direcao": -24,
     "nivel": "normal",
     "componentes": [
       {
         "ativo": "spx",
-        "z": -0.78,
+        "z": -0.86,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -0.79,
+        "z": -0.89,
         "peso": 1
       },
       {
@@ -1202,12 +1206,12 @@
       },
       {
         "ativo": "oil",
-        "z": -0.23,
+        "z": -0.29,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 2.14,
+        "z": 2.13,
         "peso": -1
       },
       {
@@ -1587,7 +1591,7 @@
   "estrategia": {
     "barra": "10/11 14:15",
     "fim_barra": "14:30",
-    "preco": 5613.5,
+    "preco": 5612.5,
     "atr": 9.46,
     "decisao": {
       "acao": "AGUARDAR",
@@ -1740,16 +1744,16 @@
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": -9,
-        "leitura": "Volume 0,5× a média · agressão no candle -18% · ticks: saldo -474 contratos (-1%)",
+        "voto": -11,
+        "leitura": "Volume 0,5× a média · agressão no candle -18% · ticks: saldo -2.877 contratos (-4%)",
         "dados": {
           "volrel": 0.49,
           "candle": -0.177,
           "ticks": {
-            "compra": 29393.0,
-            "venda": 29867.0,
-            "saldo": -474.0,
-            "pct": -0.00799865001687479
+            "compra": 39419.0,
+            "venda": 42296.0,
+            "saldo": -2877.0,
+            "pct": -0.03520773419812764
           }
         }
       },
@@ -2431,9 +2435,9 @@
         [
           "10/11 14:30",
           5612.0,
-          5614.0,
+          5615.0,
           5611.5,
-          5613.5
+          5612.5
         ]
       ],
       "vwap": [
@@ -2492,7 +2496,7 @@
         5593.95,
         5594.36,
         5594.74,
-        5594.76
+        5594.92
       ],
       "sd": [
         5.63,
@@ -2550,7 +2554,7 @@
         24.07,
         23.96,
         23.84,
-        23.83
+        23.79
       ],
       "dia": [
         "2026-11-09",
@@ -2726,5 +2730,5 @@
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-10T14:39:19"
+  "proxima_em": "2026-11-10T14:45:32"
 }
