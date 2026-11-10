@@ -1,12 +1,12 @@
 {
-  "atualizado_em": "10/11/2026 15:05:12",
+  "atualizado_em": "10/11/2026 15:11:42",
   "wdo": {
-    "preco": 5605.5,
+    "preco": 5611.0,
     "abertura": 5544.0,
-    "variacao_pct": 1.33,
+    "variacao_pct": 1.43,
     "maxima": 5631.5,
     "minima": 5537.5,
-    "vwap": 5593.26,
+    "vwap": 5593.43,
     "ajuste": 5532.39,
     "ajuste_data": "09/11",
     "ajuste_hoje": null,
@@ -553,63 +553,63 @@
         ],
         [
           5604.5,
-          516
+          659
         ],
         [
           5605.0,
-          596
+          738
         ],
         [
           5605.5,
-          818
+          982
         ],
         [
           5606.0,
-          955
+          1119
         ],
         [
           5606.5,
-          1151
+          1210
         ],
         [
           5607.0,
-          1335
+          1452
         ],
         [
           5607.5,
-          1226
+          1311
         ],
         [
           5608.0,
-          1261
+          1405
         ],
         [
           5608.5,
-          1472
+          1588
         ],
         [
           5609.0,
-          1518
+          1634
         ],
         [
           5609.5,
-          1560
+          1619
         ],
         [
           5610.0,
-          1702
+          1832
         ],
         [
           5610.5,
-          1601
+          1731
         ],
         [
           5611.0,
-          1387
+          1517
         ],
         [
           5611.5,
-          1340
+          1470
         ],
         [
           5612.0,
@@ -1068,7 +1068,11 @@
       ],
       [
         "15:05",
-        5605.5
+        5609.0
+      ],
+      [
+        "15:10",
+        5611.0
       ]
     ],
     "ontem": {
@@ -1085,63 +1089,63 @@
     }
   },
   "us10y": {
-    "taxa": 5.006,
-    "variacao_bps": 14.2
+    "taxa": 5.008,
+    "variacao_bps": 14.4
   },
   "externo": {
     "dxy": {
-      "valor": 102.345,
-      "variacao_pct": 0.68,
+      "valor": 102.318,
+      "variacao_pct": 0.66,
       "correlacao": 0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.33,
-      "z": 2.1
+      "vol_pct": 0.32,
+      "z": 2.02
     },
     "mxn": {
-      "valor": 18.6567,
-      "variacao_pct": 0.1,
-      "correlacao": 0.36,
+      "valor": 18.6659,
+      "variacao_pct": 0.15,
+      "correlacao": 0.37,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.65,
-      "z": 0.16
+      "z": 0.23
     },
     "zar": {
-      "valor": 16.5587,
-      "variacao_pct": 0.14,
+      "valor": 16.5611,
+      "variacao_pct": 0.16,
       "correlacao": 0.4,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.54,
-      "z": 0.26
+      "z": 0.29
     },
     "spx": {
-      "valor": 7503.0,
-      "variacao_pct": -0.94,
+      "valor": 7510.25,
+      "variacao_pct": -0.84,
       "correlacao": -0.07,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.95,
-      "z": -0.99
+      "z": -0.89
     },
     "ndx": {
-      "valor": 27570.25,
-      "variacao_pct": -1.59,
+      "valor": 27640.75,
+      "variacao_pct": -1.33,
       "correlacao": -0.11,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.52,
-      "z": -1.04
+      "z": -0.88
     },
     "oil": {
-      "valor": 91.89,
-      "variacao_pct": -0.73,
-      "correlacao": -0.08,
+      "valor": 91.97,
+      "variacao_pct": -0.65,
+      "correlacao": -0.07,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 2.95,
-      "z": -0.25
+      "z": -0.22
     },
     "iron": {
       "valor": 92.71,
@@ -1153,13 +1157,13 @@
       "z": 0.01
     },
     "ust": {
-      "valor": 5.006,
-      "variacao_pct": 2.92,
-      "correlacao": 0.09,
+      "valor": 5.008,
+      "variacao_pct": 2.96,
+      "correlacao": 0.1,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.09,
-      "z": 2.68
+      "z": 2.72
     },
     "nikkei": {
       "valor": 58775.5,
@@ -1189,28 +1193,28 @@
       "z": 0.35
     },
     "vix": {
-      "valor": 21.01,
-      "variacao_pct": 5.47,
+      "valor": 20.95,
+      "variacao_pct": 5.17,
       "correlacao": 0.02,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 11.74,
-      "z": 0.47
+      "z": 0.44
     }
   },
   "mundo": {
-    "intensidade": 42,
-    "direcao": -28,
+    "intensidade": 39,
+    "direcao": -24,
     "nivel": "normal",
     "componentes": [
       {
         "ativo": "spx",
-        "z": -0.99,
+        "z": -0.89,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -1.04,
+        "z": -0.88,
         "peso": 1
       },
       {
@@ -1230,17 +1234,17 @@
       },
       {
         "ativo": "oil",
-        "z": -0.25,
+        "z": -0.22,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 2.1,
+        "z": 2.02,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": 0.47,
+        "z": 0.44,
         "peso": -1
       }
     ]
@@ -1396,10 +1400,10 @@
       "anterior": "5.30|2.8",
       "reacao": {
         "base": 5606.0,
-        "m5": -0.5,
+        "m5": -1.5,
         "amp5": 4.5,
-        "m15": -0.5,
-        "amp15": 4.5
+        "m15": 5.0,
+        "amp15": 7.0
       }
     },
     {
@@ -1622,7 +1626,7 @@
   "estrategia": {
     "barra": "10/11 14:45",
     "fim_barra": "15:00",
-    "preco": 5606.0,
+    "preco": 5611.5,
     "atr": 9.01,
     "decisao": {
       "acao": "AGUARDAR",
@@ -1775,16 +1779,16 @@
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": -17,
-        "leitura": "Volume 0,5× a média · agressão no candle -23% · ticks: saldo -8.972 contratos (-11%)",
+        "voto": -11,
+        "leitura": "Volume 0,5× a média · agressão no candle -23% · ticks: saldo +1.474 contratos (+1%)",
         "dados": {
           "volrel": 0.47,
           "candle": -0.235,
           "ticks": {
-            "compra": 35003.0,
-            "venda": 43975.0,
-            "saldo": -8972.0,
-            "pct": -0.11360125604598749
+            "compra": 53703.0,
+            "venda": 52229.0,
+            "saldo": 1474.0,
+            "pct": 0.013914586716006495
           }
         }
       },
@@ -2466,9 +2470,9 @@
         [
           "10/11 15:00",
           5607.5,
-          5609.0,
+          5611.5,
           5604.5,
-          5606.0
+          5611.5
         ]
       ],
       "vwap": [
@@ -2527,7 +2531,7 @@
         5594.74,
         5595.06,
         5595.3,
-        5595.42
+        5595.59
       ],
       "sd": [
         7.4,
@@ -2585,7 +2589,7 @@
         23.84,
         23.71,
         23.56,
-        23.46
+        23.39
       ],
       "dia": [
         "2026-11-09",
@@ -2754,5 +2758,5 @@
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-10T15:11:12"
+  "proxima_em": "2026-11-10T15:17:42"
 }
