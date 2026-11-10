@@ -1,12 +1,12 @@
 {
-  "atualizado_em": "10/11/2026 10:43:18",
+  "atualizado_em": "10/11/2026 14:27:07",
   "wdo": {
-    "preco": 5588.0,
+    "preco": 5588.5,
     "abertura": 5544.0,
-    "variacao_pct": 1.01,
+    "variacao_pct": 1.02,
     "maxima": 5597.5,
     "minima": 5537.5,
-    "vwap": 5568.62,
+    "vwap": 5568.74,
     "ajuste": 5532.39,
     "ajuste_data": "09/11",
     "ajuste_hoje": null,
@@ -409,27 +409,27 @@
         ],
         [
           5586.5,
-          287
+          383
         ],
         [
           5587.0,
-          492
+          556
         ],
         [
           5587.5,
-          567
+          632
         ],
         [
           5588.0,
-          723
+          788
         ],
         [
           5588.5,
-          791
+          856
         ],
         [
           5589.0,
-          791
+          856
         ],
         [
           5589.5,
@@ -584,7 +584,7 @@
       ],
       [
         "10:40",
-        5588.0
+        5588.5
       ]
     ],
     "ontem": {
@@ -601,63 +601,63 @@
     }
   },
   "us10y": {
-    "taxa": 4.909,
-    "variacao_bps": 4.5
+    "taxa": 5.013,
+    "variacao_bps": 14.9
   },
   "externo": {
     "dxy": {
-      "valor": 101.979,
-      "variacao_pct": 0.32,
-      "correlacao": -0.01,
+      "valor": 102.36,
+      "variacao_pct": 0.7,
+      "correlacao": 0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.32,
-      "z": 1.02
+      "vol_pct": 0.33,
+      "z": 2.14
     },
     "mxn": {
-      "valor": 18.6427,
-      "variacao_pct": 0.03,
-      "correlacao": 0.37,
-      "sinal": "Insuficiente",
-      "motivo": "ativo praticamente parado hoje",
+      "valor": 18.6625,
+      "variacao_pct": 0.13,
+      "correlacao": 0.36,
+      "sinal": "Compra",
+      "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.65,
-      "z": 0.04
+      "z": 0.21
     },
     "zar": {
-      "valor": 16.4417,
-      "variacao_pct": -0.57,
-      "correlacao": 0.36,
-      "sinal": "Venda",
-      "motivo": "pressiona o dólar para baixo",
-      "vol_pct": 0.55,
-      "z": -1.04
+      "valor": 16.5529,
+      "variacao_pct": 0.11,
+      "correlacao": 0.39,
+      "sinal": "Compra",
+      "motivo": "pressiona o dólar para cima",
+      "vol_pct": 0.54,
+      "z": 0.2
     },
     "spx": {
-      "valor": 7545.75,
-      "variacao_pct": -0.38,
-      "correlacao": -0.05,
+      "valor": 7518.25,
+      "variacao_pct": -0.74,
+      "correlacao": -0.06,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.95,
-      "z": -0.4
+      "z": -0.78
     },
     "ndx": {
-      "valor": 27741.0,
-      "variacao_pct": -0.98,
-      "correlacao": -0.09,
-      "sinal": "Insuficiente",
-      "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.51,
-      "z": -0.65
-    },
-    "oil": {
-      "valor": 90.04,
-      "variacao_pct": -2.73,
+      "valor": 27681.5,
+      "variacao_pct": -1.19,
       "correlacao": -0.1,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 2.97,
-      "z": -0.92
+      "vol_pct": 1.51,
+      "z": -0.79
+    },
+    "oil": {
+      "valor": 91.93,
+      "variacao_pct": -0.69,
+      "correlacao": -0.08,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO",
+      "vol_pct": 2.95,
+      "z": -0.23
     },
     "iron": {
       "valor": 92.71,
@@ -669,94 +669,94 @@
       "z": 0.01
     },
     "ust": {
-      "valor": 4.909,
-      "variacao_pct": 0.93,
-      "correlacao": 0.02,
-      "sinal": "Insuficiente",
-      "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.03,
-      "z": 0.9
-    },
-    "nikkei": {
-      "valor": 60459.5781,
-      "variacao_pct": 2.87,
-      "correlacao": 0.02,
-      "sinal": "Insuficiente",
-      "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.74,
-      "z": 1.65
-    },
-    "hsi": {
-      "valor": 24557.0391,
-      "variacao_pct": 0.44,
-      "correlacao": -0.03,
+      "valor": 5.013,
+      "variacao_pct": 3.06,
+      "correlacao": 0.11,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.09,
-      "z": 0.41
+      "z": 2.8
     },
-    "dax": {
-      "valor": 26593.2207,
-      "variacao_pct": 1.24,
-      "correlacao": 0.14,
+    "nikkei": {
+      "valor": 58775.5,
+      "variacao_pct": 2.33,
+      "correlacao": -0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.9,
-      "z": 1.39
+      "vol_pct": 1.71,
+      "z": 1.37
+    },
+    "hsi": {
+      "valor": 24448.9492,
+      "variacao_pct": -0.13,
+      "correlacao": -0.07,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO",
+      "vol_pct": 1.1,
+      "z": -0.12
+    },
+    "dax": {
+      "valor": 26347.4492,
+      "variacao_pct": 0.31,
+      "correlacao": 0.11,
+      "sinal": "Insuficiente",
+      "motivo": "correlação fraca com o WDO",
+      "vol_pct": 0.88,
+      "z": 0.35
     },
     "vix": {
-      "valor": 20.08,
-      "variacao_pct": 0.8,
+      "valor": 20.51,
+      "variacao_pct": 2.96,
       "correlacao": 0.01,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 11.73,
-      "z": 0.07
+      "z": 0.25
     }
   },
   "mundo": {
-    "intensidade": 41,
-    "direcao": 8,
+    "intensidade": 38,
+    "direcao": -22,
     "nivel": "normal",
     "componentes": [
       {
         "ativo": "spx",
-        "z": -0.4,
+        "z": -0.78,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -0.65,
+        "z": -0.79,
         "peso": 1
       },
       {
         "ativo": "dax",
-        "z": 1.39,
+        "z": 0.35,
         "peso": 1
       },
       {
         "ativo": "nikkei",
-        "z": 1.65,
+        "z": 1.37,
         "peso": 1
       },
       {
         "ativo": "hsi",
-        "z": 0.41,
+        "z": -0.12,
         "peso": 1
       },
       {
         "ativo": "oil",
-        "z": -0.92,
+        "z": -0.23,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 1.02,
+        "z": 2.14,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": 0.07,
+        "z": 0.25,
         "peso": -1
       }
     ]
@@ -823,23 +823,7 @@
       }
     },
     {
-      "hora": "2026-11-10T10:15:00",
-      "moeda": "USD",
-      "titulo": "ADP Weekly Employment Change",
-      "estrelas": 3,
-      "impacto": "alto",
-      "previsao": null,
-      "anterior": null,
-      "reacao": {
-        "base": 5567.0,
-        "m5": 2.5,
-        "amp5": 6.0,
-        "m15": 5.5,
-        "amp15": 6.5
-      }
-    },
-    {
-      "hora": "2026-11-10T10:16:00",
+      "hora": "2026-11-10T10:14:00",
       "moeda": "USD",
       "titulo": "ADP Weekly Employment Change",
       "estrelas": 3,
@@ -847,11 +831,27 @@
       "previsao": null,
       "anterior": "16.8K",
       "reacao": {
-        "base": 5569.5,
-        "m5": 0.0,
-        "amp5": 5.5,
-        "m15": 12.5,
-        "amp15": 22.5
+        "base": 5567.5,
+        "m5": 4.5,
+        "amp5": 7.0,
+        "m15": 2.5,
+        "amp15": 7.5
+      }
+    },
+    {
+      "hora": "2026-11-10T10:15:00",
+      "moeda": "USD",
+      "titulo": "ADP Weekly Employment Change",
+      "estrelas": 3,
+      "impacto": "alto",
+      "previsao": null,
+      "anterior": "19.5K",
+      "reacao": {
+        "base": 5567.0,
+        "m5": 2.5,
+        "amp5": 6.0,
+        "m15": 5.5,
+        "amp15": 6.5
       }
     },
     {
@@ -866,7 +866,7 @@
         "base": 5572.5,
         "m5": 16.0,
         "amp5": 26.5,
-        "m15": 15.5,
+        "m15": 16.0,
         "amp15": 26.5
       }
     },
@@ -882,7 +882,7 @@
         "base": 5572.5,
         "m5": 16.0,
         "amp5": 26.5,
-        "m15": 15.5,
+        "m15": 16.0,
         "amp15": 26.5
       }
     },
@@ -1122,49 +1122,49 @@
     }
   ],
   "estrategia": {
-    "barra": "10/11 10:15",
-    "fim_barra": "10:30",
-    "preco": 5588.0,
-    "atr": 8.51,
+    "barra": "10/11 10:30",
+    "fim_barra": "10:45",
+    "preco": 5588.5,
+    "atr": 9.79,
     "decisao": {
       "acao": "AGUARDAR",
       "lado": null,
       "motivos": [
-        "Nenhum lado com probabilidade suficiente (melhor: venda 47% para 55%)."
+        "Último sinal já venceu; aguardando a próxima barra M15 fechar."
       ],
       "plano": null
     },
     "lados": {
       "compra": {
-        "prob": 0.437,
+        "prob": 0.4331,
         "limiar": 0.5944,
         "validado": false,
-        "entrada": 5574.0,
-        "stop": 5567.0,
-        "alvo1": 5579.5,
-        "alvo2": 5595.0,
-        "risco_pts": 7.0,
-        "risco_rs": 70.0,
+        "entrada": 5598.0,
+        "stop": 5590.0,
+        "alvo1": 5604.0,
+        "alvo2": 5622.0,
+        "risco_pts": 8.0,
+        "risco_rs": 80.0,
         "a1": 0.8,
         "a2": 3.0,
         "a_favor": [
           {
-            "nome": "Hora do dia",
-            "peso": 0.3
+            "nome": "Corpo da barra",
+            "peso": 0.54
           },
           {
             "nome": "RSI",
-            "peso": 0.27
+            "peso": 0.33
           },
           {
-            "nome": "Corpo da barra",
-            "peso": 0.15
+            "nome": "Hora do dia",
+            "peso": 0.27
           }
         ],
         "contra": [
           {
             "nome": "Volume relativo",
-            "peso": -0.29
+            "peso": -0.98
           },
           {
             "nome": "Estocástico",
@@ -1177,25 +1177,25 @@
         ]
       },
       "venda": {
-        "prob": 0.4692,
+        "prob": 0.4092,
         "limiar": 0.5472,
         "validado": false,
-        "entrada": 5566.5,
-        "stop": 5574.0,
-        "alvo1": 5560.5,
-        "alvo2": 5544.0,
-        "risco_pts": 7.5,
-        "risco_rs": 75.0,
+        "entrada": 5570.5,
+        "stop": 5598.0,
+        "alvo1": 5548.5,
+        "alvo2": 5488.0,
+        "risco_pts": 27.5,
+        "risco_rs": 275.0,
         "a1": 0.8,
         "a2": 3.0,
         "a_favor": [
           {
-            "nome": "Hora do dia",
-            "peso": 0.38
+            "nome": "RSI",
+            "peso": 0.39
           },
           {
-            "nome": "RSI",
-            "peso": 0.32
+            "nome": "Hora do dia",
+            "peso": 0.35
           },
           {
             "nome": "CHoCH a favor",
@@ -1204,16 +1204,16 @@
         ],
         "contra": [
           {
+            "nome": "Corpo da barra",
+            "peso": -0.3
+          },
+          {
             "nome": "Estocástico",
-            "peso": -0.15
+            "peso": -0.14
           },
           {
             "nome": "Sobrevendido/sobrecomprado",
             "peso": -0.14
-          },
-          {
-            "nome": "Corpo da barra",
-            "peso": -0.13
           }
         ]
       }
@@ -1222,28 +1222,28 @@
       {
         "id": "estrutura",
         "nome": "Estrutura",
-        "voto": 100,
-        "leitura": "Tendência de alta · último CHoCH de alta em 5.538,0 (10/11 09:00)",
+        "voto": 75,
+        "leitura": "Tendência de alta · último BOS de alta em 5.575,0 (10/11 10:30)",
         "dados": {
-          "topo": 5575.0,
+          "topo": null,
           "fundo": 5528.0,
-          "ultimo": "CHoCH",
+          "ultimo": "BOS",
           "ultimo_lado": 1,
-          "ultimo_nivel": 5538.0
+          "ultimo_nivel": 5575.0
         }
       },
       {
         "id": "ob",
         "nome": "Order Blocks",
-        "voto": 0,
-        "leitura": "OB de alta 5.528,0–5.534,5 (38 pts abaixo)",
+        "voto": 8,
+        "leitura": "OB de alta 5.564,5–5.575,0 (13.5 pts abaixo)",
         "dados": {
           "alta": {
             "lado": 1,
-            "lo": 5528.0,
-            "hi": 5534.5,
-            "i": 2992,
-            "nasce": 2993,
+            "lo": 5564.5,
+            "hi": 5575.0,
+            "i": 2997,
+            "nasce": 2999,
             "fim": null
           },
           "baixa": null,
@@ -1254,39 +1254,39 @@
       {
         "id": "vwap",
         "nome": "VWAP",
-        "voto": 46,
-        "leitura": "Preço acima da VWAP 9,9 pts (+1,22σ) · afastado",
+        "voto": 53,
+        "leitura": "Preço acima da VWAP 20,5 pts (+1,69σ) · afastado",
         "dados": {
-          "vwap": 5562.58,
-          "sd": 8.15,
-          "z": 1.22,
-          "dist": 9.92
+          "vwap": 5568.02,
+          "sd": 12.11,
+          "z": 1.69,
+          "dist": 20.48
         }
       },
       {
         "id": "momentum",
         "nome": "Momentum",
         "voto": 20,
-        "leitura": "RSI 74 · Estocástico 90 · SOBRECOMPRADO",
+        "leitura": "RSI 80 · Estocástico 89 · SOBRECOMPRADO",
         "dados": {
-          "rsi": 74.0,
-          "sto": 90.1,
+          "rsi": 79.7,
+          "sto": 89.2,
           "estado": "SOBRECOMPRADO"
         }
       },
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": 2,
-        "leitura": "Volume 1,2× a média · agressão no candle -3% · ticks: saldo +21.977 contratos (+7%)",
+        "voto": 12,
+        "leitura": "Volume 3,1× a média · agressão no candle +15% · ticks: saldo +21.481 contratos (+9%)",
         "dados": {
-          "volrel": 1.21,
-          "candle": -0.031,
+          "volrel": 3.07,
+          "candle": 0.151,
           "ticks": {
-            "compra": 161351.0,
-            "venda": 139374.0,
-            "saldo": 21977.0,
-            "pct": 0.07308005653005237
+            "compra": 124864.0,
+            "venda": 103383.0,
+            "saldo": 21481.0,
+            "pct": 0.09411295657774253
           }
         }
       },
@@ -1294,9 +1294,9 @@
         "id": "risco",
         "nome": "Risco",
         "voto": 0,
-        "leitura": "ATR M15 8,5 pts · compra: stop 7,0 pts (R$ 70/contrato) · venda: stop 7,5 pts (R$ 75/contrato)",
+        "leitura": "ATR M15 9,8 pts · compra: stop 8,0 pts (R$ 80/contrato) · venda: stop 27,5 pts (R$ 275/contrato)",
         "dados": {
-          "atr": 8.51
+          "atr": 9.79
         }
       }
     ],
@@ -1970,7 +1970,7 @@
           5572.5,
           5597.5,
           5571.0,
-          5588.0
+          5588.5
         ]
       ],
       "vwap": [
@@ -2029,7 +2029,7 @@
         5560.04,
         5561.58,
         5562.58,
-        5567.87
+        5568.02
       ],
       "sd": [
         7.93,
@@ -2087,7 +2087,7 @@
         8.07,
         8.05,
         8.15,
-        12.02
+        12.11
       ],
       "dia": [
         "2026-11-06",
@@ -2256,12 +2256,12 @@
           "ate": null
         }
       ],
-      "sinal": 54
+      "sinal": 55
     }
   },
   "mercado": {
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-10T10:49:18"
+  "proxima_em": "2026-11-10T14:33:07"
 }
