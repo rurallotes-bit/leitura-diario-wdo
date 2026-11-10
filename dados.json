@@ -1,18 +1,18 @@
 {
-  "atualizado_em": "10/11/2026 10:36:55",
+  "atualizado_em": "10/11/2026 10:43:18",
   "wdo": {
-    "preco": 5593.0,
+    "preco": 5588.0,
     "abertura": 5544.0,
-    "variacao_pct": 1.1,
+    "variacao_pct": 1.01,
     "maxima": 5597.5,
     "minima": 5537.5,
-    "vwap": 5567.26,
+    "vwap": 5568.62,
     "ajuste": 5532.39,
     "ajuste_data": "09/11",
     "ajuste_hoje": null,
     "profile": {
       "poc": 5569.5,
-      "vah": 5591.0,
+      "vah": 5591.5,
       "val": 5560.5,
       "hist": [
         [
@@ -409,75 +409,75 @@
         ],
         [
           5586.5,
-          192
+          287
         ],
         [
           5587.0,
-          366
+          492
         ],
         [
           5587.5,
-          366
+          567
         ],
         [
           5588.0,
-          518
+          723
         ],
         [
           5588.5,
-          518
+          791
         ],
         [
           5589.0,
-          518
+          791
         ],
         [
           5589.5,
-          518
+          826
         ],
         [
           5590.0,
-          518
+          826
         ],
         [
           5590.5,
-          407
+          640
         ],
         [
           5591.0,
-          407
+          702
         ],
         [
           5591.5,
-          315
+          611
         ],
         [
           5592.0,
-          315
+          570
         ],
         [
           5592.5,
-          315
+          502
         ],
         [
           5593.0,
-          229
+          416
         ],
         [
           5593.5,
-          229
+          416
         ],
         [
           5594.0,
-          229
+          416
         ],
         [
           5594.5,
-          164
+          292
         ],
         [
           5595.0,
-          164
+          229
         ],
         [
           5595.5,
@@ -580,7 +580,11 @@
       ],
       [
         "10:35",
-        5593.0
+        5589.0
+      ],
+      [
+        "10:40",
+        5588.0
       ]
     ],
     "ontem": {
@@ -597,63 +601,63 @@
     }
   },
   "us10y": {
-    "taxa": 4.903,
-    "variacao_bps": 3.9
+    "taxa": 4.909,
+    "variacao_bps": 4.5
   },
   "externo": {
     "dxy": {
-      "valor": 101.8,
-      "variacao_pct": 0.15,
-      "correlacao": -0.03,
+      "valor": 101.979,
+      "variacao_pct": 0.32,
+      "correlacao": -0.01,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.32,
-      "z": 0.47
+      "z": 1.02
     },
     "mxn": {
-      "valor": 18.6317,
-      "variacao_pct": -0.03,
-      "correlacao": 0.36,
+      "valor": 18.6427,
+      "variacao_pct": 0.03,
+      "correlacao": 0.37,
       "sinal": "Insuficiente",
       "motivo": "ativo praticamente parado hoje",
       "vol_pct": 0.65,
-      "z": -0.05
+      "z": 0.04
     },
     "zar": {
-      "valor": 16.4422,
-      "variacao_pct": -0.56,
+      "valor": 16.4417,
+      "variacao_pct": -0.57,
       "correlacao": 0.36,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo",
       "vol_pct": 0.55,
-      "z": -1.03
+      "z": -1.04
     },
     "spx": {
-      "valor": 7575.5,
-      "variacao_pct": 0.02,
-      "correlacao": -0.03,
+      "valor": 7545.75,
+      "variacao_pct": -0.38,
+      "correlacao": -0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.95,
-      "z": 0.02
+      "z": -0.4
     },
     "ndx": {
-      "valor": 27907.5,
-      "variacao_pct": -0.38,
-      "correlacao": -0.08,
+      "valor": 27741.0,
+      "variacao_pct": -0.98,
+      "correlacao": -0.09,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.51,
-      "z": -0.25
+      "z": -0.65
     },
     "oil": {
-      "valor": 89.92,
-      "variacao_pct": -2.86,
+      "valor": 90.04,
+      "variacao_pct": -2.73,
       "correlacao": -0.1,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 2.97,
-      "z": -0.96
+      "z": -0.92
     },
     "iron": {
       "valor": 92.71,
@@ -665,13 +669,13 @@
       "z": 0.01
     },
     "ust": {
-      "valor": 4.903,
-      "variacao_pct": 0.8,
-      "correlacao": 0.01,
+      "valor": 4.909,
+      "variacao_pct": 0.93,
+      "correlacao": 0.02,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.03,
-      "z": 0.78
+      "z": 0.9
     },
     "nikkei": {
       "valor": 60459.5781,
@@ -692,42 +696,42 @@
       "z": 0.41
     },
     "dax": {
-      "valor": 26567.5293,
-      "variacao_pct": 1.14,
+      "valor": 26593.2207,
+      "variacao_pct": 1.24,
       "correlacao": 0.14,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.89,
-      "z": 1.28
+      "vol_pct": 0.9,
+      "z": 1.39
     },
     "vix": {
-      "valor": 20.18,
-      "variacao_pct": 1.31,
+      "valor": 20.08,
+      "variacao_pct": 0.8,
       "correlacao": 0.01,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 11.73,
-      "z": 0.11
+      "z": 0.07
     }
   },
   "mundo": {
-    "intensidade": 32,
-    "direcao": 18,
+    "intensidade": 41,
+    "direcao": 8,
     "nivel": "normal",
     "componentes": [
       {
         "ativo": "spx",
-        "z": 0.02,
+        "z": -0.4,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -0.25,
+        "z": -0.65,
         "peso": 1
       },
       {
         "ativo": "dax",
-        "z": 1.28,
+        "z": 1.39,
         "peso": 1
       },
       {
@@ -742,17 +746,17 @@
       },
       {
         "ativo": "oil",
-        "z": -0.96,
+        "z": -0.92,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 0.47,
+        "z": 1.02,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": 0.11,
+        "z": 0.07,
         "peso": -1
       }
     ]
@@ -862,7 +866,7 @@
         "base": 5572.5,
         "m5": 16.0,
         "amp5": 26.5,
-        "m15": 20.5,
+        "m15": 15.5,
         "amp15": 26.5
       }
     },
@@ -878,7 +882,7 @@
         "base": 5572.5,
         "m5": 16.0,
         "amp5": 26.5,
-        "m15": 20.5,
+        "m15": 15.5,
         "amp15": 26.5
       }
     },
@@ -1120,13 +1124,13 @@
   "estrategia": {
     "barra": "10/11 10:15",
     "fim_barra": "10:30",
-    "preco": 5593.0,
+    "preco": 5588.0,
     "atr": 8.51,
     "decisao": {
       "acao": "AGUARDAR",
       "lado": null,
       "motivos": [
-        "Notícia de 3 estrelas às 10:30: Core CPI m/m. Espere a poeira baixar."
+        "Nenhum lado com probabilidade suficiente (melhor: venda 47% para 55%)."
       ],
       "plano": null
     },
@@ -1273,16 +1277,16 @@
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": 4,
-        "leitura": "Volume 1,2× a média · agressão no candle -3% · ticks: saldo +26.955 contratos (+11%)",
+        "voto": 2,
+        "leitura": "Volume 1,2× a média · agressão no candle -3% · ticks: saldo +21.977 contratos (+7%)",
         "dados": {
           "volrel": 1.21,
           "candle": -0.031,
           "ticks": {
-            "compra": 135755.0,
-            "venda": 108800.0,
-            "saldo": 26955.0,
-            "pct": 0.1102206047719327
+            "compra": 161351.0,
+            "venda": 139374.0,
+            "saldo": 21977.0,
+            "pct": 0.07308005653005237
           }
         }
       },
@@ -1966,7 +1970,7 @@
           5572.5,
           5597.5,
           5571.0,
-          5593.0
+          5588.0
         ]
       ],
       "vwap": [
@@ -2025,7 +2029,7 @@
         5560.04,
         5561.58,
         5562.58,
-        5567.08
+        5567.87
       ],
       "sd": [
         7.93,
@@ -2083,7 +2087,7 @@
         8.07,
         8.05,
         8.15,
-        12.03
+        12.02
       ],
       "dia": [
         "2026-11-06",
@@ -2259,5 +2263,5 @@
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-10T10:42:55"
+  "proxima_em": "2026-11-10T10:49:18"
 }
