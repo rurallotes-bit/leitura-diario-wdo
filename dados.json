@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "11/11/2026 18:30:57",
+  "atualizado_em": "11/11/2026 18:36:20",
   "wdo": {
     "preco": 5601.0,
     "abertura": 5587.0,
@@ -740,8 +740,8 @@
       }
     },
     "win": {
-      "preco": 173570.0,
-      "variacao_pct": 0.15
+      "preco": 173375.0,
+      "variacao_pct": 0.04
     }
   },
   "us10y": {
@@ -6822,8 +6822,8 @@
     }
   },
   "mercado": {
-    "status": "aberto",
-    "abre_em": null
+    "status": "fechado",
+    "abre_em": "12/11 08:50"
   },
-  "proxima_em": "2026-11-11T18:36:57"
+  "proxima_em": null
 }
