@@ -1,18 +1,18 @@
 {
-  "atualizado_em": "12/11/2026 13:50:19",
+  "atualizado_em": "12/11/2026 13:56:46",
   "wdo": {
     "preco": 5649.5,
     "abertura": 5610.5,
     "variacao_pct": 0.87,
     "maxima": 5654.5,
     "minima": 5596.0,
-    "vwap": 5628.34,
+    "vwap": 5628.66,
     "ajuste": 5579.901,
     "ajuste_data": "11/11",
     "ajuste_hoje": null,
     "profile": {
       "poc": 5624.0,
-      "vah": 5641.5,
+      "vah": 5642.0,
       "val": 5612.5,
       "hist": [
         [
@@ -437,51 +437,51 @@
         ],
         [
           5648.5,
-          1514
+          1536
         ],
         [
           5649.0,
-          1430
+          1512
         ],
         [
           5649.5,
-          1313
+          1486
         ],
         [
           5650.0,
-          1094
+          1333
         ],
         [
           5650.5,
-          955
+          1240
         ],
         [
           5651.0,
-          837
+          1140
         ],
         [
           5651.5,
-          729
+          927
         ],
         [
           5652.0,
-          638
+          836
         ],
         [
           5652.5,
-          375
+          516
         ],
         [
           5653.0,
-          232
+          373
         ],
         [
           5653.5,
-          232
+          327
         ],
         [
           5654.0,
-          232
+          281
         ],
         [
           5654.5,
@@ -724,6 +724,10 @@
       ],
       [
         "13:50",
+        5651.0
+      ],
+      [
+        "13:55",
         5649.5
       ]
     ],
@@ -740,74 +744,74 @@
       }
     },
     "win": {
-      "preco": 173170.0,
-      "variacao_pct": -0.12
+      "preco": 173220.0,
+      "variacao_pct": -0.09
     }
   },
   "us10y": {
-    "taxa": 5.076,
-    "variacao_bps": 7.8
+    "taxa": 5.086,
+    "variacao_bps": 8.8
   },
   "externo": {
     "dxy": {
-      "valor": 103.176,
-      "variacao_pct": 0.26,
+      "valor": 103.142,
+      "variacao_pct": 0.23,
       "unidade": "%",
       "correlacao": 0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.31,
-      "z": 0.83
+      "z": 0.72
     },
     "mxn": {
-      "valor": 18.601,
-      "variacao_pct": 0.01,
+      "valor": 18.6045,
+      "variacao_pct": 0.03,
       "unidade": "%",
       "correlacao": 0.37,
       "sinal": "Insuficiente",
       "motivo": "ativo praticamente parado hoje",
       "vol_pct": 0.65,
-      "z": 0.01
+      "z": 0.04
     },
     "zar": {
-      "valor": 16.7792,
-      "variacao_pct": 1.55,
+      "valor": 16.7753,
+      "variacao_pct": 1.52,
       "unidade": "%",
-      "correlacao": 0.45,
+      "correlacao": 0.46,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.58,
-      "z": 2.66
+      "z": 2.62
     },
     "spx": {
-      "valor": 7663.0,
-      "variacao_pct": 0.29,
+      "valor": 7645.75,
+      "variacao_pct": 0.07,
       "unidade": "%",
-      "correlacao": 0.03,
+      "correlacao": 0.02,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.96,
-      "z": 0.31
+      "z": 0.07
     },
     "ndx": {
-      "valor": 28578.0,
-      "variacao_pct": 0.37,
+      "valor": 28469.0,
+      "variacao_pct": -0.01,
       "unidade": "%",
-      "correlacao": -0.01,
+      "correlacao": -0.02,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.53,
-      "z": 0.24
+      "z": -0.01
     },
     "oil": {
-      "valor": 93.53,
-      "variacao_pct": 0.83,
+      "valor": 93.83,
+      "variacao_pct": 1.15,
       "unidade": "%",
       "correlacao": -0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 2.96,
-      "z": 0.28
+      "z": 0.39
     },
     "iron": {
       "valor": 92.15,
@@ -820,14 +824,14 @@
       "z": -0.48
     },
     "ust": {
-      "valor": 5.076,
-      "variacao_pct": 1.56,
+      "valor": 5.086,
+      "variacao_pct": 1.76,
       "unidade": "%",
-      "correlacao": 0.02,
+      "correlacao": 0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 1.07,
-      "z": 1.46
+      "vol_pct": 1.08,
+      "z": 1.64
     },
     "nikkei": {
       "valor": 61248.5898,
@@ -850,44 +854,44 @@
       "z": -0.91
     },
     "dax": {
-      "valor": 26799.1309,
-      "variacao_pct": 0.51,
+      "valor": 26771.8809,
+      "variacao_pct": 0.41,
       "unidade": "%",
       "correlacao": 0.15,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 0.9,
-      "z": 0.57
+      "vol_pct": 0.89,
+      "z": 0.46
     },
     "vix": {
-      "valor": 17.5,
-      "variacao_pct": 0.06,
+      "valor": 17.57,
+      "variacao_pct": 0.46,
       "unidade": "%",
       "correlacao": -0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 11.76,
-      "z": 0.0
+      "z": 0.04
     },
     "di27": {
-      "valor": 13.659,
-      "variacao_pct": -0.1,
+      "valor": 13.658,
+      "variacao_pct": -0.2,
       "unidade": "bps",
       "correlacao": -0.38,
-      "sinal": "Insuficiente",
-      "motivo": "ativo praticamente parado hoje",
+      "sinal": "Compra",
+      "motivo": "pressiona o dólar para cima",
       "vol_pct": 4.04,
-      "z": -0.02
+      "z": -0.05
     },
     "di28": {
-      "valor": 14.245,
-      "variacao_pct": 5.0,
+      "valor": 14.25,
+      "variacao_pct": 5.5,
       "unidade": "bps",
       "correlacao": -0.37,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo",
       "vol_pct": 30.72,
-      "z": 0.16
+      "z": 0.18
     },
     "di29": {
       "valor": 14.69,
@@ -901,23 +905,23 @@
     }
   },
   "mundo": {
-    "intensidade": 24,
-    "direcao": 2,
+    "intensidade": 21,
+    "direcao": -2,
     "nivel": "calmo",
     "componentes": [
       {
         "ativo": "spx",
-        "z": 0.31,
+        "z": 0.07,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": 0.24,
+        "z": -0.01,
         "peso": 1
       },
       {
         "ativo": "dax",
-        "z": 0.57,
+        "z": 0.46,
         "peso": 1
       },
       {
@@ -932,17 +936,17 @@
       },
       {
         "ativo": "oil",
-        "z": 0.28,
+        "z": 0.39,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 0.83,
+        "z": 0.72,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": 0.0,
+        "z": 0.04,
         "peso": -1
       }
     ]
@@ -1166,22 +1170,6 @@
       }
     },
     {
-      "hora": "2026-11-12T12:00:00",
-      "moeda": "USD",
-      "titulo": "Mortgage Delinquencies",
-      "estrelas": 1,
-      "impacto": "baixo",
-      "previsao": null,
-      "anterior": "4.37%",
-      "reacao": {
-        "base": 5637.0,
-        "m5": 1.5,
-        "amp5": 11.0,
-        "m15": 5.5,
-        "amp15": 13.0
-      }
-    },
-    {
       "hora": "2026-11-12T13:15:00",
       "moeda": "USD",
       "titulo": "FOMC Member Goolsbee Speaks",
@@ -1205,6 +1193,15 @@
       "impacto": "alto",
       "previsao": "-0.6M",
       "anterior": "-0.9M"
+    },
+    {
+      "hora": "2026-11-12T14:59:00",
+      "moeda": "USD",
+      "titulo": "Mortgage Delinquencies",
+      "estrelas": 1,
+      "impacto": "baixo",
+      "previsao": null,
+      "anterior": "4.37%"
     },
     {
       "hora": "2026-11-12T15:01:00",
@@ -1728,16 +1725,16 @@
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": -6,
-        "leitura": "Volume 0,5× a média · agressão no candle -27% · ticks: saldo +10.961 contratos (+15%)",
+        "voto": -8,
+        "leitura": "Volume 0,5× a média · agressão no candle -27% · ticks: saldo +11.012 contratos (+11%)",
         "dados": {
           "volrel": 0.45,
           "candle": -0.268,
           "ticks": {
-            "compra": 42786.0,
-            "venda": 31825.0,
-            "saldo": 10961.0,
-            "pct": 0.14690863277532804
+            "compra": 55589.0,
+            "venda": 44577.0,
+            "saldo": 11012.0,
+            "pct": 0.10993750374378532
           }
         },
         "historico": [
@@ -1800,7 +1797,7 @@
           16,
           -27,
           -18,
-          -6
+          -8
         ]
       },
       {
@@ -2619,7 +2616,7 @@
         5628.73,
         5629.05,
         5629.42,
-        5629.72
+        5629.98
       ],
       "sd": [
         3.32,
@@ -2677,7 +2674,7 @@
         10.98,
         10.98,
         11.13,
-        11.33
+        11.49
       ],
       "dia": [
         "2026-11-11",
@@ -3560,17 +3557,10 @@
         }
       },
       "M5": {
-        "preco": 5649.0,
-        "atr": 6.29,
+        "preco": 5651.0,
+        "atr": 6.23,
         "grafico": {
           "velas": [
-            [
-              "11/11 10:50",
-              5580.5,
-              5584.5,
-              5580.0,
-              5582.5
-            ],
             [
               "11/11 10:55",
               5582.0,
@@ -4613,10 +4603,16 @@
               5654.0,
               5647.0,
               5649.0
+            ],
+            [
+              "12/11 13:50",
+              5648.5,
+              5654.0,
+              5648.5,
+              5651.0
             ]
           ],
           "vwap": [
-            5583.07,
             5582.95,
             5582.84,
             5582.76,
@@ -4765,10 +4761,10 @@
             5629.05,
             5629.15,
             5629.35,
-            5629.64
+            5629.64,
+            5629.85
           ],
           "sd": [
-            7.32,
             7.2,
             7.01,
             6.91,
@@ -4917,7 +4913,8 @@
             12.23,
             12.25,
             12.32,
-            12.48
+            12.48,
+            12.59
           ],
           "dia": [
             "2026-11-11",
@@ -5011,7 +5008,7 @@
             "2026-11-11",
             "2026-11-11",
             "2026-11-11",
-            "2026-11-11",
+            "2026-11-12",
             "2026-11-12",
             "2026-11-12",
             "2026-11-12",
@@ -5073,81 +5070,74 @@
           ],
           "eventos": [
             {
-              "k": 0,
-              "tipo": "BOS",
-              "lado": 1,
-              "nivel": 5582.0,
-              "de": 0
-            },
-            {
-              "k": 15,
+              "k": 14,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5577.0,
-              "de": 10
+              "de": 9
             },
             {
-              "k": 24,
+              "k": 23,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5586.0,
-              "de": 21
+              "de": 20
             },
             {
-              "k": 32,
+              "k": 31,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5581.0,
-              "de": 26
+              "de": 25
             },
             {
-              "k": 51,
+              "k": 50,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5578.5,
-              "de": 47
+              "de": 46
             },
             {
-              "k": 85,
+              "k": 84,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5582.5,
-              "de": 78
+              "de": 77
             },
             {
-              "k": 104,
+              "k": 103,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5621.5,
-              "de": 97
+              "de": 96
             },
             {
-              "k": 114,
+              "k": 113,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5623.0,
-              "de": 108
+              "de": 107
             },
             {
-              "k": 124,
+              "k": 123,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5626.0,
-              "de": 121
+              "de": 120
             },
             {
-              "k": 134,
+              "k": 133,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5645.0,
-              "de": 131
+              "de": 130
             },
             {
-              "k": 148,
+              "k": 147,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5645.0,
-              "de": 144
+              "de": 143
             }
           ],
           "obs": [
@@ -5156,69 +5146,69 @@
               "lo": 5578.5,
               "hi": 5583.5,
               "de": 0,
-              "ate": 4
+              "ate": 3
             },
             {
               "lado": -1,
               "lo": 5577.0,
               "hi": 5582.5,
-              "de": 10,
-              "ate": 21
+              "de": 9,
+              "ate": 20
             },
             {
               "lado": 1,
               "lo": 5572.0,
               "hi": 5575.5,
-              "de": 16,
+              "de": 15,
               "ate": null
             },
             {
               "lado": -1,
               "lo": 5583.0,
               "hi": 5585.0,
-              "de": 30,
-              "ate": 87
+              "de": 29,
+              "ate": 86
             },
             {
               "lado": -1,
               "lo": 5581.5,
               "hi": 5583.5,
-              "de": 49,
-              "ate": 86
+              "de": 48,
+              "ate": 85
             },
             {
               "lado": 1,
               "lo": 5577.5,
               "hi": 5582.5,
-              "de": 79,
+              "de": 78,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5614.0,
               "hi": 5617.5,
-              "de": 101,
+              "de": 100,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5621.0,
               "hi": 5625.5,
-              "de": 122,
+              "de": 121,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5636.5,
               "hi": 5642.0,
-              "de": 133,
+              "de": 132,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5639.0,
               "hi": 5645.0,
-              "de": 145,
+              "de": 144,
               "ate": null
             }
           ],
@@ -5226,52 +5216,10 @@
         }
       },
       "M1": {
-        "preco": 5649.0,
-        "atr": 2.64,
+        "preco": 5650.0,
+        "atr": 2.61,
         "grafico": {
           "velas": [
-            [
-              "12/11 10:50",
-              5624.5,
-              5626.5,
-              5624.0,
-              5624.0
-            ],
-            [
-              "12/11 10:51",
-              5624.0,
-              5627.5,
-              5624.0,
-              5625.5
-            ],
-            [
-              "12/11 10:52",
-              5625.0,
-              5625.0,
-              5621.0,
-              5621.0
-            ],
-            [
-              "12/11 10:53",
-              5621.0,
-              5623.0,
-              5620.5,
-              5622.0
-            ],
-            [
-              "12/11 10:54",
-              5622.0,
-              5623.0,
-              5620.0,
-              5621.5
-            ],
-            [
-              "12/11 10:55",
-              5621.5,
-              5621.5,
-              5618.0,
-              5620.0
-            ],
             [
               "12/11 10:56",
               5620.0,
@@ -6489,15 +6437,51 @@
               5650.0,
               5647.5,
               5649.0
+            ],
+            [
+              "12/11 13:50",
+              5648.5,
+              5650.5,
+              5648.5,
+              5649.5
+            ],
+            [
+              "12/11 13:51",
+              5650.0,
+              5653.5,
+              5649.5,
+              5653.0
+            ],
+            [
+              "12/11 13:52",
+              5653.0,
+              5654.0,
+              5651.0,
+              5653.0
+            ],
+            [
+              "12/11 13:53",
+              5652.5,
+              5653.0,
+              5650.5,
+              5651.0
+            ],
+            [
+              "12/11 13:54",
+              5651.0,
+              5652.0,
+              5650.0,
+              5651.0
+            ],
+            [
+              "12/11 13:55",
+              5650.5,
+              5651.0,
+              5649.0,
+              5650.0
             ]
           ],
           "vwap": [
-            5621.49,
-            5621.5,
-            5621.51,
-            5621.51,
-            5621.51,
-            5621.5,
             5621.49,
             5621.49,
             5621.49,
@@ -6671,15 +6655,15 @@
             5629.37,
             5629.41,
             5629.43,
-            5629.45
+            5629.45,
+            5629.46,
+            5629.53,
+            5629.62,
+            5629.64,
+            5629.67,
+            5629.69
           ],
           "sd": [
-            10.1,
-            10.09,
-            10.05,
-            10.02,
-            9.99,
-            9.94,
             9.9,
             9.87,
             9.85,
@@ -6853,7 +6837,13 @@
             12.68,
             12.7,
             12.71,
-            12.72
+            12.72,
+            12.72,
+            12.76,
+            12.82,
+            12.83,
+            12.84,
+            12.85
           ],
           "dia": [
             "2026-11-12",
@@ -7039,130 +7029,123 @@
           ],
           "eventos": [
             {
-              "k": 2,
-              "tipo": "BOS",
-              "lado": -1,
-              "nivel": 5623.0,
-              "de": 0
-            },
-            {
-              "k": 26,
+              "k": 20,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5619.0,
-              "de": 21
+              "de": 15
             },
             {
-              "k": 35,
+              "k": 29,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5623.0,
-              "de": 31
+              "de": 25
             },
             {
-              "k": 50,
+              "k": 44,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5625.0,
-              "de": 44
+              "de": 38
             },
             {
-              "k": 54,
+              "k": 48,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5627.5,
-              "de": 51
+              "de": 45
             },
             {
-              "k": 57,
+              "k": 51,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5629.0,
-              "de": 54
+              "de": 48
+            },
+            {
+              "k": 67,
+              "tipo": "BOS",
+              "lado": 1,
+              "nivel": 5638.5,
+              "de": 64
             },
             {
               "k": 73,
               "tipo": "BOS",
               "lado": 1,
-              "nivel": 5638.5,
-              "de": 70
-            },
-            {
-              "k": 79,
-              "tipo": "BOS",
-              "lado": 1,
               "nivel": 5642.5,
-              "de": 74
+              "de": 68
             },
             {
-              "k": 89,
+              "k": 83,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5640.5,
-              "de": 82
+              "de": 76
             },
             {
-              "k": 98,
+              "k": 92,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5638.0,
-              "de": 89
+              "de": 83
             },
             {
-              "k": 103,
+              "k": 97,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5642.0,
-              "de": 97
+              "de": 91
             },
             {
-              "k": 119,
+              "k": 113,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5651.0,
-              "de": 115
+              "de": 109
             },
             {
-              "k": 134,
+              "k": 128,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5645.0,
-              "de": 122
+              "de": 116
             },
             {
-              "k": 142,
+              "k": 136,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5639.0,
-              "de": 137
+              "de": 131
             },
             {
-              "k": 149,
+              "k": 143,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5638.5,
-              "de": 145
+              "de": 139
+            },
+            {
+              "k": 163,
+              "tipo": "BOS",
+              "lado": 1,
+              "nivel": 5644.0,
+              "de": 155
+            },
+            {
+              "k": 165,
+              "tipo": "BOS",
+              "lado": 1,
+              "nivel": 5645.0,
+              "de": 162
             },
             {
               "k": 169,
               "tipo": "BOS",
               "lado": 1,
-              "nivel": 5644.0,
-              "de": 161
-            },
-            {
-              "k": 171,
-              "tipo": "BOS",
-              "lado": 1,
-              "nivel": 5645.0,
-              "de": 168
-            },
-            {
-              "k": 175,
-              "tipo": "BOS",
-              "lado": 1,
               "nivel": 5648.0,
-              "de": 171
+              "de": 165
             }
           ],
           "obs": [
@@ -7170,70 +7153,70 @@
               "lado": 1,
               "lo": 5637.5,
               "hi": 5639.5,
-              "de": 75,
-              "ate": 98
+              "de": 69,
+              "ate": 92
             },
             {
               "lado": -1,
               "lo": 5638.5,
               "hi": 5642.0,
-              "de": 97,
-              "ate": 103
+              "de": 91,
+              "ate": 97
             },
             {
               "lado": 1,
               "lo": 5636.0,
               "hi": 5639.5,
-              "de": 100,
-              "ate": 143
+              "de": 94,
+              "ate": 137
             },
             {
               "lado": 1,
               "lo": 5645.5,
               "hi": 5648.5,
-              "de": 117,
-              "ate": 134
+              "de": 111,
+              "ate": 128
             },
             {
               "lado": -1,
               "lo": 5646.0,
               "hi": 5649.0,
-              "de": 133,
-              "ate": 175
+              "de": 127,
+              "ate": 169
             },
             {
               "lado": -1,
               "lo": 5641.5,
               "hi": 5644.0,
-              "de": 139,
-              "ate": 151
+              "de": 133,
+              "ate": 145
             },
             {
               "lado": 1,
               "lo": 5636.0,
               "hi": 5638.5,
-              "de": 147,
+              "de": 141,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5641.5,
               "hi": 5643.0,
-              "de": 165,
+              "de": 159,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5643.5,
               "hi": 5644.5,
-              "de": 170,
+              "de": 164,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5646.0,
               "hi": 5648.0,
-              "de": 172,
+              "de": 166,
               "ate": null
             }
           ],
@@ -7246,5 +7229,5 @@
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-12T13:56:19"
+  "proxima_em": "2026-11-12T14:02:46"
 }
