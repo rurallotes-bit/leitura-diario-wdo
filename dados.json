@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "12/11/2026 18:47:13",
+  "atualizado_em": "12/11/2026 19:15:25",
   "wdo": {
     "preco": 5660.0,
     "abertura": 5610.5,
@@ -1126,64 +1126,64 @@
   },
   "externo": {
     "dxy": {
-      "valor": 103.198,
+      "valor": 103.194,
       "variacao_pct": 0.28,
       "unidade": "%",
       "correlacao": 0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.31,
-      "z": 0.9
+      "z": 0.88
     },
     "mxn": {
-      "valor": 18.592,
-      "variacao_pct": -0.04,
+      "valor": 18.588,
+      "variacao_pct": -0.06,
       "unidade": "%",
       "correlacao": 0.36,
       "sinal": "Insuficiente",
       "motivo": "ativo praticamente parado hoje",
       "vol_pct": 0.65,
-      "z": -0.06
+      "z": -0.09
     },
     "zar": {
-      "valor": 16.7653,
-      "variacao_pct": 1.46,
+      "valor": 16.7674,
+      "variacao_pct": 1.48,
       "unidade": "%",
       "correlacao": 0.47,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.58,
-      "z": 2.53
+      "z": 2.55
     },
     "spx": {
-      "valor": 7623.0,
-      "variacao_pct": -0.23,
+      "valor": 7621.75,
+      "variacao_pct": -0.25,
       "unidade": "%",
-      "correlacao": 0.02,
+      "correlacao": 0.01,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.96,
-      "z": -0.24
+      "z": -0.26
     },
     "ndx": {
-      "valor": 28431.25,
-      "variacao_pct": -0.15,
+      "valor": 28401.5,
+      "variacao_pct": -0.25,
       "unidade": "%",
       "correlacao": -0.02,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.53,
-      "z": -0.1
+      "z": -0.17
     },
     "oil": {
-      "valor": 95.86,
-      "variacao_pct": 3.34,
+      "valor": 95.77,
+      "variacao_pct": 3.24,
       "unidade": "%",
       "correlacao": -0.03,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 2.99,
-      "z": 1.12
+      "vol_pct": 2.98,
+      "z": 1.09
     },
     "iron": {
       "valor": 92.15,
@@ -1256,14 +1256,14 @@
       "z": 0.02
     },
     "di28": {
-      "valor": 14.295,
-      "variacao_pct": 10.0,
+      "valor": 14.29,
+      "variacao_pct": 9.5,
       "unidade": "bps",
       "correlacao": -0.36,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo",
       "vol_pct": 30.74,
-      "z": 0.33
+      "z": 0.31
     },
     "di29": {
       "valor": 14.76,
@@ -1283,12 +1283,12 @@
     "componentes": [
       {
         "ativo": "spx",
-        "z": -0.24,
+        "z": -0.26,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -0.1,
+        "z": -0.17,
         "peso": 1
       },
       {
@@ -1308,12 +1308,12 @@
       },
       {
         "ativo": "oil",
-        "z": 1.12,
+        "z": 1.09,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 0.9,
+        "z": 0.88,
         "peso": -1
       },
       {
@@ -1729,6 +1729,17 @@
     }
   ],
   "estrategia": {
+    "simulacao": {
+      "alvo_r": 2.0,
+      "desde": "21/07/2026",
+      "n": 92,
+      "alvos": 20,
+      "stops": 52,
+      "tempo": 20,
+      "abertas": 0,
+      "saldo_r": -13.21,
+      "media_r": -0.14
+    },
     "barra": "12/11 18:15",
     "fim_barra": "18:30",
     "preco": 5660.0,
@@ -3241,6 +3252,19 @@
           "hi": 5650.5,
           "de": 34,
           "ate": null
+        }
+      ],
+      "sims": [
+        {
+          "lado": -1,
+          "de": 24,
+          "ate": 30,
+          "entrada": 5622.5,
+          "stop": 5640.5,
+          "alvo": 5586.5,
+          "res": "stop",
+          "r": -1.03,
+          "hora": "12/11 10:30"
         }
       ],
       "sinal": 55
@@ -5626,7 +5650,20 @@
               "ate": null
             }
           ],
-          "sinal": -1
+          "sinal": -1,
+          "sims": [
+            {
+              "lado": -1,
+              "de": 56,
+              "ate": 72,
+              "entrada": 5622.5,
+              "stop": 5640.5,
+              "alvo": 5586.5,
+              "res": "stop",
+              "r": -1.03,
+              "hora": "12/11 10:30"
+            }
+          ]
         }
       },
       "M1": {
@@ -7599,7 +7636,8 @@
               "ate": null
             }
           ],
-          "sinal": -1
+          "sinal": -1,
+          "sims": []
         }
       }
     }
