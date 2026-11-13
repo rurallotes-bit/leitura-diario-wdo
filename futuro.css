@@ -1,0 +1,112 @@
+/* Camada "futuro" enxuta: cores neon, painel de agentes e zoom em tela cheia nos gráficos.
+   Sem animações. Carrega por último. */
+
+/* ---------- cores ---------- */
+:root, .qp, .cy {
+  --accent: #00e5ff;
+  --card: rgba(9, 14, 24, .72);
+  --line: rgba(0, 229, 255, .18);
+  --qp-bg: rgba(2, 5, 10, .45); --qp-card: rgba(9, 14, 24, .72); --qp-edge: rgba(0, 229, 255, .2); --qp-edge-hot: #00e5ff;
+  --qp-grid: rgba(120, 160, 210, .07); --qp-cyan: #00e5ff; --qp-violet: #9085e9;
+  --cy-bg: rgba(6, 3, 12, .45); --cy-card: rgba(16, 9, 30, .72); --cy-edge: rgba(255, 43, 214, .3); --cy-cyan: #00f0ff; --cy-mag: #ff2bd6;
+}
+html { background: #02040a; }
+
+/* ---------- cabeçalho ---------- */
+header { background: rgba(3, 6, 12, .9); border-bottom: 1px solid rgba(0, 229, 255, .25); }
+header nav button.active { color: #fff; border-bottom-color: #00e5ff; }
+.tradingview-widget-container { background: rgba(3, 6, 12, .9); }
+
+/* ---------- painel de agentes ---------- */
+.fx-ag { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 12px; }
+.fx-ag h3 { margin: 0 0 10px; font: 600 .9rem "Orbitron", system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #00e5ff; }
+.fx-ag h3 small { font: .8rem "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0; text-transform: none; color: #a9b8cc; margin-left: 6px; }
+/* duas colunas: Estrutura, Order Blocks, VWAP | Momentum, Fluxo, Risco (ordem do dados.json, preenchendo por coluna) */
+.fx-ag ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(3, auto); grid-auto-flow: column; gap: 10px 14px; }
+.fx-ag li { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: baseline; align-content: start; padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, .07); border-radius: 8px; background: rgba(255, 255, 255, .02); --fx-brilho: rgba(0, 229, 255, .45); }
+.fx-ag li.up { --fx-brilho: rgba(41, 255, 154, .8); }
+.fx-ag li.dn { --fx-brilho: rgba(255, 59, 107, .8); }
+.fx-ag li > b { font-size: 1.05rem; color: #ffffff; }
+.fx-voto { font: 700 1.3rem "JetBrains Mono", ui-monospace, monospace; color: #00e5ff; text-align: right; }
+.fx-voto.up { color: #29ff9a; }
+.fx-voto.dn { color: #ff3b6b; }
+/* gráfico de linha em onda do voto ao longo do dia: verde neon acima de zero, vermelho abaixo */
+.fx-onda { grid-column: 1 / -1; display: block; width: 100%; height: 70px; overflow: visible; margin: 2px 0; }
+.fx-onda-linha { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 3px var(--fx-brilho)) drop-shadow(0 0 9px var(--fx-brilho)); }
+.fx-onda-zero { stroke: rgba(255, 255, 255, .2); stroke-width: 1; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
+.fx-cor-up { stop-color: #29ff9a; }
+.fx-cor-dn { stop-color: #ff3b6b; }
+.fx-ag li .fx-leit { grid-column: 1 / -1; font: .95rem/1.45 "JetBrains Mono", ui-monospace, monospace; color: #e3ebf5; }
+.fx-ag li.fx-risco .fx-leit { line-height: 1.7; }
+.fx-vazio, .fx-ag > p.fx-leit { font: .75rem "JetBrains Mono", ui-monospace, monospace; color: #a9b8cc; margin: 0; }
+html.tema-claro .fx-ag li { border-color: rgba(0, 0, 0, .1); background: rgba(0, 0, 0, .02); --fx-brilho: rgba(10, 111, 214, .3); }
+html.tema-claro .fx-ag li.up { --fx-brilho: rgba(21, 133, 77, .45); }
+html.tema-claro .fx-ag li.dn { --fx-brilho: rgba(196, 35, 79, .45); }
+html.tema-claro .fx-cor-up { stop-color: #15854d; }
+html.tema-claro .fx-cor-dn { stop-color: #c4234f; }
+html.tema-claro .fx-onda-zero { stroke: rgba(0, 0, 0, .25); }
+@media (max-width: 700px) { .fx-ag ul { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-flow: row; } }
+
+/* ---------- gráficos: botão ampliar ---------- */
+.fx-ampliar {
+  position: absolute; right: 6px; bottom: 6px; z-index: 3; min-height: 0; padding: 5px 9px; font-size: .72rem; line-height: 1;
+  font-family: "Orbitron", system-ui, sans-serif; letter-spacing: .08em; color: #00e5ff;
+  background: rgba(3, 6, 12, .85); border: 1px solid rgba(0, 229, 255, .55); border-radius: 6px; cursor: pointer;
+}
+
+/* ---------- tela cheia do gráfico ---------- */
+#fx-zoom { position: fixed; inset: 0; z-index: 100; display: none; flex-direction: column; background: #02040a; }
+#fx-zoom.aberto { display: flex; }
+#fx-zoom .fx-zbar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-bottom: 1px solid rgba(0, 229, 255, .25); }
+#fx-zoom .fx-zbar span { flex: 1; font-family: "Orbitron", system-ui, sans-serif; font-size: .66rem; letter-spacing: .1em; color: #6f8199; }
+#fx-zoom .fx-zbar button { min-width: 44px; background: rgba(0, 229, 255, .08); border-color: rgba(0, 229, 255, .4); color: #00e5ff; font-weight: 700; }
+#fx-zoom .fx-zpalco { flex: 1; min-height: 0; padding: 0; margin: 0; background: none; border: 0; border-radius: 0; box-shadow: none !important; touch-action: none; cursor: grab; overflow: hidden; }
+#fx-zoom .fx-zpalco::before, #fx-zoom .fx-zpalco::after { display: none !important; }
+#fx-zoom .fx-zpalco svg { width: 100%; height: 100%; display: block; }
+
+/* ---------- tema claro (botão "Tema" no cabeçalho) ---------- */
+html.tema-claro, html.tema-claro .qp, html.tema-claro .cy {
+  --accent: #0a6fd6;
+  --bg: #f4f7fb; --card: #ffffff; --card2: #eef2f7; --line: #d5dde8; --text: #1b2430; --muted: #5a6676;
+  --qp-bg: #f4f7fb; --qp-card: #ffffff; --qp-edge: rgba(10, 111, 214, .25); --qp-edge-hot: #0a6fd6;
+  --qp-grid: rgba(20, 40, 70, .07); --qp-cyan: #0a7fb0; --qp-violet: #6a5bd6;
+  --cy-bg: #f7f4fb; --cy-card: #ffffff; --cy-edge: rgba(190, 40, 160, .3); --cy-cyan: #0a7fb0; --cy-mag: #b8269c;
+}
+html.tema-claro { background: #f4f7fb; color-scheme: light; }
+html.tema-claro header { background: rgba(255, 255, 255, .94); border-bottom-color: rgba(10, 111, 214, .25); }
+html.tema-claro header nav button.active { color: #0a6fd6; border-bottom-color: #0a6fd6; text-shadow: none !important; }
+html.tema-claro .tradingview-widget-container { background: rgba(255, 255, 255, .94); }
+html.tema-claro .fx-ag h3 { color: #0a6fd6; }
+html.tema-claro .fx-ag h3 small, html.tema-claro .fx-ag li .fx-leit, html.tema-claro .fx-vazio { color: #5a6676; }
+html.tema-claro .fx-ag li > b { color: #1b2430; }
+html.tema-claro .fx-voto { color: #0a6fd6; }
+html.tema-claro .fx-voto.up { color: #15854d; }
+html.tema-claro .fx-voto.dn { color: #c4234f; }
+html.tema-claro .fx-trilho { background: #e3e9f1; }
+html.tema-claro .fx-trilho em { background: #0a6fd6; }
+html.tema-claro .fx-trilho::before { background: rgba(0, 0, 0, .25); }
+html.tema-claro .fx-ampliar { color: #0a6fd6; background: #ffffff; border-color: rgba(10, 111, 214, .5); }
+html.tema-claro #fx-zoom { background: #f4f7fb; }
+html.tema-claro #fx-zoom .fx-zbar span { color: #5a6676; }
+html.tema-claro #fx-zoom .fx-zbar button { color: #0a6fd6; background: #ffffff; border-color: rgba(10, 111, 214, .4); }
+html.tema-claro .modo-btn { background: #ffffff; color: #0a6fd6; border-color: rgba(10, 111, 214, .4); }
+html.tema-claro #tabs button { color: #5a6676; }
+html.tema-claro #tabs button.active { color: #0a6fd6; }
+/* o botão de tema fica ao lado do botão de formato da tela */
+#temaTela { right: 160px; }
+@media (max-width: 520px) { #temaTela { right: 118px; } }
+
+/* ---------- DI1 na faixa de cotações ---------- */
+.fx-di { display: flex; gap: 6px 22px; justify-content: center; flex-wrap: wrap; padding: 5px 10px; border-top: 1px solid rgba(0, 229, 255, .15);
+  font: .72rem "JetBrains Mono", ui-monospace, monospace; color: #a9b8cc; }
+.fx-di b { color: #e6f1ff; font-weight: 700; }
+.fx-di em { font-style: normal; }
+.fx-di em.up { color: #29ff9a; }
+.fx-di em.dn { color: #ff3b6b; }
+html.tema-claro .fx-di { color: #5a6676; border-top-color: rgba(10, 111, 214, .2); }
+html.tema-claro .fx-di b { color: #1b2430; }
+html.tema-claro .fx-di em.up { color: #15854d; }
+html.tema-claro .fx-di em.dn { color: #c4234f; }

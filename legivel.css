@@ -1,0 +1,43 @@
+/* Ajustes de leitura: fonte Times New Roman maior e topo sem transparência.
+   Carregado por último no index.html; para desfazer, basta tirar a linha dele. */
+
+/* 1. Fonte: Times New Roman em tudo, um pouco maior */
+html { font-size: 18px; }                 /* era 16px: tudo em rem cresce ~12% */
+body { font-size: 17px; line-height: 1.45; }   /* era 15px */
+html body, html body *:not(svg):not(svg *) {
+  font-family: "Times New Roman", Times, serif !important;
+  letter-spacing: normal !important;
+}
+svg text, svg tspan { font-family: "Times New Roman", Times, serif !important; }
+/* números alinhados nas tabelas */
+.qp-num, .qp-mono, .cy-mono, td, .qp-tile > span { font-variant-numeric: tabular-nums lining-nums; }
+
+/* textos que estavam minúsculos (0,62 a 0,72 rem) ficam com no mínimo ~13px */
+.qp-h, .qp-h small, .qp-tile b, .qp-tile em, .qp-note, .qp-legend, .qp-zoom-k, .qp-zoom button,
+.cy-tag, .cy-cell b, .cy-cell em, .cy-badge, .cy-tab th, .cy-eqbox, .cy-leg, .cy-small,
+.fx-ag h3, .fx-ag h3 small, .fx-ag li .fx-leit, .fx-vazio, .fx-ag > p.fx-leit,
+.rel-txt b, .cy-note, footer, .qp-foot {
+  font-size: max(0.74rem, 13px) !important;
+}
+
+/* 2. Topo fixo opaco: o conteúdo não aparece mais por baixo ao rolar */
+header,
+.tradingview-widget-container {
+  background: #03060c !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.qp-a-hero {
+  background: #090e18 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .6);
+}
+.fx-di { background: #03060c; position: relative; z-index: 1; }
+
+/* 3. Nada vaza para fora dos quadros com a fonte maior */
+main *, .qp-card, .cy-card { min-width: 0; }
+.qp-card, section, .card { overflow-wrap: anywhere; }
+html, body { overflow-x: hidden; }
+/* lista da força do mercado mundial: colunas flexíveis para caber a fonte maior */
+.mw-row { grid-template-columns: minmax(0, 1fr) minmax(36px, 70px) auto !important; column-gap: 6px; }

@@ -122,6 +122,17 @@
 .cy-ob.b { fill: rgba(41, 255, 154, .10); stroke: rgba(41, 255, 154, .35); }
 .cy-ob.s { fill: rgba(255, 59, 107, .10); stroke: rgba(255, 59, 107, .35); }
 .cy-ob.vivo { stroke-width: 1.5; }
+/* simulação 2R */
+.cy-sim .g { fill: rgba(41, 255, 154, .16); stroke: rgba(41, 255, 154, .55); stroke-width: 1; }
+.cy-sim .p { fill: rgba(255, 59, 107, .16); stroke: rgba(255, 59, 107, .55); stroke-width: 1; }
+.cy-sim .e { stroke: #fff; stroke-width: 1.2; stroke-dasharray: 4 3; }
+.cy-simt { font: 700 11px "JetBrains Mono", monospace; paint-order: stroke; stroke: #03060c; stroke-width: 3px; }
+.cy-simt.up { fill: #29ff9a; }
+.cy-simt.dn { fill: #ff3b6b; }
+.cy-simres { margin-top: 8px; padding: 8px 10px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 6px; font-size: .9rem; line-height: 1.5; color: #e3ebf5; }
+.cy-simres small { display: block; color: var(--cy-dim); }
+.cy-fvg.b { fill: rgba(255, 200, 0, .16); }
+.cy-fvg.s { fill: rgba(170, 120, 255, .18); }
 .cy-vwap { fill: none; stroke: var(--cy-cyan); stroke-width: 1.8; filter: drop-shadow(0 0 3px var(--cy-cyan)); }
 .cy-band { fill: none; stroke: var(--cy-cyan); stroke-dasharray: 3 4; stroke-width: 1.2; opacity: .7; }
 .cy-band.b2 { stroke: var(--cy-mag); opacity: .75; }
@@ -153,6 +164,8 @@
 .cy-leg .s { color: var(--cy-dn); }
 .cy-leg .v, .cy-leg .d { color: var(--cy-cyan); }
 .cy-leg .sig { color: var(--cy-yel); }
+.cy-leg .fb { color: rgb(255, 200, 0); }
+.cy-leg .fs { color: rgb(170, 120, 255); }
 
 /* backtest */
 .cy-sides { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }

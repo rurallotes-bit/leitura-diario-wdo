@@ -1,0 +1,174 @@
+/* Estilo XP: barra superior escura + destaque amarelo.
+   Mexe só no cabeçalho, nas abas, nos botões e na largura da tela no PC.
+   Não altera cores dos indicadores. */
+
+:root {
+  --xp-amarelo: #ffc20e;
+  --xp-preto: #111111;
+}
+
+/* cabeçalho */
+header {
+  background: var(--xp-preto) !important;
+  border-bottom: 1px solid #000 !important;
+  padding: 12px 24px 0 !important;
+}
+
+header h1 {
+  color: #fff !important;
+  font-size: 1.2rem !important;
+  font-weight: 700;
+}
+
+/* abas */
+header nav button,
+nav button {
+  color: #d4d4d4 !important;
+  border-bottom: 3px solid transparent !important;
+}
+
+header nav button:hover,
+nav button:hover {
+  color: #fff !important;
+}
+
+header nav button.active,
+nav button.active {
+  color: var(--xp-amarelo) !important;
+  border-bottom-color: var(--xp-amarelo) !important;
+}
+
+/* botões de tela e tema */
+.modo-btn {
+  background: transparent !important;
+  color: #d4d4d4 !important;
+  border: 1px solid #3a3a3a !important;
+  border-radius: 4px !important;
+}
+
+.modo-btn:hover {
+  border-color: var(--xp-amarelo) !important;
+  color: #fff !important;
+}
+
+/* botão principal em amarelo, como os botões de ação do XP */
+button.primary {
+  background: var(--xp-amarelo) !important;
+  border-color: var(--xp-amarelo) !important;
+  color: #111 !important;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+/* faixa única de cotações (index.html): TradingView + WIN vigente e DI1, rolando juntos */
+.fx-topo {
+  position: sticky;
+  z-index: 9;
+  background: #03060c;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+html.tema-claro .fx-topo {
+  background: #fff;
+  border-bottom-color: rgba(0, 0, 0, .1);
+}
+
+.fx-fita {
+  overflow: hidden;
+}
+
+.fx-fita-faixa {
+  display: flex;
+  width: max-content;
+  /* !important: o banco.css desliga todas as animações da página */
+  animation: fx-rolar 60s linear infinite !important;
+}
+
+.fx-fita:hover .fx-fita-faixa {
+  animation-play-state: paused !important;
+}
+
+/* cada cópia ocupa pelo menos a tela inteira: nenhum ativo aparece duas vezes ao mesmo tempo */
+.fx-fita-copia {
+  display: flex;
+  flex: none;
+  align-items: center;
+  min-width: 100vw;
+}
+
+/* widget do TradingView dentro da faixa: largura fixa e sem o "grudar no topo" do painel.css */
+.fx-topo .fx-tv {
+  position: static;
+  flex: none;
+  width: 440px !important;  /* 220 px por ativo: com menos, o widget esconde o S&P 500 e deixa um buraco */
+  background: none !important;
+}
+
+.fx-topo .fx-di {
+  display: flex;
+  flex: 1;  /* os itens se esticam e preenchem a faixa, sem vão */
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 0;
+  border-top: 0;
+  background: none;
+}
+
+/* itens próprios com a mesma cara dos do TradingView */
+.fx-item {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-content: center;
+  gap: 6px 18px;
+  flex: 1;
+  min-width: 190px;
+  height: 72px;
+  padding: 0 20px;
+  border-left: 1px solid rgba(255, 255, 255, .1);
+  font: 12px -apple-system, "Segoe UI", "Trebuchet MS", Roboto, sans-serif;
+  white-space: nowrap;
+}
+
+/* mesma fonte do widget do TradingView (o legivel.css força Times no resto da página) */
+.fx-item,
+.fx-item * {
+  font-family: -apple-system, "Segoe UI", "Trebuchet MS", Roboto, sans-serif !important;
+}
+
+.fx-item i {
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #b2b5be;
+}
+
+.fx-item b {
+  justify-self: end;
+  font-weight: 400;
+}
+
+.fx-item em {
+  grid-column: 1 / -1;
+  font-size: 17px;
+  color: #b2b5be;
+}
+
+html.tema-claro .fx-item {
+  border-left-color: rgba(0, 0, 0, .12);
+}
+
+@keyframes fx-rolar {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* PC: usa a tela toda (a escala vem do zoom aplicado no index.html) */
+html.largo main {
+  max-width: none;
+  padding: 16px 24px;
+}
+
+html.largo #view-estrategia,
+html.largo #view-checklist {
+  max-width: none;
+}

@@ -5,6 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Leitura Diária WDO</title>
+  <meta name="description" content="Leitura diária do mini dólar (WDO): força do mercado, níveis, notícias e leitura de gráfico em M1, M5, M15 e M240.">
+  <meta name="theme-color" content="#02040a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Leitura Diária WDO">
+  <meta property="og:description" content="Leitura diária do mini dólar (WDO) com níveis, notícias e gráficos em vários tempos.">
   <link rel="icon" href="icone.svg">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +19,9 @@
   <link rel="stylesheet" href="estrategia.css">
   <link rel="stylesheet" href="banco.css">
   <link rel="stylesheet" href="banco-escuro.css">
+  <link rel="stylesheet" href="futuro.css?v=2">
+  <link rel="stylesheet" href="legivel.css?v=1">
+  <link rel="stylesheet" href="xp.css?v=1">
   <script>
     // Formato da tela: automático (PC a partir de 1200 px), PC ou celular
     (function () {
@@ -22,6 +30,8 @@
       function aplicar() {
         var largo = modo === 'pc' || (modo === 'auto' && window.innerWidth >= 1200);
         document.documentElement.classList.toggle('largo', largo);
+        // PC: layout de referência de 1440 px escalado para ocupar a tela toda (mesma proporção em qualquer monitor)
+        document.documentElement.style.zoom = largo ? Math.max(1, window.innerWidth / 1440).toFixed(3) : '';
       }
       window.qpModoTela = {
         get: function () { return modo; },
@@ -29,6 +39,9 @@
       };
       aplicar();
       window.addEventListener('resize', aplicar);
+      var tema = 'escuro';
+      try { tema = localStorage.getItem('temaTela') || 'escuro'; } catch (e) {}
+      document.documentElement.classList.toggle('tema-claro', tema === 'claro');
     })();
   </script>
 </head>
@@ -37,40 +50,62 @@
   <header>
     <h1>Leitura Diária WDO</h1>
     <button id="modoTela" class="modo-btn" type="button" title="Trocar o formato da tela">Tela: automática</button>
+    <button id="temaTela" class="modo-btn" type="button" title="Trocar entre tema escuro e claro">Tema: escuro</button>
     <nav id="tabs">
       <button data-tab="checklist" class="active">Pré-mercado</button>
       <button data-tab="estrategia">Estratégia</button>
-      <button data-tab="trades">Trades</button>
-      <button data-tab="week">Semana</button>
-      <button data-tab="history">Histórico</button>
     </nav>
   </header>
-  <!-- TradingView: faixa de cotações -->
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-      "symbols": [
-        { "proName": "CAPITALCOM:DXY", "title": "DXY" },
-        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" }
-      ],
-      "showSymbolLogo": false,
-      "colorTheme": "dark",
-      "isTransparent": true,
-      "displayMode": "adaptive",
-      "locale": "br"
-    }
-    </script>
+  <!-- Faixa única de cotações, rolando junta: TradingView (US10Y, DXY, S&P 500) + WIN vigente e DI1 (MT5).
+       O conteúdo existe duas vezes só para o loop ser contínuo; cada cópia ocupa a tela inteira,
+       então nenhum ativo aparece repetido ao mesmo tempo. -->
+  <div class="fx-topo">
+    <div class="fx-fita">
+      <div class="fx-fita-faixa">
+        <div class="fx-fita-copia">
+          <div class="tradingview-widget-container fx-tv">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+            {
+              "symbols": [
+                { "proName": "CAPITALCOM:DXY", "title": "DXY" },
+                { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" }
+              ],
+              "showSymbolLogo": false,
+              "colorTheme": "dark",
+              "isTransparent": true,
+              "locale": "br"
+            }
+            </script>
+          </div>
+          <div class="fx-di"><span>DI1: carregando…</span></div>
+        </div>
+        <div class="fx-fita-copia" aria-hidden="true">
+          <div class="tradingview-widget-container fx-tv">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+            {
+              "symbols": [
+                { "proName": "CAPITALCOM:DXY", "title": "DXY" },
+                { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" }
+              ],
+              "showSymbolLogo": false,
+              "colorTheme": "dark",
+              "isTransparent": true,
+              "locale": "br"
+            }
+            </script>
+          </div>
+          <div class="fx-di"><span>DI1: carregando…</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <main>
-    <div id="painel-wdo" class="qp">Carregando dados do WDO...</div>
-    <script src="painel.js"></script>
-  </main>
   <script>
     // cabeçalho e faixa de cotações ficam fixos no topo; o cartão de cotação gruda abaixo deles
     (function () {
-      var cab = document.querySelector('header'), faixa = document.querySelector('.tradingview-widget-container');
+      var cab = document.querySelector('header'), faixa = document.querySelector('.fx-topo');
       function medir() {
         var h = cab.offsetHeight;
         faixa.style.top = h + 'px';
@@ -83,21 +118,30 @@
   </script>
 
   <main>
+    <div id="painel-wdo" class="qp">Carregando dados do WDO...</div>
+    <script src="painel.js"></script>
     <section id="view-checklist" class="view active"></section>
     <section id="view-estrategia" class="view"></section>
-    <section id="view-trades" class="view"></section>
-    <section id="view-week" class="view"></section>
-    <section id="view-history" class="view"></section>
   </main>
 
   <div id="toast"></div>
   <script src="app.js"></script>
   <script src="estrategia.js"></script>
+  <script src="futuro.js?v=2"></script>
   <script>
     (function () {
       var b = document.getElementById('modoTela'), ordem = ['auto', 'pc', 'cel'];
       var nome = { auto: 'Tela: automática', pc: 'Tela: PC', cel: 'Tela: celular' };
       function mostrar() { b.textContent = nome[qpModoTela.get()] || nome.auto; }
+      var t = document.getElementById('temaTela');
+      function mostrarTema() { t.textContent = document.documentElement.classList.contains('tema-claro') ? 'Tema: claro' : 'Tema: escuro'; }
+      t.onclick = function () {
+        var claro = !document.documentElement.classList.contains('tema-claro');
+        document.documentElement.classList.toggle('tema-claro', claro);
+        try { localStorage.setItem('temaTela', claro ? 'claro' : 'escuro'); } catch (e) {}
+        mostrarTema();
+      };
+      mostrarTema();
       b.onclick = function () {
         var i = ordem.indexOf(qpModoTela.get());
         qpModoTela.set(ordem[(i + 1) % ordem.length]);

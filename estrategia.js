@@ -120,6 +120,8 @@
     let lo = Math.min(...v.map(c => c[3])), hi = Math.max(...v.map(c => c[2]));
     const extra = p ? [p.entrada, p.stop, p.alvo1, p.alvo2] : [];
     extra.forEach(x => { lo = Math.min(lo, x); hi = Math.max(hi, x); });
+    const sims = (g.sims || []).filter(o => o.de < n);
+    sims.forEach(o => { lo = Math.min(lo, o.stop, o.alvo); hi = Math.max(hi, o.stop, o.alvo); });
     const pad = (hi - lo) * 0.04 || 1; lo -= pad; hi += pad;
     const dx = (W - L - R) / n, bw = Math.max(2, dx * 0.62);
     const X = i => L + dx * (i + 0.5), Y = y => T + (hi - y) / (hi - lo) * (B - T);
@@ -138,6 +140,32 @@
       const x0 = X(o.de) - dx / 2, x1 = o.ate == null ? W - R : X(Math.min(o.ate, n - 1)) + dx / 2;
       if (x1 <= L) return;
       s += `<rect x="${Math.max(L, x0).toFixed(1)}" y="${Y(o.hi).toFixed(1)}" width="${Math.max(2, x1 - Math.max(L, x0)).toFixed(1)}" height="${Math.max(2, Y(o.lo) - Y(o.hi)).toFixed(1)}" class="cy-ob ${o.lado > 0 ? 'b' : 's'} ${o.ate == null ? 'vivo' : ''}"><title>OB de ${o.lado > 0 ? 'alta' : 'baixa'} ${fmt(o.lo)}–${fmt(o.hi)}</title></rect>`;
+    });
+    // FVG: espaço entre a vela 1 e a vela 3 que o preço não negociou
+    for (let i = 2; i < n; i++) {
+      if (g.dia[i] !== g.dia[i - 2]) continue;
+      const a = v[i - 2], c = v[i];
+      let lado = 0, baixo = 0, topo = 0;
+      if (c[3] > a[2]) { lado = 1; baixo = a[2]; topo = c[3]; }        // alta: máxima da vela 1 até a mínima da vela 3
+      else if (a[3] > c[2]) { lado = -1; topo = a[3]; baixo = c[2]; }  // baixa: mínima da vela 1 até a máxima da vela 3
+      if (!lado) continue;
+      let fim = n - 1;
+      for (let k = i + 1; k < n; k++) {
+        if ((lado > 0 && v[k][3] <= baixo) || (lado < 0 && v[k][2] >= topo)) { fim = k; break; }
+      }
+      const x0 = X(i - 1) - dx / 2, x1 = X(fim) + dx / 2;
+      s += `<rect x="${x0.toFixed(1)}" y="${Y(topo).toFixed(1)}" width="${Math.max(2, x1 - x0).toFixed(1)}" height="${Math.max(2, Y(baixo) - Y(topo)).toFixed(1)}" class="cy-fvg ${lado > 0 ? 'b' : 's'}"><title>FVG de ${lado > 0 ? 'alta' : 'baixa'} ${fmt(baixo)} a ${fmt(topo)}</title></rect>`;
+    }
+    // simulação 2R: faixa verde = ganho até o alvo, faixa vermelha = risco até o stop (nenhuma ordem é enviada)
+    const RES = { alvo: 'bateu o alvo', stop: 'bateu o stop', tempo: 'saiu por tempo', aberta: 'em aberto' };
+    let simTxt = '';
+    sims.forEach(o => {
+      const x0 = X(o.de) - dx / 2, x1 = X(Math.min(o.ate, n - 1)) + dx / 2, w = Math.max(dx, x1 - x0);
+      const ye = Y(o.entrada), ya = Y(o.alvo), ys = Y(o.stop);
+      const caixa = (c, y) => `<rect class="${c}" x="${x0.toFixed(1)}" y="${Math.min(ye, y).toFixed(1)}" width="${w.toFixed(1)}" height="${Math.max(1, Math.abs(y - ye)).toFixed(1)}"/>`;
+      s += `<g class="cy-sim ${o.res}"><title>${o.lado > 0 ? 'Compra' : 'Venda'} simulada ${esc(o.hora)} · entrada ${fmt(o.entrada)} · stop ${fmt(o.stop)} · alvo 2R ${fmt(o.alvo)} · ${RES[o.res] || ''} ${sgn(o.r)} R</title>
+        ${caixa('g', ya)}${caixa('p', ys)}<line class="e" x1="${x0.toFixed(1)}" x2="${(x0 + w).toFixed(1)}" y1="${ye.toFixed(1)}" y2="${ye.toFixed(1)}"/></g>`;
+      simTxt += `<text x="${(x0 + 3).toFixed(1)}" y="${(o.r >= 0 ? ya + (ya < ye ? 11 : -4) : ys + (ys < ye ? 11 : -4)).toFixed(1)}" class="cy-simt ${o.r >= 0 ? 'up' : 'dn'}">${o.lado > 0 ? 'C' : 'V'} ${sgn(o.r)}R</text>`;
     });
     // VWAP e bandas (por dia)
     const linha = (f, c) => {
@@ -172,6 +200,7 @@
       s += `<line x1="${x0.toFixed(1)}" x2="${x1.toFixed(1)}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" class="cy-ev ${ev.lado > 0 ? 'b' : 's'}"/>
         <text x="${((x0 + x1) / 2).toFixed(1)}" y="${(y + (ev.lado > 0 ? -4 : 11)).toFixed(1)}" text-anchor="middle" class="cy-evt ${ev.lado > 0 ? 'b' : 's'}">${ev.tipo}</text>`;
     });
+    s += simTxt;
     // sinal e plano
     if (g.sinal >= 0 && g.sinal < n) s += `<rect x="${(X(g.sinal) - dx / 2).toFixed(1)}" y="${T}" width="${dx.toFixed(1)}" height="${B - T}" class="cy-sigcol"/>`;
     if (p) {
@@ -185,11 +214,18 @@
     while (u >= 0 && (g.vwap[u] == null || g.sd[u] == null)) u--;
     const niveis = u < 0 ? '' : [[2, '+2σ'], [1, '+1σ'], [0, 'VWAP'], [-1, '−1σ'], [-2, '−2σ']]
       .map(([k, t]) => `<span class="${k === 0 ? 'v' : Math.abs(k) === 1 ? 'd' : 'b2'}">${t} ${fmt(g.vwap[u] + k * g.sd[u], 0)}</span>`).join('');
+    // resumo da simulação 2R (só nos gráficos que recebem as operações simuladas)
+    const sm = e.simulacao;
+    const simRes = !g.sims || !sm ? '' : `<div class="cy-simres"><b>Simulação 2R</b> · ${sims.length} neste gráfico · desde ${esc(sm.desde)}: <b>${sm.n}</b> operações ·
+      <span class="cy-up">${sm.alvos} no alvo</span> · <span class="cy-dn">${sm.stops} no stop</span> · ${sm.tempo} por tempo${sm.abertas ? ' · ' + sm.abertas + ' em aberto' : ''} ·
+      saldo <b class="cy-mono ${cls(sm.saldo_r)}">${sgn(sm.saldo_r)} R</b>${sm.media_r == null ? '' : ` (média <span class="cy-mono ${cls(sm.media_r)}">${sgn(sm.media_r)} R</span>)`}
+      <small>Simulação para estudo: nenhuma ordem é enviada.</small></div>`;
     return `<section class="cy-card cy-chart">
       <div class="cy-tag">${esc(titulo)}</div>
       <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gráfico M15 do WDO">${s}</svg>
       <div class="cy-niveis">${niveis}<span class="cy-ultp">último ${fmt(ult, passo < 1 ? 1 : 0)}</span></div>
-      <div class="cy-leg"><span class="b">▮ OB alta</span><span class="s">▮ OB baixa</span><span class="v">— VWAP</span><span class="d">┄ ±σ</span><span class="sig">▯ sinal</span></div>
+      <div class="cy-leg"><span class="b">▮ OB alta</span><span class="s">▮ OB baixa</span><span class="fb">▮ FVG alta</span><span class="fs">▮ FVG baixa</span><span class="v">— VWAP</span><span class="d">┄ ±σ</span><span class="sig">▯ sinal</span>${g.sims ? '<span class="b">▮ ganho até 2R</span><span class="s">▮ risco até o stop</span>' : ''}</div>
+      ${simRes}
     </section>`;
   }
 
