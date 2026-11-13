@@ -1,12 +1,12 @@
 {
-  "atualizado_em": "13/11/2026 17:10:59",
+  "atualizado_em": "13/11/2026 17:14:29",
   "wdo": {
-    "preco": 5672.0,
+    "preco": 5671.5,
     "abertura": 5660.0,
-    "variacao_pct": 0.21,
+    "variacao_pct": 0.2,
     "maxima": 5683.5,
     "minima": 5647.5,
-    "vwap": 5666.13,
+    "vwap": 5666.14,
     "ajuste": 5668.867,
     "ajuste_data": "12/11",
     "ajuste_hoje": 5663.547,
@@ -209,23 +209,23 @@
         ],
         [
           5671.5,
-          3224
+          3237
         ],
         [
           5672.0,
-          3034
+          3050
         ],
         [
           5672.5,
-          2594
+          2638
         ],
         [
           5673.0,
-          2347
+          2408
         ],
         [
           5673.5,
-          2468
+          2510
         ],
         [
           5674.0,
@@ -704,7 +704,7 @@
       ],
       [
         "17:10",
-        5672.0
+        5671.5
       ]
     ],
     "ontem": {
@@ -730,64 +730,64 @@
   },
   "externo": {
     "dxy": {
-      "valor": 103.414,
-      "variacao_pct": 0.24,
+      "valor": 103.399,
+      "variacao_pct": 0.22,
       "unidade": "%",
       "correlacao": 0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.31,
-      "z": 0.76
+      "z": 0.71
     },
     "mxn": {
-      "valor": 18.53,
+      "valor": 18.5307,
       "variacao_pct": -0.47,
       "unidade": "%",
       "correlacao": 0.33,
       "sinal": "Venda",
       "motivo": "pressiona o dólar para baixo",
       "vol_pct": 0.65,
-      "z": -0.72
+      "z": -0.71
     },
     "zar": {
-      "valor": 16.9297,
-      "variacao_pct": 1.98,
+      "valor": 16.9265,
+      "variacao_pct": 1.96,
       "unidade": "%",
       "correlacao": 0.48,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
-      "vol_pct": 0.61,
-      "z": 3.27
+      "vol_pct": 0.6,
+      "z": 3.24
     },
     "spx": {
-      "valor": 7566.5,
-      "variacao_pct": -0.64,
+      "valor": 7575.0,
+      "variacao_pct": -0.53,
       "unidade": "%",
-      "correlacao": -0.01,
+      "correlacao": -0.0,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.96,
-      "z": -0.67
+      "z": -0.55
     },
     "ndx": {
-      "valor": 27968.25,
-      "variacao_pct": -1.47,
+      "valor": 28017.25,
+      "variacao_pct": -1.29,
       "unidade": "%",
-      "correlacao": -0.06,
+      "correlacao": -0.05,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.53,
-      "z": -0.96
+      "z": -0.84
     },
     "oil": {
-      "valor": 95.84,
-      "variacao_pct": 0.02,
+      "valor": 95.9,
+      "variacao_pct": 0.08,
       "unidade": "%",
       "correlacao": -0.06,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 2.97,
-      "z": 0.01
+      "z": 0.03
     },
     "iron": {
       "valor": 91.6,
@@ -840,14 +840,14 @@
       "z": -0.09
     },
     "vix": {
-      "valor": 19.11,
-      "variacao_pct": 2.19,
+      "valor": 18.95,
+      "variacao_pct": 1.34,
       "unidade": "%",
       "correlacao": -0.02,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 11.75,
-      "z": 0.19
+      "z": 0.11
     },
     "di27": {
       "valor": 13.672,
@@ -860,14 +860,14 @@
       "z": 0.27
     },
     "di28": {
-      "valor": 14.275,
-      "variacao_pct": -1.5,
+      "valor": 14.28,
+      "variacao_pct": -1.0,
       "unidade": "bps",
       "correlacao": -0.37,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 30.74,
-      "z": -0.05
+      "z": -0.03
     },
     "di29": {
       "valor": 14.68,
@@ -881,18 +881,18 @@
     }
   },
   "mundo": {
-    "intensidade": 26,
-    "direcao": -38,
-    "nivel": "normal",
+    "intensidade": 24,
+    "direcao": -34,
+    "nivel": "calmo",
     "componentes": [
       {
         "ativo": "spx",
-        "z": -0.67,
+        "z": -0.55,
         "peso": 1
       },
       {
         "ativo": "ndx",
-        "z": -0.96,
+        "z": -0.84,
         "peso": 1
       },
       {
@@ -912,17 +912,17 @@
       },
       {
         "ativo": "oil",
-        "z": 0.01,
+        "z": 0.03,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 0.76,
+        "z": 0.71,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": 0.19,
+        "z": 0.11,
         "peso": -1
       }
     ]
@@ -1316,7 +1316,7 @@
     },
     "barra": "13/11 16:45",
     "fim_barra": "17:00",
-    "preco": 5672.0,
+    "preco": 5673.0,
     "atr": 6.86,
     "decisao": {
       "acao": "AGUARDAR",
@@ -1717,16 +1717,16 @@
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": 13,
-        "leitura": "Volume 0,8× a média · agressão no candle +14% · ticks: saldo +5.824 contratos (+11%)",
+        "voto": 16,
+        "leitura": "Volume 0,8× a média · agressão no candle +14% · ticks: saldo +10.072 contratos (+17%)",
         "dados": {
           "volrel": 0.8,
           "candle": 0.144,
           "ticks": {
-            "compra": 28370.0,
-            "venda": 22546.0,
-            "saldo": 5824.0,
-            "pct": 0.1143844763924896
+            "compra": 34130.0,
+            "venda": 24058.0,
+            "saldo": 10072.0,
+            "pct": 0.17309410875094522
           }
         },
         "historico": [
@@ -1789,7 +1789,7 @@
           29,
           35,
           26,
-          13
+          16
         ]
       },
       {
@@ -2569,9 +2569,9 @@
         [
           "13/11 17:00",
           5671.5,
-          5672.5,
+          5673.5,
           5670.5,
-          5672.0
+          5673.0
         ]
       ],
       "vwap": [
@@ -2630,7 +2630,7 @@
         5664.82,
         5664.87,
         5664.98,
-        5665.03
+        5665.05
       ],
       "sd": [
         10.9,
@@ -5264,30 +5264,9 @@
       },
       "M1": {
         "preco": 5672.0,
-        "atr": 1.28,
+        "atr": 1.3,
         "grafico": {
           "velas": [
-            [
-              "13/11 14:10",
-              5655.0,
-              5657.0,
-              5654.5,
-              5656.5
-            ],
-            [
-              "13/11 14:11",
-              5656.0,
-              5657.0,
-              5656.0,
-              5656.5
-            ],
-            [
-              "13/11 14:12",
-              5657.0,
-              5657.5,
-              5656.0,
-              5656.0
-            ],
             [
               "13/11 14:13",
               5656.0,
@@ -6526,12 +6505,30 @@
               5672.5,
               5671.5,
               5672.0
+            ],
+            [
+              "13/11 17:10",
+              5672.5,
+              5673.0,
+              5672.0,
+              5672.5
+            ],
+            [
+              "13/11 17:11",
+              5672.5,
+              5673.5,
+              5672.5,
+              5673.0
+            ],
+            [
+              "13/11 17:12",
+              5673.5,
+              5673.5,
+              5671.5,
+              5672.0
             ]
           ],
           "vwap": [
-            5665.89,
-            5665.89,
-            5665.88,
             5665.86,
             5665.85,
             5665.84,
@@ -6708,12 +6705,12 @@
             5665.43,
             5665.43,
             5665.44,
-            5665.44
+            5665.44,
+            5665.44,
+            5665.45,
+            5665.46
           ],
           "sd": [
-            9.37,
-            9.37,
-            9.37,
             9.37,
             9.37,
             9.37,
@@ -6890,7 +6887,10 @@
             8.81,
             8.81,
             8.81,
-            8.81
+            8.81,
+            8.8,
+            8.8,
+            8.8
           ],
           "dia": [
             "2026-11-13",
@@ -7076,179 +7076,186 @@
           ],
           "eventos": [
             {
-              "k": 10,
+              "k": 7,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5658.5,
-              "de": 4
+              "de": 1
             },
             {
-              "k": 31,
+              "k": 28,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5656.0,
-              "de": 28
+              "de": 25
             },
             {
-              "k": 51,
+              "k": 48,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5658.5,
-              "de": 42
+              "de": 39
             },
             {
-              "k": 75,
+              "k": 72,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5659.5,
-              "de": 71
+              "de": 68
             },
             {
-              "k": 80,
+              "k": 77,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5660.5,
+              "de": 74
+            },
+            {
+              "k": 85,
+              "tipo": "BOS",
+              "lado": 1,
+              "nivel": 5661.5,
               "de": 77
             },
             {
               "k": 88,
               "tipo": "BOS",
               "lado": 1,
-              "nivel": 5661.5,
-              "de": 80
-            },
-            {
-              "k": 91,
-              "tipo": "BOS",
-              "lado": 1,
               "nivel": 5663.0,
-              "de": 88
+              "de": 85
             },
             {
-              "k": 96,
+              "k": 93,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5664.5,
-              "de": 92
+              "de": 89
             },
             {
-              "k": 102,
+              "k": 99,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5662.5,
-              "de": 98
+              "de": 95
             },
             {
-              "k": 108,
+              "k": 105,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5664.0,
-              "de": 103
+              "de": 100
             },
             {
-              "k": 122,
+              "k": 119,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5666.0,
-              "de": 118
+              "de": 115
             },
             {
-              "k": 132,
+              "k": 129,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5667.0,
-              "de": 122
+              "de": 119
             },
             {
-              "k": 145,
+              "k": 142,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5670.0,
-              "de": 142
+              "de": 139
             },
             {
-              "k": 163,
+              "k": 160,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5672.0,
-              "de": 145
+              "de": 142
             },
             {
-              "k": 175,
+              "k": 172,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5671.0,
-              "de": 168
+              "de": 165
+            },
+            {
+              "k": 178,
+              "tipo": "CHoCH",
+              "lado": 1,
+              "nivel": 5672.5,
+              "de": 174
             }
           ],
           "obs": [
             {
               "lado": 1,
-              "lo": 5659.5,
-              "hi": 5660.5,
-              "de": 79,
-              "ate": null
-            },
-            {
-              "lado": 1,
               "lo": 5658.5,
               "hi": 5660.0,
-              "de": 86,
+              "de": 83,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5662.0,
               "hi": 5663.0,
-              "de": 89,
+              "de": 86,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5662.5,
               "hi": 5664.0,
-              "de": 94,
-              "ate": 102
+              "de": 91,
+              "ate": 99
             },
             {
               "lado": -1,
               "lo": 5663.5,
               "hi": 5665.5,
-              "de": 99,
-              "ate": 110
+              "de": 96,
+              "ate": 107
             },
             {
               "lado": 1,
               "lo": 5662.5,
               "hi": 5663.5,
-              "de": 104,
+              "de": 101,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5663.5,
               "hi": 5665.5,
-              "de": 119,
+              "de": 116,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5663.5,
               "hi": 5665.5,
-              "de": 127,
+              "de": 124,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5671.0,
               "hi": 5672.5,
-              "de": 162,
-              "ate": 175
+              "de": 159,
+              "ate": 172
             },
             {
               "lado": -1,
               "lo": 5671.0,
               "hi": 5672.5,
+              "de": 169,
+              "ate": 178
+            },
+            {
+              "lado": 1,
+              "lo": 5670.5,
+              "hi": 5672.0,
               "de": 172,
               "ate": null
             }
@@ -9709,5 +9716,5 @@
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-13T17:16:59"
+  "proxima_em": "2026-11-13T17:20:29"
 }
