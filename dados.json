@@ -1,19 +1,19 @@
 {
-  "atualizado_em": "23/11/2026 09:36:41",
+  "atualizado_em": "23/11/2026 09:42:46",
   "wdo": {
-    "preco": 5986.0,
+    "preco": 5984.0,
     "abertura": 5990.0,
-    "variacao_pct": 0.88,
+    "variacao_pct": 0.85,
     "maxima": 5997.0,
     "minima": 5965.5,
-    "vwap": 5983.9,
+    "vwap": 5983.76,
     "ajuste": 5921.928,
     "ajuste_data": "19/11",
     "ajuste_hoje": null,
     "profile": {
       "poc": 5983.0,
-      "vah": 5991.5,
-      "val": 5978.0,
+      "vah": 5990.5,
+      "val": 5977.5,
       "hist": [
         [
           5965.5,
@@ -113,107 +113,107 @@
         ],
         [
           5977.5,
-          634
+          721
         ],
         [
           5978.0,
-          696
+          783
         ],
         [
           5978.5,
-          606
+          752
         ],
         [
           5979.0,
-          673
+          819
         ],
         [
           5979.5,
-          738
+          883
         ],
         [
           5980.0,
-          738
+          883
         ],
         [
           5980.5,
-          798
+          944
         ],
         [
           5981.0,
-          1010
+          1155
         ],
         [
           5981.5,
-          1085
+          1298
         ],
         [
           5982.0,
-          1031
+          1243
         ],
         [
           5982.5,
-          1135
+          1348
         ],
         [
           5983.0,
-          1371
+          1507
         ],
         [
           5983.5,
-          1296
+          1433
         ],
         [
           5984.0,
-          1355
+          1492
         ],
         [
           5984.5,
-          1307
+          1443
         ],
         [
           5985.0,
-          1245
+          1382
         ],
         [
           5985.5,
-          916
+          986
         ],
         [
           5986.0,
-          990
+          1059
         ],
         [
           5986.5,
-          925
+          994
         ],
         [
           5987.0,
-          865
+          934
         ],
         [
           5987.5,
-          718
+          776
         ],
         [
           5988.0,
-          718
+          776
         ],
         [
           5988.5,
-          620
+          678
         ],
         [
           5989.0,
-          620
+          678
         ],
         [
           5989.5,
-          640
+          698
         ],
         [
           5990.0,
-          640
+          698
         ],
         [
           5990.5,
@@ -296,7 +296,11 @@
       ],
       [
         "09:25",
-        5986.0
+        5981.5
+      ],
+      [
+        "09:30",
+        5984.0
       ]
     ],
     "ontem": {
@@ -312,8 +316,8 @@
       }
     },
     "win": {
-      "preco": 166320.0,
-      "variacao_pct": -0.77
+      "preco": 166375.0,
+      "variacao_pct": -0.73
     }
   },
   "us10y": {
@@ -322,64 +326,64 @@
   },
   "externo": {
     "dxy": {
-      "valor": 103.891,
+      "valor": 103.892,
       "variacao_pct": 0.08,
       "unidade": "%",
       "correlacao": 0.04,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 0.31,
-      "z": 0.25
+      "z": 0.26
     },
     "mxn": {
-      "valor": 19.174,
-      "variacao_pct": 0.44,
+      "valor": 19.2031,
+      "variacao_pct": 0.59,
       "unidade": "%",
       "correlacao": 0.39,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 0.73,
-      "z": 0.6
+      "z": 0.81
     },
     "zar": {
-      "valor": 17.4795,
-      "variacao_pct": -0.09,
+      "valor": 17.4802,
+      "variacao_pct": -0.08,
       "unidade": "%",
-      "correlacao": 0.48,
+      "correlacao": 0.47,
       "sinal": "Insuficiente",
       "motivo": "ativo praticamente parado hoje",
       "vol_pct": 0.63,
-      "z": -0.14
+      "z": -0.13
     },
     "spx": {
       "valor": 7104.25,
       "variacao_pct": 2.44,
       "unidade": "%",
-      "correlacao": -0.17,
+      "correlacao": -0.16,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.16,
       "z": 2.1
     },
     "ndx": {
-      "valor": 25900.0,
-      "variacao_pct": 3.08,
+      "valor": 25902.5,
+      "variacao_pct": 3.09,
       "unidade": "%",
-      "correlacao": -0.17,
+      "correlacao": -0.16,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.77,
       "z": 1.74
     },
     "oil": {
-      "valor": 88.65,
-      "variacao_pct": -4.23,
+      "valor": 88.76,
+      "variacao_pct": -4.12,
       "unidade": "%",
-      "correlacao": -0.07,
+      "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 2.99,
-      "z": -1.42
+      "z": -1.38
     },
     "iron": {
       "valor": 90.67,
@@ -422,59 +426,59 @@
       "z": -0.11
     },
     "dax": {
-      "valor": 25025.9805,
-      "variacao_pct": 0.9,
+      "valor": 24983.4902,
+      "variacao_pct": 0.73,
       "unidade": "%",
       "correlacao": -0.08,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
       "vol_pct": 1.0,
-      "z": 0.9
+      "z": 0.73
     },
     "vix": {
-      "valor": 30.51,
-      "variacao_pct": -14.99,
+      "valor": 31.09,
+      "variacao_pct": -13.37,
       "unidade": "%",
       "correlacao": 0.11,
       "sinal": "Insuficiente",
       "motivo": "correlação fraca com o WDO",
-      "vol_pct": 12.74,
-      "z": -1.18
+      "vol_pct": 12.71,
+      "z": -1.05
     },
     "di27": {
-      "valor": 13.72,
-      "variacao_pct": -0.4,
+      "valor": 13.73,
+      "variacao_pct": 0.6,
       "unidade": "bps",
       "correlacao": -0.32,
-      "sinal": "Compra",
-      "motivo": "pressiona o dólar para cima",
+      "sinal": "Venda",
+      "motivo": "pressiona o dólar para baixo",
       "vol_pct": 4.08,
-      "z": -0.1
+      "z": 0.15
     },
     "di28": {
-      "valor": 14.83,
-      "variacao_pct": -2.0,
+      "valor": 14.825,
+      "variacao_pct": -2.5,
       "unidade": "bps",
       "correlacao": -0.31,
       "sinal": "Compra",
       "motivo": "pressiona o dólar para cima",
       "vol_pct": 31.09,
-      "z": -0.06
+      "z": -0.08
     },
     "di29": {
-      "valor": 15.28,
-      "variacao_pct": 0.5,
+      "valor": 15.265,
+      "variacao_pct": -1.0,
       "unidade": "bps",
       "correlacao": -0.34,
-      "sinal": "Venda",
-      "motivo": "pressiona o dólar para baixo",
+      "sinal": "Compra",
+      "motivo": "pressiona o dólar para cima",
       "vol_pct": 39.53,
-      "z": 0.01
+      "z": -0.03
     }
   },
   "mundo": {
-    "intensidade": 66,
-    "direcao": 18,
+    "intensidade": 64,
+    "direcao": 16,
     "nivel": "agitado",
     "componentes": [
       {
@@ -489,7 +493,7 @@
       },
       {
         "ativo": "dax",
-        "z": 0.9,
+        "z": 0.73,
         "peso": 1
       },
       {
@@ -504,17 +508,17 @@
       },
       {
         "ativo": "oil",
-        "z": -1.42,
+        "z": -1.38,
         "peso": 0.5
       },
       {
         "ativo": "dxy",
-        "z": 0.25,
+        "z": 0.26,
         "peso": -1
       },
       {
         "ativo": "vix",
-        "z": -1.18,
+        "z": -1.05,
         "peso": -1
       }
     ]
@@ -742,22 +746,22 @@
     },
     "barra": "23/11 09:15",
     "fim_barra": "09:30",
-    "preco": 5986.0,
-    "atr": 21.28,
+    "preco": 5984.0,
+    "atr": 21.36,
     "decisao": {
       "acao": "AGUARDAR CONFIRMAÇÃO",
       "lado": "venda",
       "motivos": [
-        "Sinal de venda (61%), mas este lado não teve vantagem fora da amostra."
+        "Sinal de venda (63%), mas este lado não teve vantagem fora da amostra."
       ],
       "plano": {
         "lado": "venda",
         "entrada": 5965.0,
-        "stop": 5989.5,
-        "alvo1": 5950.5,
-        "alvo2": 5891.5,
-        "risco_pts": 24.5,
-        "risco_rs": 245.0,
+        "stop": 5990.5,
+        "alvo1": 5950.0,
+        "alvo2": 5888.5,
+        "risco_pts": 25.5,
+        "risco_rs": 255.0,
         "a1": 0.6,
         "a2": 3.0,
         "valida_ate": "10:00",
@@ -788,13 +792,13 @@
     },
     "lados": {
       "compra": {
-        "prob": 0.4046,
+        "prob": 0.3254,
         "limiar": 0.5977,
         "validado": false,
-        "entrada": 5989.5,
-        "stop": 5972.0,
-        "alvo1": 6003.5,
-        "alvo2": 6042.0,
+        "entrada": 5990.5,
+        "stop": 5973.0,
+        "alvo1": 6004.5,
+        "alvo2": 6043.0,
         "risco_pts": 17.5,
         "risco_rs": 175.0,
         "a1": 0.8,
@@ -806,7 +810,7 @@
           },
           {
             "nome": "RSI",
-            "peso": 0.25
+            "peso": 0.23
           },
           {
             "nome": "BOS a favor",
@@ -816,28 +820,28 @@
         "contra": [
           {
             "nome": "Volume relativo",
-            "peso": -0.58
+            "peso": -0.71
+          },
+          {
+            "nome": "Corpo da barra",
+            "peso": -0.11
           },
           {
             "nome": "Estocástico",
             "peso": -0.1
-          },
-          {
-            "nome": "Tendência a favor",
-            "peso": -0.09
           }
         ]
       },
       "venda": {
-        "prob": 0.6123,
+        "prob": 0.629,
         "limiar": 0.6112,
         "validado": false,
         "entrada": 5965.0,
-        "stop": 5989.5,
-        "alvo1": 5950.5,
-        "alvo2": 5891.5,
-        "risco_pts": 24.5,
-        "risco_rs": 245.0,
+        "stop": 5990.5,
+        "alvo1": 5950.0,
+        "alvo2": 5888.5,
+        "risco_pts": 25.5,
+        "risco_rs": 255.0,
         "a1": 0.6,
         "a2": 3.0,
         "a_favor": [
@@ -847,7 +851,7 @@
           },
           {
             "nome": "RSI",
-            "peso": 0.23
+            "peso": 0.21
           },
           {
             "nome": "CHoCH a favor",
@@ -860,12 +864,12 @@
             "peso": -0.08
           },
           {
-            "nome": "Corpo da barra",
-            "peso": -0.08
-          },
-          {
             "nome": "Tendência a favor",
             "peso": -0.03
+          },
+          {
+            "nome": "Corpo da barra",
+            "peso": -0.02
           }
         ]
       }
@@ -949,15 +953,15 @@
       {
         "id": "ob",
         "nome": "Order Blocks",
-        "voto": 4,
-        "leitura": "OB de alta 5.932,0–5.941,5 (44.5 pts abaixo)",
+        "voto": 5,
+        "leitura": "OB de alta 5.932,0–5.941,5 (40 pts abaixo)",
         "dados": {
           "alta": {
             "lado": 1,
             "lo": 5932.0,
             "hi": 5941.5,
-            "i": 2997,
-            "nasce": 2998,
+            "i": 2996,
+            "nasce": 2997,
             "fim": null
           },
           "baixa": null,
@@ -1024,19 +1028,19 @@
           7,
           7,
           4,
-          4
+          5
         ]
       },
       {
         "id": "vwap",
         "nome": "VWAP",
-        "voto": 26,
-        "leitura": "Preço acima da VWAP 3,0 pts (+0,56σ) · perto da VWAP",
+        "voto": -7,
+        "leitura": "Preço abaixo da VWAP 0,7 pts (−0,13σ) · perto da VWAP",
         "dados": {
-          "vwap": 5983.01,
-          "sd": 5.32,
-          "z": 0.56,
-          "dist": 2.99
+          "vwap": 5982.21,
+          "sd": 5.34,
+          "z": -0.13,
+          "dist": -0.71
         },
         "historico": [
           49,
@@ -1098,17 +1102,17 @@
           46,
           46,
           -15,
-          26
+          -7
         ]
       },
       {
         "id": "momentum",
         "nome": "Momentum",
-        "voto": 45,
-        "leitura": "RSI 68 · Estocástico 74 · neutro",
+        "voto": 42,
+        "leitura": "RSI 67 · Estocástico 72 · neutro",
         "dados": {
-          "rsi": 68.1,
-          "sto": 73.6,
+          "rsi": 66.7,
+          "sto": 72.0,
           "estado": "neutro"
         },
         "historico": [
@@ -1171,22 +1175,22 @@
           8,
           7,
           44,
-          45
+          42
         ]
       },
       {
         "id": "fluxo",
         "nome": "Fluxo",
-        "voto": 8,
-        "leitura": "Volume 1,8× a média · agressão no candle +13% · ticks: saldo +5.734 contratos (+4%)",
+        "voto": 2,
+        "leitura": "Volume 2,1× a média · agressão no candle +0% · ticks: saldo +5.435 contratos (+3%)",
         "dados": {
-          "volrel": 1.79,
-          "candle": 0.13,
+          "volrel": 2.13,
+          "candle": 0.002,
           "ticks": {
-            "compra": 79458.0,
-            "venda": 73724.0,
-            "saldo": 5734.0,
-            "pct": 0.03743259651917327
+            "compra": 98794.0,
+            "venda": 93359.0,
+            "saldo": 5435.0,
+            "pct": 0.02828475225471369
           }
         },
         "historico": [
@@ -1249,16 +1253,16 @@
           11,
           -17,
           -14,
-          8
+          2
         ]
       },
       {
         "id": "risco",
         "nome": "Risco",
         "voto": 0,
-        "leitura": "ATR M15 21,3 pts · compra: stop 17,5 pts (R$ 175/contrato) · venda: stop 24,5 pts (R$ 245/contrato)",
+        "leitura": "ATR M15 21,4 pts · compra: stop 17,5 pts (R$ 175/contrato) · venda: stop 25,5 pts (R$ 255/contrato)",
         "dados": {
-          "atr": 21.28
+          "atr": 21.36
         }
       }
     ],
@@ -1618,13 +1622,6 @@
     },
     "grafico": {
       "velas": [
-        [
-          "18/11 14:30",
-          5840.0,
-          5846.5,
-          5835.0,
-          5843.5
-        ],
         [
           "18/11 14:45",
           5843.5,
@@ -2006,13 +2003,19 @@
         [
           "23/11 09:15",
           5983.5,
-          5989.0,
+          5990.0,
           5965.5,
-          5986.0
+          5981.5
+        ],
+        [
+          "23/11 09:30",
+          5982.0,
+          5985.0,
+          5981.5,
+          5984.0
         ]
       ],
       "vwap": [
-        5824.1,
         5824.48,
         5824.96,
         5825.65,
@@ -2067,10 +2070,10 @@
         5912.66,
         5912.78,
         5985.17,
-        5983.01
+        5982.21,
+        5982.24
       ],
       "sd": [
-        12.5,
         12.74,
         13.06,
         13.61,
@@ -2125,10 +2128,10 @@
         17.35,
         17.38,
         5.28,
-        5.32
+        5.34,
+        5.02
       ],
       "dia": [
-        "2026-11-18",
         "2026-11-18",
         "2026-11-18",
         "2026-11-18",
@@ -2183,43 +2186,44 @@
         "2026-11-19",
         "2026-11-19",
         "2026-11-23",
+        "2026-11-23",
         "2026-11-23"
       ],
       "eventos": [
         {
-          "k": 4,
+          "k": 3,
           "tipo": "BOS",
           "lado": 1,
           "nivel": 5854.5,
           "de": 0
         },
         {
-          "k": 11,
+          "k": 10,
           "tipo": "BOS",
           "lado": 1,
           "nivel": 5883.5,
-          "de": 8
+          "de": 7
         },
         {
-          "k": 25,
+          "k": 24,
           "tipo": "BOS",
           "lado": 1,
           "nivel": 5907.0,
-          "de": 21
+          "de": 20
         },
         {
-          "k": 47,
+          "k": 46,
           "tipo": "BOS",
           "lado": 1,
           "nivel": 5941.5,
-          "de": 34
+          "de": 33
         },
         {
-          "k": 54,
+          "k": 53,
           "tipo": "BOS",
           "lado": 1,
           "nivel": 5969.5,
-          "de": 49
+          "de": 48
         }
       ],
       "obs": [
@@ -2283,22 +2287,22 @@
           "lado": 1,
           "lo": 5885.0,
           "hi": 5907.5,
-          "de": 24,
+          "de": 23,
           "ate": null
         },
         {
           "lado": 1,
           "lo": 5932.0,
           "hi": 5941.5,
-          "de": 53,
+          "de": 52,
           "ate": null
         }
       ],
       "sims": [
         {
           "lado": -1,
-          "de": 18,
-          "ate": 26,
+          "de": 17,
+          "ate": 25,
           "entrada": 5896.5,
           "stop": 5926.5,
           "alvo": 5836.5,
@@ -2307,7 +2311,7 @@
           "hora": "19/11 09:30"
         }
       ],
-      "sinal": 55
+      "sinal": 54
     },
     "tempos": {
       "M240": {
@@ -3028,17 +3032,10 @@
         }
       },
       "M5": {
-        "preco": 5986.5,
-        "atr": 13.77,
+        "preco": 5984.5,
+        "atr": 13.23,
         "grafico": {
           "velas": [
-            [
-              "18/11 16:00",
-              5870.0,
-              5874.5,
-              5867.0,
-              5869.5
-            ],
             [
               "18/11 16:05",
               5870.0,
@@ -4078,13 +4075,19 @@
             [
               "23/11 09:25",
               5975.5,
-              5987.0,
+              5990.0,
               5974.5,
-              5986.5
+              5981.5
+            ],
+            [
+              "23/11 09:30",
+              5982.0,
+              5985.0,
+              5981.5,
+              5984.5
             ]
           ],
           "vwap": [
-            5828.92,
             5829.59,
             5830.04,
             5830.92,
@@ -4233,10 +4236,10 @@
             5985.56,
             5984.99,
             5982.96,
-            5982.93
+            5982.8,
+            5982.82
           ],
           "sd": [
-            17.18,
             17.91,
             18.38,
             19.25,
@@ -4385,7 +4388,8 @@
             3.44,
             3.38,
             4.72,
-            4.51
+            4.33,
+            4.3
           ],
           "dia": [
             "2026-11-18",
@@ -4417,7 +4421,6 @@
             "2026-11-18",
             "2026-11-18",
             "2026-11-18",
-            "2026-11-18",
             "2026-11-19",
             "2026-11-19",
             "2026-11-19",
@@ -4532,6 +4535,7 @@
             "2026-11-19",
             "2026-11-19",
             "2026-11-19",
+            "2026-11-23",
             "2026-11-23",
             "2026-11-23",
             "2026-11-23",
@@ -4541,88 +4545,88 @@
           ],
           "eventos": [
             {
-              "k": 7,
+              "k": 6,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5878.5,
-              "de": 1
+              "de": 0
             },
             {
-              "k": 16,
+              "k": 15,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5883.0,
-              "de": 11
+              "de": 10
             },
             {
-              "k": 23,
+              "k": 22,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5888.5,
-              "de": 16
+              "de": 15
             },
             {
-              "k": 31,
+              "k": 30,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5907.5,
-              "de": 25
+              "de": 24
             },
             {
-              "k": 48,
+              "k": 47,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5890.5,
-              "de": 42
+              "de": 41
             },
             {
-              "k": 59,
+              "k": 58,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5907.0,
-              "de": 45
+              "de": 44
             },
             {
-              "k": 86,
+              "k": 85,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5917.5,
-              "de": 81
+              "de": 80
             },
             {
-              "k": 100,
+              "k": 99,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5904.0,
-              "de": 87
+              "de": 86
             },
             {
-              "k": 114,
+              "k": 113,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5925.5,
-              "de": 105
+              "de": 104
             },
             {
-              "k": 121,
+              "k": 120,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5934.0,
-              "de": 118
+              "de": 117
             },
             {
-              "k": 139,
+              "k": 138,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5940.5,
-              "de": 136
+              "de": 135
             },
             {
-              "k": 144,
+              "k": 143,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5969.5,
-              "de": 131
+              "de": 130
             }
           ],
           "obs": [
@@ -4630,70 +4634,70 @@
               "lado": 1,
               "lo": 5872.5,
               "hi": 5877.5,
-              "de": 3,
+              "de": 2,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5876.0,
               "hi": 5880.0,
-              "de": 13,
+              "de": 12,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5883.0,
               "hi": 5886.5,
-              "de": 19,
-              "ate": 67
+              "de": 18,
+              "ate": 66
             },
             {
               "lado": 1,
               "lo": 5895.0,
               "hi": 5902.5,
-              "de": 29,
-              "ate": 37
+              "de": 28,
+              "ate": 36
             },
             {
               "lado": 1,
               "lo": 5899.0,
               "hi": 5918.0,
-              "de": 58,
-              "ate": 66
+              "de": 57,
+              "ate": 65
             },
             {
               "lado": -1,
               "lo": 5904.5,
               "hi": 5910.5,
-              "de": 97,
-              "ate": 102
+              "de": 96,
+              "ate": 101
             },
             {
               "lado": 1,
               "lo": 5902.0,
               "hi": 5910.5,
-              "de": 109,
+              "de": 108,
               "ate": null
             },
             {
               "lado": 1,
               "lo": 5926.5,
               "hi": 5933.5,
-              "de": 119,
+              "de": 118,
               "ate": null
             },
             {
               "lado": -1,
               "lo": 5940.5,
               "hi": 5956.0,
-              "de": 136,
-              "ate": 144
+              "de": 135,
+              "ate": 143
             },
             {
               "lado": 1,
               "lo": 5933.0,
               "hi": 5941.5,
-              "de": 143,
+              "de": 142,
               "ate": null
             }
           ],
@@ -4701,8 +4705,8 @@
           "sims": [
             {
               "lado": -1,
-              "de": 36,
-              "ate": 62,
+              "de": 35,
+              "ate": 61,
               "entrada": 5896.5,
               "stop": 5926.5,
               "alvo": 5836.5,
@@ -4714,31 +4718,10 @@
         }
       },
       "M1": {
-        "preco": 5986.0,
-        "atr": 7.16,
+        "preco": 5984.5,
+        "atr": 7.02,
         "grafico": {
           "velas": [
-            [
-              "19/11 15:58",
-              5924.0,
-              5925.5,
-              5923.5,
-              5925.0
-            ],
-            [
-              "19/11 15:59",
-              5925.0,
-              5926.5,
-              5924.0,
-              5924.5
-            ],
-            [
-              "19/11 16:00",
-              5924.0,
-              5925.5,
-              5922.5,
-              5925.0
-            ],
             [
               "19/11 16:01",
               5925.5,
@@ -5977,12 +5960,30 @@
               5987.0,
               5983.0,
               5986.0
+            ],
+            [
+              "23/11 09:28",
+              5986.5,
+              5990.0,
+              5978.5,
+              5979.0
+            ],
+            [
+              "23/11 09:29",
+              5979.0,
+              5982.5,
+              5977.5,
+              5981.5
+            ],
+            [
+              "23/11 09:30",
+              5982.0,
+              5985.0,
+              5981.5,
+              5984.5
             ]
           ],
           "vwap": [
-            5906.6,
-            5906.62,
-            5906.63,
             5906.64,
             5906.66,
             5906.67,
@@ -6159,12 +6160,12 @@
             5983.32,
             5983.19,
             5983.14,
-            5983.19
+            5983.19,
+            5983.15,
+            5983.09,
+            5983.1
           ],
           "sd": [
-            15.41,
-            15.41,
-            15.42,
             15.42,
             15.42,
             15.42,
@@ -6341,7 +6342,10 @@
             6.19,
             6.19,
             6.05,
-            5.99
+            5.98,
+            5.81,
+            5.75,
+            5.7
           ],
           "dia": [
             "2026-11-19",
@@ -6493,9 +6497,9 @@
             "2026-11-19",
             "2026-11-19",
             "2026-11-19",
-            "2026-11-19",
-            "2026-11-19",
-            "2026-11-19",
+            "2026-11-23",
+            "2026-11-23",
+            "2026-11-23",
             "2026-11-23",
             "2026-11-23",
             "2026-11-23",
@@ -6527,137 +6531,137 @@
           ],
           "eventos": [
             {
-              "k": 6,
+              "k": 3,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5926.5,
-              "de": 1
+              "de": 0
             },
             {
-              "k": 18,
+              "k": 15,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5927.5,
-              "de": 15
+              "de": 12
             },
             {
-              "k": 31,
+              "k": 28,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5929.5,
-              "de": 27
+              "de": 24
             },
             {
-              "k": 36,
+              "k": 33,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5932.5,
-              "de": 33
+              "de": 30
             },
             {
-              "k": 44,
+              "k": 41,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5939.0,
-              "de": 38
+              "de": 35
             },
             {
-              "k": 51,
+              "k": 48,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5942.0,
-              "de": 45
+              "de": 42
             },
             {
-              "k": 63,
+              "k": 60,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5946.5,
-              "de": 53
+              "de": 50
             },
             {
-              "k": 72,
+              "k": 69,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5950.0,
-              "de": 67
+              "de": 64
             },
             {
-              "k": 84,
+              "k": 81,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5956.5,
-              "de": 73
+              "de": 70
             },
             {
-              "k": 90,
+              "k": 87,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5966.5,
-              "de": 86
+              "de": 83
             },
             {
-              "k": 93,
+              "k": 90,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5960.5,
-              "de": 88
+              "de": 85
             },
             {
-              "k": 99,
+              "k": 96,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5959.0,
-              "de": 93
+              "de": 90
             },
             {
-              "k": 111,
+              "k": 108,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5956.5,
-              "de": 107
+              "de": 104
             },
             {
-              "k": 125,
+              "k": 122,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5948.5,
-              "de": 120
+              "de": 117
             },
             {
-              "k": 130,
+              "k": 127,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5940.5,
-              "de": 126
+              "de": 123
             },
             {
-              "k": 147,
+              "k": 144,
               "tipo": "CHoCH",
               "lado": 1,
               "nivel": 5938.0,
-              "de": 144
+              "de": 141
             },
             {
-              "k": 152,
+              "k": 149,
               "tipo": "BOS",
               "lado": 1,
               "nivel": 5941.5,
-              "de": 148
+              "de": 145
             },
             {
-              "k": 162,
+              "k": 159,
               "tipo": "CHoCH",
               "lado": -1,
               "nivel": 5981.5,
-              "de": 156
+              "de": 153
             },
             {
-              "k": 174,
+              "k": 171,
               "tipo": "BOS",
               "lado": -1,
               "nivel": 5975.0,
-              "de": 164
+              "de": 161
             }
           ],
           "obs": [
@@ -6665,71 +6669,71 @@
               "lado": 1,
               "lo": 5932.5,
               "hi": 5936.0,
-              "de": 42,
-              "ate": 130
+              "de": 39,
+              "ate": 127
             },
             {
               "lado": 1,
               "lo": 5939.5,
               "hi": 5941.0,
-              "de": 49,
-              "ate": 130
+              "de": 46,
+              "ate": 127
             },
             {
               "lado": 1,
               "lo": 5938.0,
               "hi": 5941.5,
-              "de": 58,
-              "ate": 130
+              "de": 55,
+              "ate": 127
             },
             {
               "lado": 1,
               "lo": 5947.5,
               "hi": 5949.5,
-              "de": 71,
-              "ate": 114
+              "de": 68,
+              "ate": 111
             },
             {
               "lado": -1,
               "lo": 5964.0,
               "hi": 5969.5,
-              "de": 90,
-              "ate": 152
+              "de": 87,
+              "ate": 149
             },
             {
               "lado": -1,
               "lo": 5960.0,
               "hi": 5961.5,
-              "de": 110,
-              "ate": 152
+              "de": 107,
+              "ate": 149
             },
             {
               "lado": 1,
               "lo": 5935.0,
               "hi": 5938.0,
-              "de": 145,
-              "ate": 151
+              "de": 142,
+              "ate": 148
             },
             {
               "lado": 1,
               "lo": 5933.0,
               "hi": 5937.5,
-              "de": 151,
+              "de": 148,
               "ate": null
             },
             {
               "lado": -1,
               "lo": 5989.5,
               "hi": 5997.0,
-              "de": 159,
+              "de": 156,
               "ate": null
             },
             {
               "lado": -1,
               "lo": 5977.5,
               "hi": 5982.0,
-              "de": 173,
-              "ate": 178
+              "de": 170,
+              "ate": 175
             }
           ],
           "sinal": -1,
@@ -7861,9 +7865,9 @@
             [
               "23/11 09:15",
               5983.5,
-              5989.0,
+              5990.0,
               5965.5,
-              5976.5
+              5981.5
             ]
           ],
           "dia": [
@@ -8231,5 +8235,5 @@
     "status": "aberto",
     "abre_em": null
   },
-  "proxima_em": "2026-11-23T09:42:41"
+  "proxima_em": "2026-11-23T09:48:46"
 }
