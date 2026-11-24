@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "24/11/2026 18:35:29",
+  "atualizado_em": "24/11/2026 18:36:02",
   "wdo": {
     "preco": 5910.0,
     "abertura": 5945.0,
@@ -10040,8 +10040,8 @@
     "modelo": {}
   },
   "mercado": {
-    "status": "aberto",
-    "abre_em": null
+    "status": "fechado",
+    "abre_em": "25/11 08:50"
   },
-  "proxima_em": "2026-11-24T18:41:29"
+  "proxima_em": null
 }
